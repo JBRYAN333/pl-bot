@@ -516,5 +516,5 @@ async def cmd_help(ctx):
     e.add_field(name="!refresh",value="Reload PDF",inline=False)
     await ctx.send(embed=e)
 
-TOKEN = "MTQ5NDM5MDU4NjM0MDQwOTUwNg.G3sg-7.30N2nwr30wlkknj6Sk_FDkqhGHPncLIjfr3Jf0"
-bot.run(TOKEN)
+
+bot.run(os.environ["DISCORD_TOKEN"])
