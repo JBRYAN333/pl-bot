@@ -671,3 +671,4 @@ async def cmd_help(ctx):
 
 # Abre o bot_pl.py e muda a linha 672 para:
 TOKEN = os.environ.get("DISCORD_TOKEN", "")
+bot.run(TOKEN)
