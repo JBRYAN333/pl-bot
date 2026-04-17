@@ -5,7 +5,7 @@ import asyncio
 import sys
 import re
 import os
-import pdfplumber
+import json
 from collections import Counter
 
 if sys.platform == "win32":
@@ -18,209 +18,56 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 bot.remove_command("help")
 
 PDF_PATH           = "DW2PL_Records.pdf"
+JSON_PATH          = "pl_records.json"
 WELCOME_CHANNEL_ID = 0
 PANEL_COLOR        = 0x1E90FF
 REGIONS            = ["EU", "NA", "SA", "Global"]
 FIGHTS_PER_PAGE    = 10
 
-_raw_text:  str | None  = None
+# ========================= CACHE =========================
 _data:      dict | None = None
 _vods:      dict | None = None
-_pdf_mtime: float       = 0
+_json_mtime: float      = 0
 
-def _read_pdf():
-    if not os.path.exists(PDF_PATH):
-        print(f"[PL Bot] ERROR: '{PDF_PATH}' not found.")
-        return "", {}
+def _load_json() -> tuple[dict, dict]:
+    """Carrega dados do JSON pré-processado. Muito mais leve que ler o PDF."""
+    if not os.path.exists(JSON_PATH):
+        print(f"[PL Bot] ERROR: '{JSON_PATH}' not found. Run the preprocessor first.")
+        return {r: {"ranking":[],"unranked":{},"records":{}} for r in REGIONS}, {}
     try:
-        text_pages, vod_map = [], {}
-        re_ev = re.compile(
-            r'DW2PL\s+(?:Fight\s+Night\s+|EU\s+Tournament\s+|NA\s+Tournament\s+'
-            r'|SA\s+Tournament\s+|Global\s+Tournament\s+|Global\s+Part\s+\d+\s*)?#?\d+', re.I)
-        with pdfplumber.open(PDF_PATH) as pdf:
-            for page in pdf.pages:
-                text_pages.append(page.extract_text() or "")
-                yt = {}
-                for h in (page.hyperlinks or []):
-                    u = h.get("uri","")
-                    if u and ("youtube" in u or "youtu.be" in u or "twitch" in u):
-                        yt[round(h["top"])] = u
-                if not yt:
-                    continue
-                ly = {}
-                for w in page.extract_words():
-                    ly.setdefault(round(w["top"]), []).append(w["text"])
-                for link_y, url in yt.items():
-                    above = sorted([(y," ".join(ws)) for y,ws in ly.items()
-                                    if y < link_y and link_y-y < 200], key=lambda x:-x[0])
-                    for _, ln in above:
-                        m = re_ev.search(ln)
-                        if m:
-                            vod_map[re.sub(r"\s+"," ",m.group(0).strip())] = url
-                            break
-        txt = "\n".join(text_pages)
-        print(f"[PL Bot] PDF loaded: {len(txt)} chars, {len(vod_map)} VODs")
-        return txt, vod_map
+        with open(JSON_PATH, encoding="utf-8") as f:
+            obj = json.load(f)
+        data = obj.get("data", {})
+        vods = obj.get("vods", {})
+        print(f"[PL Bot] JSON loaded: {len(vods)} VODs")
+        for r in REGIONS:
+            reg = data.get(r, {})
+            print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
+        return data, vods
     except Exception as e:
-        print(f"[PL Bot] Error reading PDF: {e}")
-        return "", {}
+        print(f"[PL Bot] Error loading JSON: {e}")
+        return {r: {"ranking":[],"unranked":{},"records":{}} for r in REGIONS}, {}
 
-async def fetch_doc():
-    global _raw_text, _vods, _pdf_mtime
-    try: mtime = os.path.getmtime(PDF_PATH)
+async def fetch_doc() -> tuple[dict, dict]:
+    global _data, _vods, _json_mtime
+    try: mtime = os.path.getmtime(JSON_PATH)
     except FileNotFoundError: mtime = 0
-    if _raw_text and mtime == _pdf_mtime:
-        return _raw_text, _vods
-    # Roda em thread separada para não bloquear o event loop do Discord
+    if _data and mtime == _json_mtime:
+        return _data, _vods
     loop = asyncio.get_event_loop()
-    _raw_text, _vods = await loop.run_in_executor(None, _read_pdf)
-    _pdf_mtime = mtime
-    return _raw_text or "", _vods or {}
+    _data, _vods = await loop.run_in_executor(None, _load_json)
+    _json_mtime = mtime
+    return _data, _vods or {}
 
 def clear_cache():
-    global _raw_text, _data, _vods, _pdf_mtime
-    _raw_text = _data = _vods = None
-    _pdf_mtime = 0
+    global _data, _vods, _json_mtime
+    _data = _vods = None
+    _json_mtime = 0
 
-_RE_SR  = re.compile(r'^(EU|NA|SA|Global) Rankings?$', re.I)
-_RE_SC  = re.compile(r'^(EU|NA|SA|Global) Records?$', re.I)
-_RE_RR  = re.compile(r'^(Win|Loss|Draw|NC)\b', re.I)
-_RE_RF  = re.compile(r'^\d+-\d+$')
-_RE_TH  = re.compile(r'^Tier \d', re.I)
-_RE_NR  = re.compile(r'^(.+?)\s*\((\d+)-(\d+)\)$')
-_RE_CT  = re.compile(r'[\u200b\u00a0\u200c\u200d\u2060\ufeff\u202f\xa0]')
-_RM     = {"eu":"EU","na":"NA","sa":"SA","global":"Global"}
-_SKIP   = re.compile(
-    r'Non-Tournament|Fight of the|Championship|Qualifiers?|Prelims?|VOD Link|'
-    r'Round \d+|Losers|Winners|Bracket|Inaugural|won the|replaced |forfeited|'
-    r'Finals?|Exhibitions?|^AS$|^(EU|NA|SA|Global)\s*$|Inactive|'
-    r'^\s*(Top \d+|DW2PL|Rules?|Lag Rule|Inter-Regional|Same.region)\b', re.I
-)
-_RE_EV  = re.compile(r'(DW2PL\s+(?:Fight\s+Night\s+|EU\s+Tournament\s+|NA\s+Tournament\s+'
-                     r'|SA\s+Tournament\s+|Global\s+Tournament\s+|Global\s+Part\s+\d+\s*)?#?\d+)', re.I)
-
-def parse_doc(text, vod_map):
-    res = {r: {"ranking":[],"unranked":{},"records":{}} for r in REGIONS}
-    lines = [re.sub(r'\s+',' ',_RE_CT.sub(' ',l).strip())
-             for l in text.splitlines() if l.strip()]
-    cr = cs = cp = None
-    th = []
-    pending_name = None  # candidate name waiting for header confirmation
-
-    for line in lines:
-        m = _RE_SR.match(line)
-        if m:
-            cr=_RM[m.group(1).lower()]; cs="ranking"; th=[]; cp=None
-            pending_name=None; continue
-        m = _RE_SC.match(line)
-        if m:
-            cr=_RM[m.group(1).lower()]; cs="records"; cp=None
-            pending_name=None; continue
-        if not cr: continue
-        reg = res[cr]
-
-        # ── RANKING ──────────────────────────────────────────────────────
-        if cs == "ranking":
-            if re.match(r'^Unranked$',line,re.I): cs="unranked"; th=[]; continue
-            if re.search(r'Top \d+|^Position\b|^Nation\b|^Player\b|\bMP\b.*Wins|Affiliation',line,re.I): continue
-            toks = line.split()
-            if not toks: continue
-            f = toks[0]
-            if not re.match(r'^(Champion|#\d+)$',f,re.I): continue
-            ni = [i for i,t in enumerate(toks) if re.match(r'^\d+$',t)]
-            if len(ni)<3: continue
-            im,iw,il = ni[-3],ni[-2],ni[-1]
-            mp,w,l = int(toks[im]),int(toks[iw]),int(toks[il])
-            aff = toks[il+1] if il+1<len(toks) else ""
-            player = " ".join(toks[1:im]).strip()
-            pos = "Champion" if f.lower()=="champion" else f.lstrip("#")
-            if player and player.upper() not in ("VACANT","N/A",""):
-                reg["ranking"].append({"pos":pos,"player":player,"mp":mp,"wins":w,"losses":l,"affiliation":aff})
-
-        # ── UNRANKED ──────────────────────────────────────────────────────
-        elif cs == "unranked":
-            if _RE_TH.match(line):
-                th = re.findall(r'Tier \d+',line,re.I)
-                for t in th: reg["unranked"].setdefault(t,[])
-                continue
-            if not th: continue
-            ms = _RE_NR.findall(line)
-            if not ms:
-                for part in re.findall(r'\S+\s*\(\d+-\d+\)',line):
-                    mm = _RE_NR.match(part.strip())
-                    if mm: ms.append((mm.group(1).strip(),mm.group(2),mm.group(3)))
-            for idx,(nm,ww,ll) in enumerate(ms):
-                key = th[idx] if idx<len(th) else th[-1]
-                reg["unranked"][key].append(f"{nm.strip()} ({ww}-{ll})")
-
-        # ── RECORDS ───────────────────────────────────────────────────────
-        elif cs == "records":
-            # Stop at inactive section
-            if re.match(r'^Inactive:?\s*$', line, re.I): cs=None; continue
-
-            # Header "Res. Record Opponent Score Event Notes"
-            # → confirms the pending_name as a real player
-            if re.search(r'\bRes\.?\s+Record\b|\bOpponent\b.*\bScore\b', line, re.I):
-                if pending_name is not None:
-                    cp = pending_name
-                    if cp not in reg["records"]: reg["records"][cp]=[]
-                pending_name = None
-                continue
-
-            # Fight result line
-            if _RE_RR.match(line):
-                pending_name = None
-                if not cp: continue
-                toks = line.split()
-                if len(toks)<3: continue
-                rv=toks[0]; idx=1
-                rec=toks[idx] if _RE_RF.match(toks[idx]) else ""
-                if rec: idx+=1
-                opp=toks[idx]   if idx   < len(toks) else ""
-                sc =toks[idx+1] if idx+1 < len(toks) else ""
-                ep,np=[],[]
-                in_n=False
-                for tok in toks[idx+2:]:
-                    if ep and not re.match(r'^(DW2PL|EU|NA|SA|Fight|Night|Tournament|Global|Part|#\d+|\d+)$',tok,re.I): in_n=True
-                    (np if in_n else ep).append(tok)
-                ev=" ".join(ep); nt=" ".join(np)
-                vm = _RE_EV.search(ev)
-                vod = vod_map.get(re.sub(r"\s+"," ",vm.group(1).strip()),"") if vm else ""
-                reg["records"][cp].append({"result":rv,"record":rec,"opponent":opp,"score":sc,"event":ev,"notes":nt,"vod":vod})
-                continue
-
-            # Candidate player name — set as pending, confirmed by next header
-            has_g = bool(re.search(r'\(G\)\s*$', line))
-            cand  = re.sub(r'\s*\(G\)\s*$','',line).strip()
-
-            is_candidate = False
-            if has_g and 1<=len(cand)<=35 and not _SKIP.search(cand):
-                is_candidate = True
-            elif (2<=len(cand)<=35
-                    and not re.search(r'\d{4,}',cand)
-                    and not re.match(r'^[#\d\-]',cand)
-                    and len(cand.split()) <= 4
-                    and cand.upper() not in ("EU","NA","SA","GLOBAL","UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3")
-                    and not _SKIP.search(cand)):
-                is_candidate = True
-
-            pending_name = cand if is_candidate else None
-
-    return res
-
-
-async def get_data():
+async def get_data() -> tuple[dict, dict]:
     global _data
-    # Se já tem dados e o PDF não mudou, retorna cache
-    if _data and _raw_text: return _data, _vods or {}
-    text,vods = await fetch_doc()
-    if not text: return {r:{"ranking":[],"unranked":{},"records":{}} for r in REGIONS},{}
-    # Só reparseia se não tinha dados ou PDF mudou
-    if not _data:
-        _data = parse_doc(text,vods)
-        for r in REGIONS:
-            print(f"[PL Bot] {r}: {len(_data[r]['ranking'])} ranked, {len(_data[r]['records'])} with history")
-    return _data, vods or {}
+    if _data: return _data, _vods or {}
+    return await fetch_doc()
 
 def region_color(r): return {"EU":0x003BB5,"NA":0xCC0000,"SA":0x009933,"Global":0xFFAA00}.get(r,PANEL_COLOR)
 def region_flag(r):  return {"EU":"🇪🇺","NA":"🇺🇸","SA":"🌎","Global":"🌍"}.get(r,"🏴")
@@ -669,6 +516,5 @@ async def cmd_help(ctx):
     e.add_field(name="!refresh",value="Reload PDF",inline=False)
     await ctx.send(embed=e)
 
-# Abre o bot_pl.py e muda a linha 672 para:
-TOKEN = os.environ.get("DISCORD_TOKEN", "")
+TOKEN = "MTQ5NDM5MDU4NjM0MDQwOTUwNg.G3sg-7.30N2nwr30wlkknj6Sk_FDkqhGHPncLIjfr3Jf0"
 bot.run(TOKEN)
