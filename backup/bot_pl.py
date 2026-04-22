@@ -5,214 +5,9 @@ import asyncio
 import sys
 import re
 import os
-import io
 import json
-import tempfile
 from collections import Counter
 
-# ── Google OAuth ──────────────────────────────────────────────────────────────
-import urllib.request
-import urllib.parse
-
-GOOGLE_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID",     "511113456386-lm9tc5gspiuhevfl62u5t5b0clqtklbc.apps.googleusercontent.com")
-GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "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")
-GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN", "1//0hVI-rgLdkxFhCgYIARAAGBESNwF-L9IrzRLHFPewWNYSZmD3MalLC-RZ0L59Y9lefeTRc_3QhPMTjlgDvYzwnIeavoYE1hpfeR8")
-DOC_ID               = "1fYokf-Tbj1NgZa1fukSFH7snGgP1xqYOyUVPd2EkRHQ"
-
-def _get_access_token() -> str:
-    """Troca o refresh_token por um access_token fresco."""
-    data = urllib.parse.urlencode({
-        "client_id":     GOOGLE_CLIENT_ID,
-        "client_secret": GOOGLE_CLIENT_SECRET,
-        "refresh_token": GOOGLE_REFRESH_TOKEN,
-        "grant_type":    "refresh_token",
-    }).encode()
-    req  = urllib.request.Request("https://oauth2.googleapis.com/token", data=data)
-    with urllib.request.urlopen(req, timeout=15) as r:
-        return json.loads(r.read())["access_token"]
-
-def _download_pdf_bytes() -> bytes:
-    """Baixa o Google Doc como PDF e retorna os bytes em memória."""
-    token = _get_access_token()
-    url   = f"https://docs.google.com/document/d/{DOC_ID}/export?format=pdf"
-    req   = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read()
-
-# ── preprocess inline (igual ao preprocess.py, sem salvar em disco) ───────────
-import pdfplumber
-
-REGIONS = ["EU", "NA", "SA", "Global"]
-_RM     = {"eu":"EU","na":"NA","sa":"SA","global":"Global"}
-_RE_SR  = re.compile(r'^(EU|NA|SA|Global) Rankings?$', re.I)
-_RE_SC  = re.compile(r'^(EU|NA|SA|Global) Records?$', re.I)
-_RE_RR  = re.compile(r'^(Win|Loss|Draw|NC|WIn)\b', re.I)
-_RE_RF  = re.compile(r'^\d+-\d+$')
-_RE_TH  = re.compile(r'^Tier \d', re.I)
-_RE_NR  = re.compile(r'^(.+?)\s*\((\d+)-(\d+)\)$')
-_RE_CT  = re.compile(r'[\u200b\u00a0\u200c\u200d\u2060\ufeff\u202f\xa0]')
-_RE_EV  = re.compile(
-    r'(DW2PL\s+(?:Fight\s+Night\s+|EU\s+Tournament\s+|NA\s+Tournament\s+'
-    r'|SA\s+Tournament\s+|Global\s+Tournament\s+|Global\s+Part\s+\d+\s*)?#?\d+)', re.I)
-_RE_HDR = re.compile(r'\bRes\.?\s+Record\b|\bOpponent\b.*\bScore\b', re.I)
-_SKIP   = re.compile(
-    r'Non-Tournament|Fight of the|Qualifiers?|Prelims?|VOD Link|'
-    r'Round \d+|Losers|Winners|Bracket|Inaugural|won the|replaced |forfeited|'
-    r'Finals?|Exhibitions?|Inactive|'
-    r'^\s*(Top \d+|DW2PL|Rules?|Lag Rule|Inter-Regional|Same.region)\b', re.I
-)
-
-def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
-    """Lê PDF dos bytes e retorna (data, vods) — sem tocar em disco."""
-    re_ev = re.compile(
-        r'DW2PL\s+(?:Fight\s+Night\s+|EU\s+Tournament\s+|NA\s+Tournament\s+'
-        r'|SA\s+Tournament\s+|Global\s+Tournament\s+|Global\s+Part\s+\d+\s*)?#?\d+', re.I)
-
-    text_pages, vod_map = [], {}
-    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
-        for page in pdf.pages:
-            text_pages.append(page.extract_text() or "")
-            yt = {}
-            for h in (page.hyperlinks or []):
-                u = h.get("uri", "")
-                if u and ("youtube" in u or "youtu.be" in u or "twitch" in u):
-                    yt[round(h["top"])] = u
-            if not yt:
-                continue
-            ly = {}
-            for w in page.extract_words():
-                ly.setdefault(round(w["top"]), []).append(w["text"])
-            for link_y, url in yt.items():
-                above = sorted(
-                    [(y, " ".join(ws)) for y, ws in ly.items()
-                     if y < link_y and link_y - y < 200],
-                    key=lambda x: -x[0]
-                )
-                for _, ln in above:
-                    m = re_ev.search(ln)
-                    if m:
-                        vod_map[re.sub(r"\s+", " ", m.group(0).strip())] = url
-                        break
-
-    text = "\n".join(text_pages)
-    res  = {r: {"ranking": [], "unranked": {}, "records": {}} for r in REGIONS}
-    lines = [re.sub(r'\s+', ' ', _RE_CT.sub(' ', l).strip())
-             for l in text.splitlines() if l.strip()]
-    cr = cs = cp = None
-    th = []
-    pending_name = None
-
-    for line in lines:
-        m = _RE_SR.match(line)
-        if m:
-            cr = _RM[m.group(1).lower()]; cs = "ranking"
-            th = []; cp = None; pending_name = None; continue
-        m = _RE_SC.match(line)
-        if m:
-            cr = _RM[m.group(1).lower()]; cs = "records"
-            cp = None; pending_name = None; continue
-        if not cr:
-            continue
-        reg = res[cr]
-
-        if cs == "ranking":
-            if re.match(r'^Unranked$', line, re.I):
-                cs = "unranked"; th = []; continue
-            if re.search(r'Top \d+|^Position\b|^Nation\b|^Player\b|\bMP\b.*Wins|Affiliation', line, re.I):
-                continue
-            toks = line.split()
-            if not toks: continue
-            f = toks[0]
-            if not re.match(r'^(Champion|#\d+)$', f, re.I): continue
-            ni = [i for i, t in enumerate(toks) if re.match(r'^\d+$', t)]
-            if len(ni) < 3: continue
-            im, iw, il = ni[-3], ni[-2], ni[-1]
-            mp, w, l = int(toks[im]), int(toks[iw]), int(toks[il])
-            aff = toks[il + 1] if il + 1 < len(toks) else ""
-            player = " ".join(toks[1:im]).strip()
-            pos = "Champion" if f.lower() == "champion" else f.lstrip("#")
-            if player and player.upper() not in ("VACANT", "N/A", ""):
-                reg["ranking"].append({
-                    "pos": pos, "player": player,
-                    "mp": mp, "wins": w, "losses": l, "affiliation": aff
-                })
-
-        elif cs == "unranked":
-            if _RE_TH.match(line):
-                th = re.findall(r'Tier \d+', line, re.I)
-                for t in th:
-                    reg["unranked"].setdefault(t, [])
-                continue
-            if not th: continue
-            ms = _RE_NR.findall(line)
-            if not ms:
-                for part in re.findall(r'\S+\s*\(\d+-\d+\)', line):
-                    mm = _RE_NR.match(part.strip())
-                    if mm:
-                        ms.append((mm.group(1).strip(), mm.group(2), mm.group(3)))
-            for idx, (nm, ww, ll) in enumerate(ms):
-                key = th[idx] if idx < len(th) else th[-1]
-                reg["unranked"][key].append(f"{nm.strip()} ({ww}-{ll})")
-
-        elif cs == "records":
-            if re.match(r'^Inactive:?\s*$', line, re.I):
-                cs = None; continue
-            if _RE_HDR.search(line):
-                if pending_name is not None:
-                    cp = pending_name
-                    if cp not in reg["records"]:
-                        reg["records"][cp] = []
-                pending_name = None
-                continue
-            if _RE_RR.match(line):
-                pending_name = None
-                if not cp: continue
-                toks = line.split()
-                if len(toks) < 3: continue
-                rv = toks[0]; idx = 1
-                rec = toks[idx] if _RE_RF.match(toks[idx]) else ""
-                if rec: idx += 1
-                opp = toks[idx]     if idx     < len(toks) else ""
-                sc  = toks[idx + 1] if idx + 1 < len(toks) else ""
-                ep, np_ = [], []
-                in_n = False
-                for tok in toks[idx + 2:]:
-                    if ep and not re.match(
-                        r'^(DW2PL|EU|NA|SA|Fight|Night|Tournament|Global|Part|#\d+|\d+)$',
-                        tok, re.I
-                    ):
-                        in_n = True
-                    (np_ if in_n else ep).append(tok)
-                ev = " ".join(ep)
-                nt = " ".join(np_)
-                vm = _RE_EV.search(ev)
-                vod = vod_map.get(re.sub(r"\s+", " ", vm.group(1).strip()), "") if vm else ""
-                reg["records"][cp].append({
-                    "result": rv, "record": rec, "opponent": opp,
-                    "score": sc, "event": ev, "notes": nt, "vod": vod
-                })
-                continue
-
-            has_g = bool(re.search(r'\(G\)\s*$', line))
-            cand  = re.sub(r'\s*\(G\)\s*$', '', line).strip()
-            is_c  = False
-            if has_g and 1 <= len(cand) <= 35 and not _SKIP.search(cand):
-                is_c = True
-            elif (2 <= len(cand) <= 35
-                    and not re.search(r'\d{4,}', cand)
-                    and not re.match(r'^[#\d\-]', cand)
-                    and len(cand.split()) <= 4
-                    and cand.upper() not in (
-                        "EU", "NA", "SA", "GLOBAL", "UNRANKED",
-                        "TOP 10:", "TOP 15:", "TIER 1", "TIER 2", "TIER 3"
-                    )
-                    and not _SKIP.search(cand)):
-                is_c = True
-            pending_name = cand if is_c else None
-
-    return res, vod_map
-
-# ── Bot setup ─────────────────────────────────────────────────────────────────
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
@@ -222,39 +17,58 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 bot.remove_command("help")
 
+PDF_PATH           = "DW2PL_Records.pdf"
+JSON_PATH          = "pl_records.json"
 WELCOME_CHANNEL_ID = 0
 PANEL_COLOR        = 0x1E90FF
+REGIONS            = ["EU", "NA", "SA", "Global"]
 FIGHTS_PER_PAGE    = 10
 
-# ── Cache ─────────────────────────────────────────────────────────────────────
-_data: dict | None = None
-_vods: dict | None = None
+# ========================= CACHE =========================
+_data:      dict | None = None
+_vods:      dict | None = None
+_json_mtime: float      = 0
 
-def clear_cache():
-    global _data, _vods
-    _data = _vods = None
+def _load_json() -> tuple[dict, dict]:
+    """Carrega dados do JSON pré-processado. Muito mais leve que ler o PDF."""
+    if not os.path.exists(JSON_PATH):
+        print(f"[PL Bot] ERROR: '{JSON_PATH}' not found. Run the preprocessor first.")
+        return {r: {"ranking":[],"unranked":{},"records":{}} for r in REGIONS}, {}
+    try:
+        with open(JSON_PATH, encoding="utf-8") as f:
+            obj = json.load(f)
+        data = obj.get("data", {})
+        vods = obj.get("vods", {})
+        print(f"[PL Bot] JSON loaded: {len(vods)} VODs")
+        for r in REGIONS:
+            reg = data.get(r, {})
+            print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
+        return data, vods
+    except Exception as e:
+        print(f"[PL Bot] Error loading JSON: {e}")
+        return {r: {"ranking":[],"unranked":{},"records":{}} for r in REGIONS}, {}
 
-async def _fetch_and_parse() -> tuple[dict, dict]:
-    """Baixa o PDF do Google Docs e processa tudo em memória."""
+async def fetch_doc() -> tuple[dict, dict]:
+    global _data, _vods, _json_mtime
+    try: mtime = os.path.getmtime(JSON_PATH)
+    except FileNotFoundError: mtime = 0
+    if _data and mtime == _json_mtime:
+        return _data, _vods
     loop = asyncio.get_event_loop()
-    print("[PL Bot] Downloading PDF from Google Docs...")
-    pdf_bytes = await loop.run_in_executor(None, _download_pdf_bytes)
-    print(f"[PL Bot] PDF downloaded ({len(pdf_bytes)//1024} KB). Parsing...")
-    data, vods = await loop.run_in_executor(None, _parse_pdf_bytes, pdf_bytes)
-    print(f"[PL Bot] Parse complete. VODs: {len(vods)}")
-    for r in REGIONS:
-        reg = data.get(r, {})
-        print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
-    return data, vods
-
-async def get_data() -> tuple[dict, dict]:
-    global _data, _vods
-    if _data:
-        return _data, _vods or {}
-    _data, _vods = await _fetch_and_parse()
+    _data, _vods = await loop.run_in_executor(None, _load_json)
+    _json_mtime = mtime
     return _data, _vods or {}
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+def clear_cache():
+    global _data, _vods, _json_mtime
+    _data = _vods = None
+    _json_mtime = 0
+
+async def get_data() -> tuple[dict, dict]:
+    global _data
+    if _data: return _data, _vods or {}
+    return await fetch_doc()
+
 def region_color(r): return {"EU":0x003BB5,"NA":0xCC0000,"SA":0x009933,"Global":0xFFAA00}.get(r,PANEL_COLOR)
 def region_flag(r):  return {"EU":"🇪🇺","NA":"🇺🇸","SA":"🌎","Global":"🌍"}.get(r,"🏴")
 def pos_medal(p):
@@ -272,15 +86,18 @@ def fight_line(m):
     return f"{em} vs **{m['opponent']}** `{m['score']}` — {m['event']}{vod}{nt}"
 
 def collect_fights(query, data):
+    """Busca lutas onde o jogador é DONO do record (não oponente)."""
     dn=query; fights=[]; entry=None; ereg=None
     for region,reg in data.items():
         for p in reg.get("ranking",[]):
             if query in p["player"].lower() and not entry:
                 entry=p; ereg=region
         for pname,fs in reg.get("records",{}).items():
+            # Só pega se o nome buscado é o DONO das lutas (não aparece só como oponente)
             if query in pname.lower() and fs:
                 dn=pname
                 for f in fs: fights.append((region,f))
+    # Remove lutas duplicadas (mesmo record+oponente)
     seen=set(); unique=[]
     for region,f in fights:
         key=(f.get("record",""),f.get("opponent",""),f.get("score",""))
@@ -288,7 +105,6 @@ def collect_fights(query, data):
             seen.add(key); unique.append((region,f))
     return dn, unique, entry, ereg
 
-# ── Embeds ────────────────────────────────────────────────────────────────────
 def build_main_embed():
     e=discord.Embed(title="🏁 DW2 PRO LEAGUE BOT",
         description="**Drunken Wrestlers 2 — Pro League** | Interactive Panel\n\nRankings, player cards and match history across all regions.",
@@ -298,8 +114,8 @@ def build_main_embed():
     e.add_field(name="📜 History",       value="Complete fight log for any player",  inline=True)
     e.add_field(name="📊 Stats",         value="Region overview & leaderboards",     inline=True)
     e.add_field(name="🏅 Top Rankings",  value="Top Wins, Win Rate, MP",            inline=True)
-    e.add_field(name="🔄 Refresh",       value="Reload data from Google Docs",      inline=True)
-    e.set_footer(text="PL Bot • Source: DW2PL Records (Google Docs)")
+    e.add_field(name="🔄 Refresh",       value="Reload PDF data",                   inline=True)
+    e.set_footer(text="PL Bot • Source: DW2PL_Records.pdf")
     return e
 
 def build_player_embed(entry, region, all_fights, dn):
@@ -344,15 +160,15 @@ def build_ranking_embed(region, ranking, unranked):
     e.add_field(name=f"🏆 Top {len(ranking)}",value="\n".join(lines),inline=False)
     for tier,names in unranked.items():
         if names: e.add_field(name=f"📋 Unranked — {tier}",value="  ".join(names),inline=False)
-    e.set_footer(text="Source: DW2PL Records (Google Docs)")
+    e.set_footer(text="Source: DW2PL_Records.pdf")
     return e
 
 def build_stats_embed(region, reg):
     ranking=reg.get("ranking",[]); records=reg.get("records",{})
     e=discord.Embed(title=f"{region_flag(region)} {region} — Statistics",color=region_color(region))
-    e.add_field(name="Ranked Players",    value=len(ranking),                          inline=True)
-    e.add_field(name="Players w/ History",value=len(records),                          inline=True)
-    e.add_field(name="Total Fights",      value=sum(len(v) for v in records.values()), inline=True)
+    e.add_field(name="Ranked Players",   value=len(ranking),                          inline=True)
+    e.add_field(name="Players w/ History",value=len(records),                         inline=True)
+    e.add_field(name="Total Fights",     value=sum(len(v) for v in records.values()), inline=True)
     champ=next((p for p in ranking if str(p["pos"]).lower()=="champion"),None)
     if champ:
         e.add_field(name="👑 Current Champion",
@@ -386,7 +202,6 @@ def make_select(region, reg):
     s=discord.ui.Select(placeholder=f"🔎 Select a {region} player...",options=opts[:25],custom_id=f"sel_{region}")
     return s
 
-# ── Helpers de interação ──────────────────────────────────────────────────────
 async def safe_edit(interaction, **kw):
     try: await interaction.response.edit_message(**kw)
     except Exception:
@@ -397,7 +212,6 @@ async def safe_defer(interaction):
     try: await interaction.response.defer(); return True
     except Exception: return False
 
-# ── Views ─────────────────────────────────────────────────────────────────────
 class BackView(ui.View):
     def __init__(self): super().__init__(timeout=None)
     @ui.button(label="🔙 Back to Panel",style=discord.ButtonStyle.secondary,custom_id="back_main")
@@ -417,22 +231,8 @@ class MainPanel(ui.View):
     async def top(self,i,b): await safe_edit(i,embed=discord.Embed(title="🏅 Top Rankings",color=PANEL_COLOR),view=TopView())
     @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=1)
     async def refresh(self,i,b):
-        await safe_defer(i)
         clear_cache()
-        try:
-            await i.edit_original_response(
-                embed=discord.Embed(title="🔄 Atualizando...",description="⏳ Baixando dados do Google Docs...",color=0xFFAA00),
-                view=None)
-        except Exception: pass
-        try:
-            await get_data()
-            await i.edit_original_response(
-                embed=discord.Embed(title="✅ Dados Atualizados!",description="Os dados foram recarregados direto do Google Docs.",color=0x00FF88),
-                view=BackView())
-        except Exception as e:
-            await i.edit_original_response(
-                embed=discord.Embed(title="❌ Erro ao atualizar",description=f"```{e}```",color=0xFF0000),
-                view=BackView())
+        await safe_edit(i,embed=discord.Embed(title="🔄 Cache Cleared",description="✅ Next request reloads the PDF.",color=0x00FF88),view=BackView())
 
 class RegionView(ui.View):
     def __init__(self,mode): super().__init__(timeout=None); self.mode=mode
@@ -480,7 +280,7 @@ class RankView(ui.View):
     async def prev(self,i,b): await self._shift(i,-1)
     @ui.button(label="Next ▶",style=discord.ButtonStyle.secondary,custom_id="rv_next",row=1)
     async def next(self,i,b): await self._shift(i,+1)
-    @ui.button(label="🔙 Back",style=discord.ButtonStyle.secondary,custom_id="rv_back2",row=1)
+    @ui.button(label="🔙 Back",style=discord.ButtonStyle.secondary,custom_id="rv_back",row=1)
     async def back(self,i,b): await safe_edit(i,embed=discord.Embed(title="🌍 Rankings — Select Region",color=PANEL_COLOR),view=RegionView("ranking"))
     async def _shift(self,i,delta):
         if not await safe_defer(i): return
@@ -622,10 +422,10 @@ async def _top(i,cat):
     try: await i.edit_original_response(embed=e,view=TopView())
     except Exception: await i.followup.send(embed=e,view=TopView())
 
-# ── Events ────────────────────────────────────────────────────────────────────
 @bot.event
 async def on_ready():
     print(f"✅ PL Bot ONLINE as {bot.user}!")
+    # Registra views persistentes para sobreviver a reinicializações
     bot.add_view(MainPanel())
     bot.add_view(RegionView("ranking"))
     bot.add_view(RegionView("stats"))
@@ -634,7 +434,7 @@ async def on_ready():
 
 async def _preload():
     await asyncio.sleep(2)
-    print("[PL Bot] Pre-loading data from Google Docs...")
+    print("[PL Bot] Pre-loading PDF data...")
     await get_data()
     print("[PL Bot] Ready!")
 
@@ -649,7 +449,6 @@ async def on_member_join(member):
     e.set_thumbnail(url=member.display_avatar.url)
     await ch.send(embed=e)
 
-# ── Commands ──────────────────────────────────────────────────────────────────
 @bot.command(name="panel",aliases=["painel"])
 async def cmd_panel(ctx): await ctx.send(embed=build_main_embed(),view=MainPanel())
 
@@ -703,14 +502,7 @@ async def cmd_top(ctx,cat:str="wins"):
     await ctx.send(embed=e)
 
 @bot.command(name="refresh",aliases=["atualizar"])
-async def cmd_refresh(ctx):
-    msg = await ctx.send("🔄 Baixando dados do Google Docs...")
-    clear_cache()
-    try:
-        await get_data()
-        await msg.edit(content="✅ Dados atualizados direto do Google Docs!")
-    except Exception as e:
-        await msg.edit(content=f"❌ Erro ao atualizar: `{e}`")
+async def cmd_refresh(ctx): clear_cache(); await ctx.send("🔄 Cache cleared! Next request reloads the PDF.")
 
 @bot.command(name="help",aliases=["ajuda"])
 async def cmd_help(ctx):
@@ -721,7 +513,8 @@ async def cmd_help(ctx):
     e.add_field(name="!history <n>",value="Fight log. e.g. `!history Jab`",inline=False)
     e.add_field(name="!stats <EU|NA|SA|Global>",value="Region statistics",inline=False)
     e.add_field(name="!top [wins|wr|mp]",value="`wins` | `wr` | `mp`",inline=False)
-    e.add_field(name="!refresh",value="Reload data from Google Docs",inline=False)
+    e.add_field(name="!refresh",value="Reload PDF",inline=False)
     await ctx.send(embed=e)
+
 
 bot.run(os.environ["DISCORD_TOKEN"])
