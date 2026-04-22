@@ -7,7 +7,6 @@ import re
 import os
 import io
 import json
-import tempfile
 from collections import Counter
 
 # ── Google OAuth ──────────────────────────────────────────────────────────────
@@ -18,28 +17,27 @@ GOOGLE_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID",     "511113456386-lm9t
 GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "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")
 GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN", "1//0hVI-rgLdkxFhCgYIARAAGBESNwF-L9IrzRLHFPewWNYSZmD3MalLC-RZ0L59Y9lefeTRc_3QhPMTjlgDvYzwnIeavoYE1hpfeR8")
 DOC_ID               = "1fYokf-Tbj1NgZa1fukSFH7snGgP1xqYOyUVPd2EkRHQ"
+JSON_PATH            = "pl_records.json"
 
 def _get_access_token() -> str:
-    """Troca o refresh_token por um access_token fresco."""
     data = urllib.parse.urlencode({
         "client_id":     GOOGLE_CLIENT_ID,
         "client_secret": GOOGLE_CLIENT_SECRET,
         "refresh_token": GOOGLE_REFRESH_TOKEN,
         "grant_type":    "refresh_token",
     }).encode()
-    req  = urllib.request.Request("https://oauth2.googleapis.com/token", data=data)
+    req = urllib.request.Request("https://oauth2.googleapis.com/token", data=data)
     with urllib.request.urlopen(req, timeout=15) as r:
         return json.loads(r.read())["access_token"]
 
 def _download_pdf_bytes() -> bytes:
-    """Baixa o Google Doc como PDF e retorna os bytes em memória."""
     token = _get_access_token()
     url   = f"https://docs.google.com/document/d/{DOC_ID}/export?format=pdf"
     req   = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
     with urllib.request.urlopen(req, timeout=60) as r:
         return r.read()
 
-# ── preprocess inline (igual ao preprocess.py, sem salvar em disco) ───────────
+# ── Parser ────────────────────────────────────────────────────────────────────
 import pdfplumber
 
 REGIONS = ["EU", "NA", "SA", "Global"]
@@ -63,11 +61,9 @@ _SKIP   = re.compile(
 )
 
 def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
-    """Lê PDF dos bytes e retorna (data, vods) — sem tocar em disco."""
     re_ev = re.compile(
         r'DW2PL\s+(?:Fight\s+Night\s+|EU\s+Tournament\s+|NA\s+Tournament\s+'
         r'|SA\s+Tournament\s+|Global\s+Tournament\s+|Global\s+Part\s+\d+\s*)?#?\d+', re.I)
-
     text_pages, vod_map = [], {}
     with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
         for page in pdf.pages:
@@ -93,7 +89,6 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                     if m:
                         vod_map[re.sub(r"\s+", " ", m.group(0).strip())] = url
                         break
-
     text = "\n".join(text_pages)
     res  = {r: {"ranking": [], "unranked": {}, "records": {}} for r in REGIONS}
     lines = [re.sub(r'\s+', ' ', _RE_CT.sub(' ', l).strip())
@@ -101,7 +96,6 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
     cr = cs = cp = None
     th = []
     pending_name = None
-
     for line in lines:
         m = _RE_SR.match(line)
         if m:
@@ -114,7 +108,6 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
         if not cr:
             continue
         reg = res[cr]
-
         if cs == "ranking":
             if re.match(r'^Unranked$', line, re.I):
                 cs = "unranked"; th = []; continue
@@ -132,38 +125,29 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
             player = " ".join(toks[1:im]).strip()
             pos = "Champion" if f.lower() == "champion" else f.lstrip("#")
             if player and player.upper() not in ("VACANT", "N/A", ""):
-                reg["ranking"].append({
-                    "pos": pos, "player": player,
-                    "mp": mp, "wins": w, "losses": l, "affiliation": aff
-                })
-
+                reg["ranking"].append({"pos": pos, "player": player, "mp": mp, "wins": w, "losses": l, "affiliation": aff})
         elif cs == "unranked":
             if _RE_TH.match(line):
                 th = re.findall(r'Tier \d+', line, re.I)
-                for t in th:
-                    reg["unranked"].setdefault(t, [])
+                for t in th: reg["unranked"].setdefault(t, [])
                 continue
             if not th: continue
             ms = _RE_NR.findall(line)
             if not ms:
                 for part in re.findall(r'\S+\s*\(\d+-\d+\)', line):
                     mm = _RE_NR.match(part.strip())
-                    if mm:
-                        ms.append((mm.group(1).strip(), mm.group(2), mm.group(3)))
+                    if mm: ms.append((mm.group(1).strip(), mm.group(2), mm.group(3)))
             for idx, (nm, ww, ll) in enumerate(ms):
                 key = th[idx] if idx < len(th) else th[-1]
                 reg["unranked"][key].append(f"{nm.strip()} ({ww}-{ll})")
-
         elif cs == "records":
             if re.match(r'^Inactive:?\s*$', line, re.I):
                 cs = None; continue
             if _RE_HDR.search(line):
                 if pending_name is not None:
                     cp = pending_name
-                    if cp not in reg["records"]:
-                        reg["records"][cp] = []
-                pending_name = None
-                continue
+                    if cp not in reg["records"]: reg["records"][cp] = []
+                pending_name = None; continue
             if _RE_RR.match(line):
                 pending_name = None
                 if not cp: continue
@@ -177,40 +161,53 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                 ep, np_ = [], []
                 in_n = False
                 for tok in toks[idx + 2:]:
-                    if ep and not re.match(
-                        r'^(DW2PL|EU|NA|SA|Fight|Night|Tournament|Global|Part|#\d+|\d+)$',
-                        tok, re.I
-                    ):
+                    if ep and not re.match(r'^(DW2PL|EU|NA|SA|Fight|Night|Tournament|Global|Part|#\d+|\d+)$', tok, re.I):
                         in_n = True
                     (np_ if in_n else ep).append(tok)
-                ev = " ".join(ep)
-                nt = " ".join(np_)
+                ev = " ".join(ep); nt = " ".join(np_)
                 vm = _RE_EV.search(ev)
                 vod = vod_map.get(re.sub(r"\s+", " ", vm.group(1).strip()), "") if vm else ""
-                reg["records"][cp].append({
-                    "result": rv, "record": rec, "opponent": opp,
-                    "score": sc, "event": ev, "notes": nt, "vod": vod
-                })
+                reg["records"][cp].append({"result": rv, "record": rec, "opponent": opp, "score": sc, "event": ev, "notes": nt, "vod": vod})
                 continue
-
             has_g = bool(re.search(r'\(G\)\s*$', line))
             cand  = re.sub(r'\s*\(G\)\s*$', '', line).strip()
             is_c  = False
             if has_g and 1 <= len(cand) <= 35 and not _SKIP.search(cand):
                 is_c = True
-            elif (2 <= len(cand) <= 35
-                    and not re.search(r'\d{4,}', cand)
-                    and not re.match(r'^[#\d\-]', cand)
-                    and len(cand.split()) <= 4
-                    and cand.upper() not in (
-                        "EU", "NA", "SA", "GLOBAL", "UNRANKED",
-                        "TOP 10:", "TOP 15:", "TIER 1", "TIER 2", "TIER 3"
-                    )
+            elif (2 <= len(cand) <= 35 and not re.search(r'\d{4,}', cand)
+                    and not re.match(r'^[#\d\-]', cand) and len(cand.split()) <= 4
+                    and cand.upper() not in ("EU","NA","SA","GLOBAL","UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3")
                     and not _SKIP.search(cand)):
                 is_c = True
             pending_name = cand if is_c else None
-
     return res, vod_map
+
+def _rebuild_json() -> tuple[dict, dict]:
+    """Pesado: baixa PDF → parseia → salva JSON → libera memória. Só roda no !refresh ou primeira vez."""
+    print("[PL Bot] Downloading PDF from Google Docs...")
+    pdf_bytes = _download_pdf_bytes()
+    print(f"[PL Bot] PDF downloaded ({len(pdf_bytes)//1024} KB). Parsing...")
+    data, vods = _parse_pdf_bytes(pdf_bytes)
+    del pdf_bytes  # libera RAM do PDF imediatamente
+    with open(JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump({"data": data, "vods": vods}, f, ensure_ascii=False, separators=(',', ':'))
+    size = os.path.getsize(JSON_PATH)
+    print(f"[PL Bot] JSON saved to disk: {size//1024} KB. VODs: {len(vods)}")
+    for r in REGIONS:
+        reg = data.get(r, {})
+        print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
+    return data, vods
+
+def _load_json() -> tuple[dict, dict]:
+    """Leve: lê o JSON do disco (~5 MB RAM). Startup rápido."""
+    with open(JSON_PATH, encoding="utf-8") as f:
+        obj = json.load(f)
+    data = obj.get("data", {}); vods = obj.get("vods", {})
+    print(f"[PL Bot] Loaded from disk. VODs: {len(vods)}")
+    for r in REGIONS:
+        reg = data.get(r, {})
+        print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
+    return data, vods
 
 # ── Bot setup ─────────────────────────────────────────────────────────────────
 if sys.platform == "win32":
@@ -227,32 +224,47 @@ PANEL_COLOR        = 0x1E90FF
 FIGHTS_PER_PAGE    = 10
 
 # ── Cache ─────────────────────────────────────────────────────────────────────
-_data: dict | None = None
-_vods: dict | None = None
+_data:       dict | None = None
+_vods:       dict | None = None
+_refreshing: bool        = False  # lock anti-duplo
 
 def clear_cache():
     global _data, _vods
     _data = _vods = None
 
-async def _fetch_and_parse() -> tuple[dict, dict]:
-    """Baixa o PDF do Google Docs e processa tudo em memória."""
-    loop = asyncio.get_event_loop()
-    print("[PL Bot] Downloading PDF from Google Docs...")
-    pdf_bytes = await loop.run_in_executor(None, _download_pdf_bytes)
-    print(f"[PL Bot] PDF downloaded ({len(pdf_bytes)//1024} KB). Parsing...")
-    data, vods = await loop.run_in_executor(None, _parse_pdf_bytes, pdf_bytes)
-    print(f"[PL Bot] Parse complete. VODs: {len(vods)}")
-    for r in REGIONS:
-        reg = data.get(r, {})
-        print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
-    return data, vods
-
 async def get_data() -> tuple[dict, dict]:
+    """
+    1. Cache RAM  → retorna imediato (uso normal, ~0 RAM extra)
+    2. JSON disco → leitura leve (~5 MB, após restart da Square)
+    3. Nenhum     → baixa PDF e parseia (pesado, só na primeira vez)
+    """
     global _data, _vods
     if _data:
         return _data, _vods or {}
-    _data, _vods = await _fetch_and_parse()
+    loop = asyncio.get_event_loop()
+    if os.path.exists(JSON_PATH):
+        _data, _vods = await loop.run_in_executor(None, _load_json)
+    else:
+        _data, _vods = await loop.run_in_executor(None, _rebuild_json)
     return _data, _vods or {}
+
+async def do_refresh() -> str:
+    """Refresh com lock — impede dois parsings simultâneos."""
+    global _data, _vods, _refreshing
+    if _refreshing:
+        return "⏳ Já existe um refresh em andamento. Aguarde."
+    _refreshing = True
+    try:
+        clear_cache()
+        loop = asyncio.get_event_loop()
+        _data, _vods = await loop.run_in_executor(None, _rebuild_json)
+        ranked = sum(len(_data.get(r,{}).get("ranking",[])) for r in REGIONS)
+        fights = sum(len(v) for r in REGIONS for v in _data.get(r,{}).get("records",{}).values())
+        return f"✅ Dados atualizados! {ranked} ranked | {fights} lutas | {len(_vods)} VODs"
+    except Exception as e:
+        return f"❌ Erro: `{e}`"
+    finally:
+        _refreshing = False
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 def region_color(r): return {"EU":0x003BB5,"NA":0xCC0000,"SA":0x009933,"Global":0xFFAA00}.get(r,PANEL_COLOR)
@@ -386,7 +398,6 @@ def make_select(region, reg):
     s=discord.ui.Select(placeholder=f"🔎 Select a {region} player...",options=opts[:25],custom_id=f"sel_{region}")
     return s
 
-# ── Helpers de interação ──────────────────────────────────────────────────────
 async def safe_edit(interaction, **kw):
     try: await interaction.response.edit_message(**kw)
     except Exception:
@@ -418,21 +429,18 @@ class MainPanel(ui.View):
     @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=1)
     async def refresh(self,i,b):
         await safe_defer(i)
-        clear_cache()
         try:
             await i.edit_original_response(
                 embed=discord.Embed(title="🔄 Atualizando...",description="⏳ Baixando dados do Google Docs...",color=0xFFAA00),
                 view=None)
         except Exception: pass
+        status = await do_refresh()
+        color  = 0x00FF88 if status.startswith("✅") else 0xFF0000
         try:
-            await get_data()
             await i.edit_original_response(
-                embed=discord.Embed(title="✅ Dados Atualizados!",description="Os dados foram recarregados direto do Google Docs.",color=0x00FF88),
+                embed=discord.Embed(title="🔄 Refresh",description=status,color=color),
                 view=BackView())
-        except Exception as e:
-            await i.edit_original_response(
-                embed=discord.Embed(title="❌ Erro ao atualizar",description=f"```{e}```",color=0xFF0000),
-                view=BackView())
+        except Exception: pass
 
 class RegionView(ui.View):
     def __init__(self,mode): super().__init__(timeout=None); self.mode=mode
@@ -634,7 +642,10 @@ async def on_ready():
 
 async def _preload():
     await asyncio.sleep(2)
-    print("[PL Bot] Pre-loading data from Google Docs...")
+    if os.path.exists(JSON_PATH):
+        print("[PL Bot] JSON on disk found — loading light copy, no PDF download needed.")
+    else:
+        print("[PL Bot] No JSON on disk — will download and parse PDF on first request.")
     await get_data()
     print("[PL Bot] Ready!")
 
@@ -705,12 +716,8 @@ async def cmd_top(ctx,cat:str="wins"):
 @bot.command(name="refresh",aliases=["atualizar"])
 async def cmd_refresh(ctx):
     msg = await ctx.send("🔄 Baixando dados do Google Docs...")
-    clear_cache()
-    try:
-        await get_data()
-        await msg.edit(content="✅ Dados atualizados direto do Google Docs!")
-    except Exception as e:
-        await msg.edit(content=f"❌ Erro ao atualizar: `{e}`")
+    status = await do_refresh()
+    await msg.edit(content=status)
 
 @bot.command(name="help",aliases=["ajuda"])
 async def cmd_help(ctx):
