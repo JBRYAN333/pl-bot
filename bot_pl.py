@@ -43,7 +43,7 @@ import pdfplumber
 # Populado dinamicamente pelo parser. Fallback garante que nunca fica vazio.
 REGIONS: list[str] = ["EU", "NA", "SA", "AS", "Global"]
 
-_REGION_FLAG  = {"EU":"🇪🇺","NA":"🇺🇸","SA":"🇧🇷","AS":"🌏","Global":"🌍"}
+_REGION_FLAG  = {"EU":"🇪🇺","NA":"🇺🇸","SA":"🇧🇷","AS":"🇰🇷","Global":"🌍"}
 _REGION_COLOR = {"EU":0x003BB5,"NA":0xBF0000,"SA":0x009C3B,"AS":0xFF6600,"Global":0x00BFFF}
 
 _RE_SR  = re.compile(r'^([A-Za-z]{2,8})\s+Rankings?$', re.I)
@@ -480,9 +480,10 @@ class RegionView(ui.View):
         ]
         for idx, region in enumerate(REGIONS):
             btn = discord.ui.Button(
-                label=f"{region_flag(region)} {region}",
+                label=region,
+                emoji=region_flag(region),
                 style=_styles[idx % len(_styles)],
-                custom_id=f"rv_{region.lower()}_{mode}",  # inclui mode para evitar colisão
+                custom_id=f"rv_{region.lower()}_{mode}",
                 row=min(idx // 4, 3)
             )
             btn.callback = self._make_cb(region)
