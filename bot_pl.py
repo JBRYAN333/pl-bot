@@ -58,7 +58,7 @@ _RE_EV  = re.compile(
     r'|Global\s+Part\s+\d+\s*)?#?\d+)', re.I)
 _RE_HDR = re.compile(r'\bRes\.?\s+Record\b|\bOpponent\b.*\bScore\b', re.I)
 _SKIP   = re.compile(
-    r'Non-Tournament|Fight of the|Qualifiers?|Prelims?|VOD Link|'
+    r'Non-Tournament|Qualifiers?|Prelims?|VOD Link|'
     r'Round \d+|Losers|Winners|Bracket|Inaugural|won the|replaced |forfeited|'
     r'Finals?|Exhibitions?|Inactive|'
     r'^\s*(Top \d+|DW2PL|Rules?|Lag Rule|Inter-Regional|Same.region)\b', re.I
@@ -250,7 +250,6 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 bot.remove_command("help")
 
-WELCOME_CHANNEL_ID = 0
 PANEL_COLOR        = 0x00BFFF
 PANEL_DARK         = 0x0A0E1A
 FIGHTS_PER_PAGE    = 10
@@ -827,15 +826,15 @@ def build_all_players_embed(all_players, page=0, per_page=25):
 
 # ── Fight of the Night ────────────────────────────────────────────────────────
 def collect_fotn(data):
-    """Collect all fights flagged as Fight of the Night."""
+    """Collect all fights flagged as Fight of the Night (any variant)."""
+    _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|FOTN|\bFON\b', re.I)
     results = []
     for region, reg in data.items():
         for pname, fights in reg.get("records", {}).items():
             for f in fights:
                 notes = f.get("notes", "") or ""
                 event = f.get("event", "") or ""
-                if re.search(r'fight\s+of\s+the\s+(night|week|tournament)', notes, re.I) or \
-                   re.search(r'fight\s+of\s+the\s+(night|week|tournament)', event, re.I):
+                if _re_fotn.search(notes) or _re_fotn.search(event):
                     results.append((region, pname, f))
     return results
 
@@ -1123,18 +1122,6 @@ async def _preload():
     bot.add_view(RegionView("ranking"))
     bot.add_view(RegionView("stats"))
     print(f"[PL Bot] Ready! Regions: {REGIONS}")
-
-@bot.event
-async def on_member_join(member):
-    if not WELCOME_CHANNEL_ID: return
-    ch=bot.get_channel(WELCOME_CHANNEL_ID)
-    if not ch: return
-    regions_str=" | ".join(REGIONS)
-    e=discord.Embed(title="🏁 NEW COMPETITOR IN THE PRO LEAGUE!",
-        description=f"**Welcome to the DW2 Pro League, {member.mention}!**\n\nThe Pro League is the official DW2 tournament with rankings across {regions_str}.\n\n🏆 Check rankings with `!panel`\n📋 Register in the sign-up channel to compete.",
-        color=PANEL_COLOR)
-    e.set_thumbnail(url=member.display_avatar.url)
-    await ch.send(embed=e)
 
 # ── Commands ──────────────────────────────────────────────────────────────────
 @bot.command(name="panel",aliases=["painel"])
