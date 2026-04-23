@@ -336,6 +336,9 @@ def build_main_embed():
     e.add_field(name="👤 Player Lookup", value="Full card with match history",       inline=True)
     e.add_field(name="📊 Stats",         value="Region overview & leaderboards",     inline=True)
     e.add_field(name="🏅 Top Rankings",  value="Top Wins, Win Rate, MP",            inline=True)
+    e.add_field(name="👥 All Players",   value="Full all-time roster",              inline=True)
+    e.add_field(name="🌟 Fight of the Night", value="Award-winning fights",         inline=True)
+    e.add_field(name="📅 Events",        value="Browse by region & event",          inline=True)
     e.add_field(name="🔄 Refresh",       value="Reload data from Google Docs",      inline=True)
     e.set_footer(text="PL Bot • Source: DW2PL Records (Google Docs) • EST. 2021")
     return e
@@ -450,7 +453,23 @@ class MainPanel(ui.View):
     async def stats(self,i,b): await safe_edit(i,embed=discord.Embed(title="📊 Stats — Select Region",color=PANEL_COLOR),view=RegionView("stats"))
     @ui.button(label="🏅 Top Rankings", style=discord.ButtonStyle.danger,   custom_id="pl_top",     row=1)
     async def top(self,i,b): await safe_edit(i,embed=discord.Embed(title="🏅 Top Rankings",color=PANEL_COLOR),view=TopView())
-    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=1)
+    @ui.button(label="👥 All Players",  style=discord.ButtonStyle.primary,  custom_id="pl_allp",    row=1)
+    async def all_players(self,i,b):
+        if not await safe_defer(i): return
+        data,_=await get_data()
+        all_p=build_all_players_options(data)
+        try: await i.edit_original_response(embed=build_all_players_embed(all_p),view=AllPlayersView(all_p))
+        except Exception: pass
+    @ui.button(label="🌟 Fight of the Night",style=discord.ButtonStyle.secondary,custom_id="pl_fotn",row=2)
+    async def fotn(self,i,b):
+        if not await safe_defer(i): return
+        data,_=await get_data()
+        fotn=collect_fotn(data)
+        try: await i.edit_original_response(embed=build_fotn_embed(fotn),view=FOTNView(fotn))
+        except Exception: pass
+    @ui.button(label="📅 Events",       style=discord.ButtonStyle.success,  custom_id="pl_events",  row=2)
+    async def events(self,i,b): await safe_edit(i,embed=discord.Embed(title="📅 Events — Select Region",color=PANEL_COLOR),view=EventRegionView())
+    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=2)
     async def refresh(self,i,b):
         await safe_defer(i)
         try:
@@ -545,6 +564,8 @@ class RankView(ui.View):
     async def next(self,i,b): await self._shift(i,+1)
     @ui.button(label="🔙 Back",style=discord.ButtonStyle.secondary,custom_id="rv_back2",row=1)
     async def back(self,i,b): await safe_edit(i,embed=discord.Embed(title="🌍 Rankings — Select Region",color=PANEL_COLOR),view=RegionView("ranking"))
+    @ui.button(label="🏠 Main Menu",style=discord.ButtonStyle.primary,custom_id="rv_home",row=1)
+    async def home(self,i,b): await safe_edit(i,embed=build_main_embed(),view=MainPanel())
     async def _shift(self,i,delta):
         if not await safe_defer(i): return
         nr=REGIONS[(REGIONS.index(self.region)+delta)%len(REGIONS)]
@@ -580,6 +601,8 @@ class StatsView(ui.View):
     async def next(self,i,b): await self._shift(i,+1)
     @ui.button(label="🔙 Back",style=discord.ButtonStyle.secondary,custom_id="sv_back",row=1)
     async def back(self,i,b): await safe_edit(i,embed=discord.Embed(title="📊 Stats — Select Region",color=PANEL_COLOR),view=RegionView("stats"))
+    @ui.button(label="🏠 Main Menu",style=discord.ButtonStyle.primary,custom_id="sv_home",row=1)
+    async def home(self,i,b): await safe_edit(i,embed=build_main_embed(),view=MainPanel())
     async def _shift(self,i,delta):
         if not await safe_defer(i): return
         nr=REGIONS[(REGIONS.index(self.region)+delta)%len(REGIONS)]
@@ -610,8 +633,6 @@ class HistNavView(ui.View):
         self.page-=1; self._upd()
         try: await i.edit_original_response(embed=build_history_page(self.dn,self.fights,self.page),view=self)
         except Exception: pass
-    @ui.button(label="📜 History",style=discord.ButtonStyle.primary,custom_id="hn_label",row=0,disabled=True)
-    async def btn_label(self,i,b): pass
     @ui.button(label="▶",style=discord.ButtonStyle.secondary,custom_id="hn_next",row=0)
     async def btn_next(self,i,b):
         if not await safe_defer(i): return
@@ -624,6 +645,8 @@ class HistNavView(ui.View):
         data,_=await get_data(); reg=data.get(self.back_region,{})
         try: await i.edit_original_response(embed=build_ranking_embed(self.back_region,reg.get("ranking",[]),reg.get("unranked",{})),view=RankView(self.back_region,data))
         except Exception: pass
+    @ui.button(label="🏠 Main Menu",style=discord.ButtonStyle.primary,custom_id="hn_home",row=1)
+    async def btn_home(self,i,b): await safe_edit(i,embed=build_main_embed(),view=MainPanel())
 
 class PlayerModal(ui.Modal,title="🔍 Player Lookup"):
     name=ui.TextInput(label="Player name",placeholder="e.g. NLG, Jab, Larry, Weewarrior...",required=True)
@@ -661,6 +684,8 @@ class TopView(ui.View):
     async def tmp(self,i,b): await _top(i,"mp")
     @ui.button(label="🔙 Back",        style=discord.ButtonStyle.secondary,custom_id="top_bk", row=1)
     async def back(self,i,b): await safe_edit(i,embed=build_main_embed(),view=MainPanel())
+    @ui.button(label="🏠 Main Menu",   style=discord.ButtonStyle.primary,  custom_id="top_hm", row=1)
+    async def home(self,i,b): await safe_edit(i,embed=build_main_embed(),view=MainPanel())
 
 async def _top(i,cat):
     if not await safe_defer(i): return
@@ -686,7 +711,400 @@ async def _top(i,cat):
     try: await i.edit_original_response(embed=e,view=TopView())
     except Exception: await i.followup.send(embed=e,view=TopView())
 
-# ── Events ────────────────────────────────────────────────────────────────────
+# ── All Players View ──────────────────────────────────────────────────────────
+def build_all_players_options(data):
+    """Build a deduplicated list of all players across all regions for a Select."""
+    seen = {}  # player_name_lower -> (display_name, record, region)
+    for region, reg in data.items():
+        for p in reg.get("ranking", []):
+            key = p["player"].lower()
+            if key not in seen:
+                seen[key] = (p["player"], f"{p['wins']}-{p['losses']}", region)
+        for pname in reg.get("records", {}):
+            key = pname.lower()
+            if key not in seen:
+                seen[key] = (pname, "?-?", region)
+    return sorted(seen.values(), key=lambda x: x[0].lower())
+
+class AllPlayersView(ui.View):
+    def __init__(self, all_players, page=0):
+        super().__init__(timeout=None)
+        self.all_players = all_players
+        self.page = page
+        self.per_page = 25
+        self.total_pages = max(1, (len(all_players) + self.per_page - 1) // self.per_page)
+        self._build()
+
+    def _build(self):
+        # Remove old select/nav items except persistent buttons
+        for item in list(self.children):
+            self.remove_item(item)
+        chunk = self.all_players[self.page * self.per_page:(self.page + 1) * self.per_page]
+        opts = []
+        for name, rec, region in chunk:
+            opts.append(discord.SelectOption(
+                label=name[:100],
+                value=name,
+                description=f"{region_flag(region)} {region} | {rec}",
+                emoji="👤"
+            ))
+        if opts:
+            sel = discord.ui.Select(
+                placeholder=f"👥 All Players — Page {self.page+1}/{self.total_pages} ({len(self.all_players)} total)...",
+                options=opts,
+                custom_id="ap_sel",
+                row=0
+            )
+            sel.callback = self._on_sel
+            self.add_item(sel)
+        prev_btn = discord.ui.Button(
+            label=f"◀ {self.page}/{self.total_pages}" if self.page > 0 else "◀",
+            style=discord.ButtonStyle.secondary,
+            custom_id="ap_prev", row=1,
+            disabled=(self.page == 0)
+        )
+        prev_btn.callback = self._prev
+        self.add_item(prev_btn)
+        next_btn = discord.ui.Button(
+            label=f"{self.page+2}/{self.total_pages} ▶" if self.page < self.total_pages - 1 else "▶",
+            style=discord.ButtonStyle.secondary,
+            custom_id="ap_next", row=1,
+            disabled=(self.page >= self.total_pages - 1)
+        )
+        next_btn.callback = self._next
+        self.add_item(next_btn)
+        home_btn = discord.ui.Button(label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="ap_home", row=1)
+        home_btn.callback = self._home
+        self.add_item(home_btn)
+
+    async def _on_sel(self, i):
+        if not await safe_defer(i): return
+        q = i.data["values"][0].lower()
+        data, _ = await get_data()
+        dn, fights, entry, ereg = collect_fights(q, data)
+        if not entry and not fights:
+            try: await i.followup.send("❌ Player not found.", ephemeral=True)
+            except Exception: pass
+            return
+        if not entry:
+            ereg = Counter(r for r, _ in fights).most_common(1)[0][0] if fights else REGIONS[0]
+            entry = {"pos": "—", "wins": sum(1 for _, f in fights if f["result"].lower() == "win"),
+                     "losses": sum(1 for _, f in fights if f["result"].lower() == "loss"),
+                     "mp": len(fights), "affiliation": ""}
+        embed = build_player_embed(entry, ereg, fights, dn)
+        view = HistNavView(dn, fights, 0, back_region=ereg)
+        try: await i.edit_original_response(embed=embed, view=view)
+        except Exception: pass
+
+    async def _prev(self, i):
+        if not await safe_defer(i): return
+        self.page -= 1; self._build()
+        data, _ = await get_data()
+        all_p = build_all_players_options(data)
+        try: await i.edit_original_response(embed=build_all_players_embed(all_p, self.page), view=self)
+        except Exception: pass
+
+    async def _next(self, i):
+        if not await safe_defer(i): return
+        self.page += 1; self._build()
+        data, _ = await get_data()
+        all_p = build_all_players_options(data)
+        try: await i.edit_original_response(embed=build_all_players_embed(all_p, self.page), view=self)
+        except Exception: pass
+
+    async def _home(self, i):
+        await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+def build_all_players_embed(all_players, page=0, per_page=25):
+    total_pages = max(1, (len(all_players) + per_page - 1) // per_page)
+    e = discord.Embed(
+        title="👥 All Players — Pro League",
+        description=f"**{len(all_players)} players** across all regions | Page {page+1}/{total_pages}\nSelect a player from the dropdown to view their card.",
+        color=PANEL_COLOR
+    )
+    e.set_footer(text="PL Bot • All-time roster across EU, NA, SA, Global")
+    return e
+
+# ── Fight of the Night ────────────────────────────────────────────────────────
+def collect_fotn(data):
+    """Collect all fights flagged as Fight of the Night."""
+    results = []
+    for region, reg in data.items():
+        for pname, fights in reg.get("records", {}).items():
+            for f in fights:
+                notes = f.get("notes", "") or ""
+                event = f.get("event", "") or ""
+                if re.search(r'fight\s+of\s+the\s+(night|week|tournament)', notes, re.I) or \
+                   re.search(r'fight\s+of\s+the\s+(night|week|tournament)', event, re.I):
+                    results.append((region, pname, f))
+    return results
+
+def build_fotn_embed(fotn_list, page=0, per_page=8):
+    total_pages = max(1, (len(fotn_list) + per_page - 1) // per_page)
+    chunk = fotn_list[page * per_page:(page + 1) * per_page]
+    e = discord.Embed(
+        title="🌟 Fight of the Night — All Time",
+        description=f"**{len(fotn_list)} award-winning fights** | Page {page+1}/{total_pages}",
+        color=0xFFAA00
+    )
+    for region, pname, f in chunk:
+        vod = f" [▶]({f['vod']})" if f.get("vod") else ""
+        notes = f.get("notes", "") or ""
+        e.add_field(
+            name=f"🌟 {pname} vs {f.get('opponent','?')} `{f.get('score','')}`",
+            value=f"{region_flag(region)} {region} | {res_emoji(f['result'])} {f['result'].upper()} | 📅 {f.get('event','')}{vod}\n_{notes}_" if notes else
+                  f"{region_flag(region)} {region} | {res_emoji(f['result'])} {f['result'].upper()} | 📅 {f.get('event','')}{vod}",
+            inline=False
+        )
+    if not chunk:
+        e.description = "No Fight of the Night records found in the current data."
+    e.set_footer(text="PL Bot • Fight of the Night Awards")
+    return e
+
+class FOTNView(ui.View):
+    def __init__(self, fotn_list, page=0):
+        super().__init__(timeout=None)
+        self.fotn_list = fotn_list
+        self.page = page
+        self.per_page = 8
+        self.total_pages = max(1, (len(fotn_list) + self.per_page - 1) // self.per_page)
+        self._upd()
+
+    def _upd(self):
+        self.btn_prev.disabled = self.page == 0
+        self.btn_next.disabled = self.page >= self.total_pages - 1
+        self.btn_prev.label = f"◀ {self.page}/{self.total_pages}" if self.page > 0 else "◀"
+        self.btn_next.label = f"{self.page+2}/{self.total_pages} ▶" if self.page < self.total_pages - 1 else "▶"
+
+    @ui.button(label="◀", style=discord.ButtonStyle.secondary, custom_id="fotn_prev", row=0, disabled=True)
+    async def btn_prev(self, i, b):
+        if not await safe_defer(i): return
+        self.page -= 1; self._upd()
+        try: await i.edit_original_response(embed=build_fotn_embed(self.fotn_list, self.page), view=self)
+        except Exception: pass
+
+    @ui.button(label="▶", style=discord.ButtonStyle.secondary, custom_id="fotn_next", row=0)
+    async def btn_next(self, i, b):
+        if not await safe_defer(i): return
+        self.page += 1; self._upd()
+        try: await i.edit_original_response(embed=build_fotn_embed(self.fotn_list, self.page), view=self)
+        except Exception: pass
+
+    @ui.button(label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="fotn_home", row=1)
+    async def home(self, i, b): await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+# ── Events Browser ────────────────────────────────────────────────────────────
+def collect_events(data, region_filter=None):
+    """Return sorted unique events, optionally filtered by region."""
+    events = {}  # event_name -> list of (region, pname, fight)
+    for region, reg in data.items():
+        if region_filter and region != region_filter:
+            continue
+        for pname, fights in reg.get("records", {}).items():
+            for f in fights:
+                ev = (f.get("event") or "").strip()
+                if ev:
+                    events.setdefault(ev, []).append((region, pname, f))
+    return dict(sorted(events.items()))
+
+def build_event_embed(event_name, fights):
+    regions_in = list(dict.fromkeys(r for r, _, _ in fights))
+    color = region_color(regions_in[0]) if regions_in else PANEL_COLOR
+    e = discord.Embed(
+        title=f"📅 {event_name}",
+        description=f"**{len(fights)} fights** | Regions: {' '.join(region_flag(r)+' '+r for r in regions_in)}",
+        color=color
+    )
+    for region, pname, f in fights[:20]:
+        vod = f" [▶]({f['vod']})" if f.get("vod") else ""
+        nt = f"\n_{f['notes']}_" if f.get("notes") else ""
+        e.add_field(
+            name=f"{res_emoji(f['result'])} {pname} vs {f.get('opponent','?')} `{f.get('score','')}`",
+            value=f"{region_flag(region)} {region}{vod}{nt}",
+            inline=False
+        )
+    if len(fights) > 20:
+        e.set_footer(text=f"Showing first 20 of {len(fights)} fights")
+    return e
+
+class EventRegionView(ui.View):
+    """Step 1: Choose region (or All) to browse events."""
+    def __init__(self):
+        super().__init__(timeout=None)
+        # Build dynamic region buttons
+        _styles = [discord.ButtonStyle.primary, discord.ButtonStyle.danger,
+                   discord.ButtonStyle.success, discord.ButtonStyle.secondary,
+                   discord.ButtonStyle.primary]
+        for idx, region in enumerate(REGIONS):
+            btn = discord.ui.Button(
+                label=region, emoji=region_flag(region),
+                style=_styles[idx % len(_styles)],
+                custom_id=f"ev_reg_{region.lower()}",
+                row=min(idx // 4, 2)
+            )
+            btn.callback = self._make_cb(region)
+            self.add_item(btn)
+        all_btn = discord.ui.Button(
+            label="🌐 All Regions", style=discord.ButtonStyle.secondary,
+            custom_id="ev_reg_all", row=min(len(REGIONS) // 4 + 1, 3)
+        )
+        all_btn.callback = self._all
+        self.add_item(all_btn)
+        back_btn = discord.ui.Button(
+            label="🏠 Main Menu", style=discord.ButtonStyle.primary,
+            custom_id="ev_home", row=min(len(REGIONS) // 4 + 1, 3)
+        )
+        back_btn.callback = self._home
+        self.add_item(back_btn)
+
+    def _make_cb(self, region):
+        async def cb(i):
+            if not await safe_defer(i): return
+            data, _ = await get_data()
+            events = collect_events(data, region_filter=region)
+            view = EventSelectView(events, region_filter=region)
+            embed = discord.Embed(
+                title=f"📅 Events — {region_flag(region)} {region}",
+                description=f"**{len(events)} events** found. Select one to view its fights.",
+                color=region_color(region)
+            )
+            try: await i.edit_original_response(embed=embed, view=view)
+            except Exception: pass
+        return cb
+
+    async def _all(self, i):
+        if not await safe_defer(i): return
+        data, _ = await get_data()
+        events = collect_events(data)
+        view = EventSelectView(events, region_filter=None)
+        embed = discord.Embed(
+            title="📅 Events — All Regions",
+            description=f"**{len(events)} events** found. Select one to view its fights.",
+            color=PANEL_COLOR
+        )
+        try: await i.edit_original_response(embed=embed, view=view)
+        except Exception: pass
+
+    async def _home(self, i):
+        await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+class EventSelectView(ui.View):
+    """Step 2: Select event from dropdown (paginated 25 at a time)."""
+    def __init__(self, events, region_filter=None, page=0):
+        super().__init__(timeout=None)
+        self.events = list(events.items())  # [(event_name, fights_list), ...]
+        self.region_filter = region_filter
+        self.page = page
+        self.per_page = 25
+        self.total_pages = max(1, (len(self.events) + self.per_page - 1) // self.per_page)
+        self._build()
+
+    def _build(self):
+        for item in list(self.children):
+            self.remove_item(item)
+        chunk = self.events[self.page * self.per_page:(self.page + 1) * self.per_page]
+        if chunk:
+            opts = []
+            for ev_name, fights in chunk:
+                regions_in = list(dict.fromkeys(r for r, _, _ in fights))
+                flags = " ".join(region_flag(r) for r in regions_in[:3])
+                opts.append(discord.SelectOption(
+                    label=ev_name[:100],
+                    value=ev_name[:100],
+                    description=f"{flags} | {len(fights)} fights",
+                    emoji="📅"
+                ))
+            sel = discord.ui.Select(
+                placeholder=f"📅 Select event — Page {self.page+1}/{self.total_pages}...",
+                options=opts,
+                custom_id="ev_sel",
+                row=0
+            )
+            sel.callback = self._on_sel
+            self.add_item(sel)
+        prev_btn = discord.ui.Button(
+            label=f"◀ {self.page}/{self.total_pages}" if self.page > 0 else "◀",
+            style=discord.ButtonStyle.secondary, custom_id="ev_prev", row=1,
+            disabled=(self.page == 0)
+        )
+        prev_btn.callback = self._prev
+        self.add_item(prev_btn)
+        next_btn = discord.ui.Button(
+            label=f"{self.page+2}/{self.total_pages} ▶" if self.page < self.total_pages - 1 else "▶",
+            style=discord.ButtonStyle.secondary, custom_id="ev_next", row=1,
+            disabled=(self.page >= self.total_pages - 1)
+        )
+        next_btn.callback = self._next
+        self.add_item(next_btn)
+        back_btn = discord.ui.Button(
+            label="🔙 Back", style=discord.ButtonStyle.secondary, custom_id="ev_back", row=1
+        )
+        back_btn.callback = self._back
+        self.add_item(back_btn)
+        home_btn = discord.ui.Button(
+            label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="ev_shome", row=1
+        )
+        home_btn.callback = self._home
+        self.add_item(home_btn)
+
+    async def _on_sel(self, i):
+        if not await safe_defer(i): return
+        ev_name = i.data["values"][0]
+        # Find fights for this event
+        fights = next((f for n, f in self.events if n == ev_name), [])
+        embed = build_event_embed(ev_name, fights)
+        view = EventDetailView(ev_name, fights, self)
+        try: await i.edit_original_response(embed=embed, view=view)
+        except Exception: pass
+
+    async def _prev(self, i):
+        if not await safe_defer(i): return
+        self.page -= 1; self._build()
+        rf = self.region_filter
+        title = f"📅 Events — {region_flag(rf)} {rf}" if rf else "📅 Events — All Regions"
+        color = region_color(rf) if rf else PANEL_COLOR
+        embed = discord.Embed(title=title, description=f"**{len(self.events)} events** found. Select one.", color=color)
+        try: await i.edit_original_response(embed=embed, view=self)
+        except Exception: pass
+
+    async def _next(self, i):
+        if not await safe_defer(i): return
+        self.page += 1; self._build()
+        rf = self.region_filter
+        title = f"📅 Events — {region_flag(rf)} {rf}" if rf else "📅 Events — All Regions"
+        color = region_color(rf) if rf else PANEL_COLOR
+        embed = discord.Embed(title=title, description=f"**{len(self.events)} events** found. Select one.", color=color)
+        try: await i.edit_original_response(embed=embed, view=self)
+        except Exception: pass
+
+    async def _back(self, i):
+        await safe_edit(i, embed=discord.Embed(title="📅 Events — Select Region", color=PANEL_COLOR), view=EventRegionView())
+
+    async def _home(self, i):
+        await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+class EventDetailView(ui.View):
+    """Step 3: Viewing a specific event."""
+    def __init__(self, ev_name, fights, parent_select_view):
+        super().__init__(timeout=None)
+        self.ev_name = ev_name
+        self.fights = fights
+        self.parent = parent_select_view
+
+    @ui.button(label="🔙 Back to Events", style=discord.ButtonStyle.secondary, custom_id="evd_back", row=0)
+    async def back(self, i, b):
+        if not await safe_defer(i): return
+        rf = self.parent.region_filter
+        title = f"📅 Events — {region_flag(rf)} {rf}" if rf else "📅 Events — All Regions"
+        color = region_color(rf) if rf else PANEL_COLOR
+        embed = discord.Embed(title=title, description=f"**{len(self.parent.events)} events** found. Select one.", color=color)
+        try: await i.edit_original_response(embed=embed, view=self.parent)
+        except Exception: pass
+
+    @ui.button(label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="evd_home", row=0)
+    async def home(self, i, b): await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+
 @bot.event
 async def on_ready():
     print(f"✅ PL Bot ONLINE as {bot.user}!")
@@ -777,15 +1195,35 @@ async def cmd_refresh(ctx):
     status = await do_refresh()
     await msg.edit(content=status)
 
+@bot.command(name="fotn",aliases=["fightofthenight"])
+async def cmd_fotn(ctx):
+    data,_=await get_data()
+    fotn=collect_fotn(data)
+    await ctx.send(embed=build_fotn_embed(fotn),view=FOTNView(fotn))
+
+@bot.command(name="events",aliases=["eventos"])
+async def cmd_events(ctx,region:str=None):
+    data,_=await get_data()
+    rf=None
+    if region:
+        rf=next((r for r in REGIONS if r.upper()==region.upper()),None)
+    events=collect_events(data,region_filter=rf)
+    title=f"📅 Events — {region_flag(rf)} {rf}" if rf else "📅 Events — All Regions"
+    color=region_color(rf) if rf else PANEL_COLOR
+    embed=discord.Embed(title=title,description=f"**{len(events)} events** found. Select one.",color=color)
+    await ctx.send(embed=embed,view=EventSelectView(events,region_filter=rf))
+
 @bot.command(name="help",aliases=["ajuda"])
 async def cmd_help(ctx):
     e=discord.Embed(title="📜 PL Bot — Commands",description="Use **`!panel`** for the full interactive panel.",color=PANEL_COLOR)
     e.add_field(name="!panel",value="Interactive panel with buttons",inline=False)
     e.add_field(name="!ranking <region>",value=f"Region top 10 — `{'|'.join(REGIONS)}`",inline=False)
-    e.add_field(name="!player <name>",value="Player card. e.g. `!player NLG`",inline=False)
-    e.add_field(name="!history <name>",value="Fight log. e.g. `!history Jab`",inline=False)
+    e.add_field(name="!player <n>",value="Player card. e.g. `!player NLG`",inline=False)
+    e.add_field(name="!history <n>",value="Fight log. e.g. `!history Jab`",inline=False)
     e.add_field(name="!stats <region>",value="Region statistics",inline=False)
     e.add_field(name="!top [wins|wr|mp]",value="`wins` | `wr` | `mp`",inline=False)
+    e.add_field(name="!fotn",value="Fight of the Night awards",inline=False)
+    e.add_field(name="!events [region]",value="Browse events by region",inline=False)
     e.add_field(name="!refresh",value="Reload data from Google Docs",inline=False)
     await ctx.send(embed=e)
 
