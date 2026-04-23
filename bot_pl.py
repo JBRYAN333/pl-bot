@@ -220,7 +220,8 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 bot.remove_command("help")
 
 WELCOME_CHANNEL_ID = 0
-PANEL_COLOR        = 0x1E90FF
+PANEL_COLOR        = 0x00BFFF   # neon blue — Pro League brand
+PANEL_DARK         = 0x0A0E1A   # near-black for main panel
 FIGHTS_PER_PAGE    = 10
 
 # ── Cache ─────────────────────────────────────────────────────────────────────
@@ -252,7 +253,7 @@ async def do_refresh() -> str:
     """Refresh com lock — impede dois parsings simultâneos."""
     global _data, _vods, _refreshing
     if _refreshing:
-        return "⏳ Já existe um refresh em andamento. Aguarde."
+        return "⏳ A refresh is already in progress. Please wait."
     _refreshing = True
     try:
         clear_cache()
@@ -260,15 +261,15 @@ async def do_refresh() -> str:
         _data, _vods = await loop.run_in_executor(None, _rebuild_json)
         ranked = sum(len(_data.get(r,{}).get("ranking",[])) for r in REGIONS)
         fights = sum(len(v) for r in REGIONS for v in _data.get(r,{}).get("records",{}).values())
-        return f"✅ Dados atualizados! {ranked} ranked | {fights} lutas | {len(_vods)} VODs"
+        return f"✅ Data updated! {ranked} ranked | {fights} fights | {len(_vods)} VODs"
     except Exception as e:
         return f"❌ Erro: `{e}`"
     finally:
         _refreshing = False
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
-def region_color(r): return {"EU":0x003BB5,"NA":0xCC0000,"SA":0x009933,"Global":0xFFAA00}.get(r,PANEL_COLOR)
-def region_flag(r):  return {"EU":"🇪🇺","NA":"🇺🇸","SA":"🌎","Global":"🌍"}.get(r,"🏴")
+def region_color(r): return {"EU":0x003BB5,"NA":0xBF0000,"SA":0x009C3B,"Global":0x00BFFF}.get(r,PANEL_COLOR)
+def region_flag(r):  return {"EU":"🇪🇺","NA":"🇺🇸","SA":"🇧🇷","Global":"🌍"}.get(r,"🏴")
 def pos_medal(p):
     s=str(p).lower()
     if s=="champion": return "👑"
@@ -302,16 +303,16 @@ def collect_fights(query, data):
 
 # ── Embeds ────────────────────────────────────────────────────────────────────
 def build_main_embed():
-    e=discord.Embed(title="🏁 DW2 PRO LEAGUE BOT",
+    e=discord.Embed(
+        title="PRO LEAGUE — RECORD BOOK",
         description="**Drunken Wrestlers 2 — Pro League** | Interactive Panel\n\nRankings, player cards and match history across all regions.",
-        color=PANEL_COLOR)
+        color=PANEL_DARK)
     e.add_field(name="🌍 Rankings",      value="Top 10 by region (EU/NA/SA/Global)",inline=True)
     e.add_field(name="👤 Player Lookup", value="Full card with match history",       inline=True)
-    e.add_field(name="📜 History",       value="Complete fight log for any player",  inline=True)
     e.add_field(name="📊 Stats",         value="Region overview & leaderboards",     inline=True)
     e.add_field(name="🏅 Top Rankings",  value="Top Wins, Win Rate, MP",            inline=True)
     e.add_field(name="🔄 Refresh",       value="Reload data from Google Docs",      inline=True)
-    e.set_footer(text="PL Bot • Source: DW2PL Records (Google Docs)")
+    e.set_footer(text="PL Bot • Source: DW2PL Records (Google Docs) • EST. 2021")
     return e
 
 def build_player_embed(entry, region, all_fights, dn):
@@ -420,9 +421,7 @@ class MainPanel(ui.View):
     async def rankings(self,i,b): await safe_edit(i,embed=discord.Embed(title="🌍 Rankings — Select Region",color=PANEL_COLOR),view=RegionView("ranking"))
     @ui.button(label="👤 Player Lookup",style=discord.ButtonStyle.success,  custom_id="pl_player",  row=0)
     async def player(self,i,b): await i.response.send_modal(PlayerModal())
-    @ui.button(label="📜 History",      style=discord.ButtonStyle.secondary,custom_id="pl_history", row=0)
-    async def history(self,i,b): await i.response.send_modal(HistoryModal())
-    @ui.button(label="📊 Stats",        style=discord.ButtonStyle.secondary,custom_id="pl_stats",   row=1)
+    @ui.button(label="📊 Stats",        style=discord.ButtonStyle.secondary,custom_id="pl_stats",   row=0)
     async def stats(self,i,b): await safe_edit(i,embed=discord.Embed(title="📊 Stats — Select Region",color=PANEL_COLOR),view=RegionView("stats"))
     @ui.button(label="🏅 Top Rankings", style=discord.ButtonStyle.danger,   custom_id="pl_top",     row=1)
     async def top(self,i,b): await safe_edit(i,embed=discord.Embed(title="🏅 Top Rankings",color=PANEL_COLOR),view=TopView())
@@ -431,7 +430,7 @@ class MainPanel(ui.View):
         await safe_defer(i)
         try:
             await i.edit_original_response(
-                embed=discord.Embed(title="🔄 Atualizando...",description="⏳ Baixando dados do Google Docs...",color=0xFFAA00),
+                embed=discord.Embed(title="🔄 Updating...",description="⏳ Downloading data from Google Docs...",color=0xFFAA00),
                 view=None)
         except Exception: pass
         status = await do_refresh()
@@ -715,7 +714,7 @@ async def cmd_top(ctx,cat:str="wins"):
 
 @bot.command(name="refresh",aliases=["atualizar"])
 async def cmd_refresh(ctx):
-    msg = await ctx.send("🔄 Baixando dados do Google Docs...")
+    msg = await ctx.send("🔄 Downloading data from Google Docs...")
     status = await do_refresh()
     await msg.edit(content=status)
 
