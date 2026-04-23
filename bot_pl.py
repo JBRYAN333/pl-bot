@@ -40,10 +40,15 @@ def _download_pdf_bytes() -> bytes:
 # ── Parser ────────────────────────────────────────────────────────────────────
 import pdfplumber
 
-REGIONS = ["EU", "NA", "SA", "Global"]
-_RM     = {"eu":"EU","na":"NA","sa":"SA","global":"Global"}
-_RE_SR  = re.compile(r'^(EU|NA|SA|Global) Rankings?$', re.I)
-_RE_SC  = re.compile(r'^(EU|NA|SA|Global) Records?$', re.I)
+# REGIONS é populado dinamicamente pelo parser ao ler o doc.
+# Regiões conhecidas com flags/cores — qualquer região nova recebe defaults.
+REGIONS: list[str] = []   # preenchido em _parse_pdf_bytes()
+
+_REGION_FLAG  = {"EU":"🇪🇺","NA":"🇺🇸","SA":"🇧🇷","AS":"🌏","Global":"🌍"}
+_REGION_COLOR = {"EU":0x003BB5,"NA":0xBF0000,"SA":0x009C3B,"AS":0xFF6600,"Global":0x00BFFF}
+# regex genérico: qualquer "XXX Rankings" / "XXX Records" no início da linha
+_RE_SR  = re.compile(r'^([A-Za-z]{2,8})\s+Rankings?$', re.I)
+_RE_SC  = re.compile(r'^([A-Za-z]{2,8})\s+Records?$',  re.I)
 _RE_RR  = re.compile(r'^(Win|Loss|Draw|NC|WIn)\b', re.I)
 _RE_RF  = re.compile(r'^\d+-\d+$')
 _RE_TH  = re.compile(r'^Tier \d', re.I)
@@ -61,9 +66,10 @@ _SKIP   = re.compile(
 )
 
 def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
+    global REGIONS
     re_ev = re.compile(
-        r'DW2PL\s+(?:Fight\s+Night\s+|EU\s+Tournament\s+|NA\s+Tournament\s+'
-        r'|SA\s+Tournament\s+|Global\s+Tournament\s+|Global\s+Part\s+\d+\s*)?#?\d+', re.I)
+        r'DW2PL\s+(?:Fight\s+Night\s+|[A-Za-z]{2,8}\s+Tournament\s+'
+        r'|Global\s+Part\s+\d+\s*)?#?\d+', re.I)
     text_pages, vod_map = [], {}
     with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
         for page in pdf.pages:
@@ -90,21 +96,46 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                         vod_map[re.sub(r"\s+", " ", m.group(0).strip())] = url
                         break
     text = "\n".join(text_pages)
-    res  = {r: {"ranking": [], "unranked": {}, "records": {}} for r in REGIONS}
     lines = [re.sub(r'\s+', ' ', _RE_CT.sub(' ', l).strip())
              for l in text.splitlines() if l.strip()]
+
+    # ── Descoberta dinâmica de regiões ────────────────────────────────────────
+    # Varre as linhas em ordem, coleta qualquer "XXX Rankings/Records".
+    # Global fica sempre por último.
+    seen: dict[str, str] = {}   # lower → canonical Title Case
+    for line in lines:
+        m = _RE_SR.match(line) or _RE_SC.match(line)
+        if m:
+            raw = m.group(1)
+            key = raw.lower()
+            if key not in seen:
+                # "eu"→"EU", "global"→"Global", "na"→"NA", "as"→"AS"
+                seen[key] = raw.upper() if len(raw) <= 3 else raw.capitalize()
+    ordered = [v for k, v in seen.items() if k != "global"]
+    if "global" in seen:
+        ordered.append(seen["global"])
+    REGIONS[:] = ordered if ordered else ["EU", "NA", "SA", "AS", "Global"]
+    print(f"[PL Bot] Regions detected: {REGIONS}")
+
+    res = {r: {"ranking": [], "unranked": {}, "records": {}} for r in REGIONS}
     cr = cs = cp = None
     th = []
     pending_name = None
     for line in lines:
         m = _RE_SR.match(line)
         if m:
-            cr = _RM[m.group(1).lower()]; cs = "ranking"
-            th = []; cp = None; pending_name = None; continue
+            raw = m.group(1)
+            key = raw.lower()
+            # mapeia pro canonical que foi detectado
+            canonical = (raw.upper() if len(raw) <= 3 else raw.capitalize())
+            if canonical not in res: continue
+            cr = canonical; cs = "ranking"; th = []; cp = None; pending_name = None; continue
         m = _RE_SC.match(line)
         if m:
-            cr = _RM[m.group(1).lower()]; cs = "records"
-            cp = None; pending_name = None; continue
+            raw = m.group(1)
+            canonical = (raw.upper() if len(raw) <= 3 else raw.capitalize())
+            if canonical not in res: continue
+            cr = canonical; cs = "records"; cp = None; pending_name = None; continue
         if not cr:
             continue
         reg = res[cr]
@@ -160,8 +191,9 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                 sc  = toks[idx + 1] if idx + 1 < len(toks) else ""
                 ep, np_ = [], []
                 in_n = False
+                region_toks = "|".join(REGIONS)
                 for tok in toks[idx + 2:]:
-                    if ep and not re.match(r'^(DW2PL|EU|NA|SA|Fight|Night|Tournament|Global|Part|#\d+|\d+)$', tok, re.I):
+                    if ep and not re.match(rf'^(DW2PL|{region_toks}|Fight|Night|Tournament|Global|Part|#\d+|\d+)$', tok, re.I):
                         in_n = True
                     (np_ if in_n else ep).append(tok)
                 ev = " ".join(ep); nt = " ".join(np_)
@@ -172,15 +204,17 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
             has_g = bool(re.search(r'\(G\)\s*$', line))
             cand  = re.sub(r'\s*\(G\)\s*$', '', line).strip()
             is_c  = False
+            skip_upper = set(REGIONS) | {"UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3"}
             if has_g and 1 <= len(cand) <= 35 and not _SKIP.search(cand):
                 is_c = True
             elif (2 <= len(cand) <= 35 and not re.search(r'\d{4,}', cand)
                     and not re.match(r'^[#\d\-]', cand) and len(cand.split()) <= 4
-                    and cand.upper() not in ("EU","NA","SA","GLOBAL","UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3")
+                    and cand.upper() not in skip_upper
                     and not _SKIP.search(cand)):
                 is_c = True
             pending_name = cand if is_c else None
     return res, vod_map
+
 
 def _rebuild_json() -> tuple[dict, dict]:
     """Pesado: baixa PDF → parseia → salva JSON → libera memória. Só roda no !refresh ou primeira vez."""
@@ -190,7 +224,7 @@ def _rebuild_json() -> tuple[dict, dict]:
     data, vods = _parse_pdf_bytes(pdf_bytes)
     del pdf_bytes  # libera RAM do PDF imediatamente
     with open(JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump({"data": data, "vods": vods}, f, ensure_ascii=False, separators=(',', ':'))
+        json.dump({"data": data, "vods": vods, "regions": REGIONS}, f, ensure_ascii=False, separators=(',', ':'))
     size = os.path.getsize(JSON_PATH)
     print(f"[PL Bot] JSON saved to disk: {size//1024} KB. VODs: {len(vods)}")
     for r in REGIONS:
@@ -200,10 +234,14 @@ def _rebuild_json() -> tuple[dict, dict]:
 
 def _load_json() -> tuple[dict, dict]:
     """Leve: lê o JSON do disco (~5 MB RAM). Startup rápido."""
+    global REGIONS
     with open(JSON_PATH, encoding="utf-8") as f:
         obj = json.load(f)
     data = obj.get("data", {}); vods = obj.get("vods", {})
-    print(f"[PL Bot] Loaded from disk. VODs: {len(vods)}")
+    saved_regions = obj.get("regions", [])
+    if saved_regions:
+        REGIONS[:] = saved_regions
+    print(f"[PL Bot] Loaded from disk. Regions: {REGIONS}. VODs: {len(vods)}")
     for r in REGIONS:
         reg = data.get(r, {})
         print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
@@ -268,8 +306,8 @@ async def do_refresh() -> str:
         _refreshing = False
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
-def region_color(r): return {"EU":0x003BB5,"NA":0xBF0000,"SA":0x009C3B,"Global":0x00BFFF}.get(r,PANEL_COLOR)
-def region_flag(r):  return {"EU":"🇪🇺","NA":"🇺🇸","SA":"🇧🇷","Global":"🌍"}.get(r,"🏴")
+def region_color(r): return _REGION_COLOR.get(r, 0x7289DA)
+def region_flag(r):  return _REGION_FLAG.get(r, "🏴")
 def pos_medal(p):
     s=str(p).lower()
     if s=="champion": return "👑"
@@ -442,26 +480,55 @@ class MainPanel(ui.View):
         except Exception: pass
 
 class RegionView(ui.View):
-    def __init__(self,mode): super().__init__(timeout=None); self.mode=mode
-    @ui.button(label="🇪🇺 EU",   style=discord.ButtonStyle.primary,  custom_id="rv_eu",    row=0)
-    async def eu(self,i,b): await self._go(i,"EU")
-    @ui.button(label="🇺🇸 NA",   style=discord.ButtonStyle.danger,   custom_id="rv_na",    row=0)
-    async def na(self,i,b): await self._go(i,"NA")
-    @ui.button(label="🌎 SA",    style=discord.ButtonStyle.success,  custom_id="rv_sa",    row=0)
-    async def sa(self,i,b): await self._go(i,"SA")
-    @ui.button(label="🌍 Global",style=discord.ButtonStyle.secondary,custom_id="rv_global",row=0)
-    async def glb(self,i,b): await self._go(i,"Global")
-    @ui.button(label="🔙 Back",  style=discord.ButtonStyle.secondary,custom_id="rv_back",  row=1)
-    async def back(self,i,b): await safe_edit(i,embed=build_main_embed(),view=MainPanel())
-    async def _go(self,i,region):
+    def __init__(self, mode):
+        super().__init__(timeout=None)
+        self.mode = mode
+        _styles = [
+            discord.ButtonStyle.primary,
+            discord.ButtonStyle.danger,
+            discord.ButtonStyle.success,
+            discord.ButtonStyle.secondary,
+            discord.ButtonStyle.primary,
+        ]
+        for idx, region in enumerate(REGIONS):
+            flag = region_flag(region)
+            btn = discord.ui.Button(
+                label=f"{flag} {region}",
+                style=_styles[idx % len(_styles)],
+                custom_id=f"rv_{region.lower()}",
+                row=idx // 4   # máx 4 por linha, overflow vai pra row 1
+            )
+            btn.callback = self._make_cb(region)
+            self.add_item(btn)
+        back_btn = discord.ui.Button(
+            label="🔙 Back",
+            style=discord.ButtonStyle.secondary,
+            custom_id="rv_back",
+            row=(len(REGIONS) // 4) + 1
+        )
+        back_btn.callback = self._back
+        self.add_item(back_btn)
+
+    def _make_cb(self, region):
+        async def cb(i):
+            await self._go(i, region)
+        return cb
+
+    async def _back(self, i):
+        await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+    async def _go(self, i, region):
         if not await safe_defer(i): return
-        data,_=await get_data(); reg=data.get(region,{})
-        if self.mode=="ranking":
-            view=RankView(region,data); embed=build_ranking_embed(region,reg.get("ranking",[]),reg.get("unranked",{}))
+        data, _ = await get_data(); reg = data.get(region, {})
+        if self.mode == "ranking":
+            view = RankView(region, data)
+            embed = build_ranking_embed(region, reg.get("ranking", []), reg.get("unranked", {}))
         else:
-            view=StatsView(region,data); embed=build_stats_embed(region,reg)
-        try: await i.edit_original_response(embed=embed,view=view)
+            view = StatsView(region, data)
+            embed = build_stats_embed(region, reg)
+        try: await i.edit_original_response(embed=embed, view=view)
         except Exception: pass
+
 
 class RankView(ui.View):
     def __init__(self,region,data):
@@ -634,8 +701,6 @@ async def _top(i,cat):
 async def on_ready():
     print(f"✅ PL Bot ONLINE as {bot.user}!")
     bot.add_view(MainPanel())
-    bot.add_view(RegionView("ranking"))
-    bot.add_view(RegionView("stats"))
     bot.add_view(TopView())
     asyncio.create_task(_preload())
 
@@ -646,6 +711,9 @@ async def _preload():
     else:
         print("[PL Bot] No JSON on disk — will download and parse PDF on first request.")
     await get_data()
+    # Registra RegionView após dados carregados (REGIONS já populado)
+    bot.add_view(RegionView("ranking"))
+    bot.add_view(RegionView("stats"))
     print("[PL Bot] Ready!")
 
 @bot.event
