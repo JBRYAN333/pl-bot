@@ -40,13 +40,12 @@ def _download_pdf_bytes() -> bytes:
 # ── Parser ────────────────────────────────────────────────────────────────────
 import pdfplumber
 
-# REGIONS é populado dinamicamente pelo parser ao ler o doc.
-# Regiões conhecidas com flags/cores — qualquer região nova recebe defaults.
-REGIONS: list[str] = []   # preenchido em _parse_pdf_bytes()
+# Populado dinamicamente pelo parser. Fallback garante que nunca fica vazio.
+REGIONS: list[str] = ["EU", "NA", "SA", "AS", "Global"]
 
 _REGION_FLAG  = {"EU":"🇪🇺","NA":"🇺🇸","SA":"🇧🇷","AS":"🌏","Global":"🌍"}
 _REGION_COLOR = {"EU":0x003BB5,"NA":0xBF0000,"SA":0x009C3B,"AS":0xFF6600,"Global":0x00BFFF}
-# regex genérico: qualquer "XXX Rankings" / "XXX Records" no início da linha
+
 _RE_SR  = re.compile(r'^([A-Za-z]{2,8})\s+Rankings?$', re.I)
 _RE_SC  = re.compile(r'^([A-Za-z]{2,8})\s+Records?$',  re.I)
 _RE_RR  = re.compile(r'^(Win|Loss|Draw|NC|WIn)\b', re.I)
@@ -55,8 +54,8 @@ _RE_TH  = re.compile(r'^Tier \d', re.I)
 _RE_NR  = re.compile(r'^(.+?)\s*\((\d+)-(\d+)\)$')
 _RE_CT  = re.compile(r'[\u200b\u00a0\u200c\u200d\u2060\ufeff\u202f\xa0]')
 _RE_EV  = re.compile(
-    r'(DW2PL\s+(?:Fight\s+Night\s+|EU\s+Tournament\s+|NA\s+Tournament\s+'
-    r'|SA\s+Tournament\s+|Global\s+Tournament\s+|Global\s+Part\s+\d+\s*)?#?\d+)', re.I)
+    r'(DW2PL\s+(?:Fight\s+Night\s+|[A-Za-z]{2,8}\s+Tournament\s+'
+    r'|Global\s+Part\s+\d+\s*)?#?\d+)', re.I)
 _RE_HDR = re.compile(r'\bRes\.?\s+Record\b|\bOpponent\b.*\bScore\b', re.I)
 _SKIP   = re.compile(
     r'Non-Tournament|Fight of the|Qualifiers?|Prelims?|VOD Link|'
@@ -64,6 +63,10 @@ _SKIP   = re.compile(
     r'Finals?|Exhibitions?|Inactive|'
     r'^\s*(Top \d+|DW2PL|Rules?|Lag Rule|Inter-Regional|Same.region)\b', re.I
 )
+
+def _canonical(raw: str) -> str:
+    """eu→EU, na→NA, as→AS, global→Global"""
+    return raw.upper() if len(raw) <= 3 else raw.capitalize()
 
 def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
     global REGIONS
@@ -99,22 +102,19 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
     lines = [re.sub(r'\s+', ' ', _RE_CT.sub(' ', l).strip())
              for l in text.splitlines() if l.strip()]
 
-    # ── Descoberta dinâmica de regiões ────────────────────────────────────────
-    # Varre as linhas em ordem, coleta qualquer "XXX Rankings/Records".
-    # Global fica sempre por último.
-    seen: dict[str, str] = {}   # lower → canonical Title Case
+    # Descoberta dinâmica — varre linhas em ordem, Global sempre vai pro final
+    seen: dict[str, str] = {}
     for line in lines:
         m = _RE_SR.match(line) or _RE_SC.match(line)
         if m:
-            raw = m.group(1)
-            key = raw.lower()
+            key = m.group(1).lower()
             if key not in seen:
-                # "eu"→"EU", "global"→"Global", "na"→"NA", "as"→"AS"
-                seen[key] = raw.upper() if len(raw) <= 3 else raw.capitalize()
+                seen[key] = _canonical(m.group(1))
     ordered = [v for k, v in seen.items() if k != "global"]
     if "global" in seen:
         ordered.append(seen["global"])
-    REGIONS[:] = ordered if ordered else ["EU", "NA", "SA", "AS", "Global"]
+    if ordered:
+        REGIONS[:] = ordered
     print(f"[PL Bot] Regions detected: {REGIONS}")
 
     res = {r: {"ranking": [], "unranked": {}, "records": {}} for r in REGIONS}
@@ -124,18 +124,14 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
     for line in lines:
         m = _RE_SR.match(line)
         if m:
-            raw = m.group(1)
-            key = raw.lower()
-            # mapeia pro canonical que foi detectado
-            canonical = (raw.upper() if len(raw) <= 3 else raw.capitalize())
-            if canonical not in res: continue
-            cr = canonical; cs = "ranking"; th = []; cp = None; pending_name = None; continue
+            c = _canonical(m.group(1))
+            if c not in res: continue
+            cr = c; cs = "ranking"; th = []; cp = None; pending_name = None; continue
         m = _RE_SC.match(line)
         if m:
-            raw = m.group(1)
-            canonical = (raw.upper() if len(raw) <= 3 else raw.capitalize())
-            if canonical not in res: continue
-            cr = canonical; cs = "records"; cp = None; pending_name = None; continue
+            c = _canonical(m.group(1))
+            if c not in res: continue
+            cr = c; cs = "records"; cp = None; pending_name = None; continue
         if not cr:
             continue
         reg = res[cr]
@@ -204,7 +200,7 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
             has_g = bool(re.search(r'\(G\)\s*$', line))
             cand  = re.sub(r'\s*\(G\)\s*$', '', line).strip()
             is_c  = False
-            skip_upper = set(REGIONS) | {"UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3"}
+            skip_upper = {r.upper() for r in REGIONS} | {"UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3"}
             if has_g and 1 <= len(cand) <= 35 and not _SKIP.search(cand):
                 is_c = True
             elif (2 <= len(cand) <= 35 and not re.search(r'\d{4,}', cand)
@@ -215,32 +211,29 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
             pending_name = cand if is_c else None
     return res, vod_map
 
-
 def _rebuild_json() -> tuple[dict, dict]:
-    """Pesado: baixa PDF → parseia → salva JSON → libera memória. Só roda no !refresh ou primeira vez."""
     print("[PL Bot] Downloading PDF from Google Docs...")
     pdf_bytes = _download_pdf_bytes()
     print(f"[PL Bot] PDF downloaded ({len(pdf_bytes)//1024} KB). Parsing...")
     data, vods = _parse_pdf_bytes(pdf_bytes)
-    del pdf_bytes  # libera RAM do PDF imediatamente
+    del pdf_bytes
     with open(JSON_PATH, "w", encoding="utf-8") as f:
         json.dump({"data": data, "vods": vods, "regions": REGIONS}, f, ensure_ascii=False, separators=(',', ':'))
     size = os.path.getsize(JSON_PATH)
-    print(f"[PL Bot] JSON saved to disk: {size//1024} KB. VODs: {len(vods)}")
+    print(f"[PL Bot] JSON saved: {size//1024} KB. VODs: {len(vods)}")
     for r in REGIONS:
         reg = data.get(r, {})
         print(f"[PL Bot] {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history")
     return data, vods
 
 def _load_json() -> tuple[dict, dict]:
-    """Leve: lê o JSON do disco (~5 MB RAM). Startup rápido."""
     global REGIONS
     with open(JSON_PATH, encoding="utf-8") as f:
         obj = json.load(f)
     data = obj.get("data", {}); vods = obj.get("vods", {})
-    saved_regions = obj.get("regions", [])
-    if saved_regions:
-        REGIONS[:] = saved_regions
+    saved = obj.get("regions", [])
+    if saved:
+        REGIONS[:] = saved
     print(f"[PL Bot] Loaded from disk. Regions: {REGIONS}. VODs: {len(vods)}")
     for r in REGIONS:
         reg = data.get(r, {})
@@ -258,25 +251,20 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 bot.remove_command("help")
 
 WELCOME_CHANNEL_ID = 0
-PANEL_COLOR        = 0x00BFFF   # neon blue — Pro League brand
-PANEL_DARK         = 0x0A0E1A   # near-black for main panel
+PANEL_COLOR        = 0x00BFFF
+PANEL_DARK         = 0x0A0E1A
 FIGHTS_PER_PAGE    = 10
 
 # ── Cache ─────────────────────────────────────────────────────────────────────
 _data:       dict | None = None
 _vods:       dict | None = None
-_refreshing: bool        = False  # lock anti-duplo
+_refreshing: bool        = False
 
 def clear_cache():
     global _data, _vods
     _data = _vods = None
 
 async def get_data() -> tuple[dict, dict]:
-    """
-    1. Cache RAM  → retorna imediato (uso normal, ~0 RAM extra)
-    2. JSON disco → leitura leve (~5 MB, após restart da Square)
-    3. Nenhum     → baixa PDF e parseia (pesado, só na primeira vez)
-    """
     global _data, _vods
     if _data:
         return _data, _vods or {}
@@ -288,7 +276,6 @@ async def get_data() -> tuple[dict, dict]:
     return _data, _vods or {}
 
 async def do_refresh() -> str:
-    """Refresh com lock — impede dois parsings simultâneos."""
     global _data, _vods, _refreshing
     if _refreshing:
         return "⏳ A refresh is already in progress. Please wait."
@@ -301,7 +288,7 @@ async def do_refresh() -> str:
         fights = sum(len(v) for r in REGIONS for v in _data.get(r,{}).get("records",{}).values())
         return f"✅ Data updated! {ranked} ranked | {fights} fights | {len(_vods)} VODs"
     except Exception as e:
-        return f"❌ Erro: `{e}`"
+        return f"❌ Error: `{e}`"
     finally:
         _refreshing = False
 
@@ -345,7 +332,7 @@ def build_main_embed():
         title="PRO LEAGUE — RECORD BOOK",
         description="**Drunken Wrestlers 2 — Pro League** | Interactive Panel\n\nRankings, player cards and match history across all regions.",
         color=PANEL_DARK)
-    e.add_field(name="🌍 Rankings",      value="Top 10 by region (EU/NA/SA/Global)",inline=True)
+    e.add_field(name="🌍 Rankings",      value="Top 10 by region",                  inline=True)
     e.add_field(name="👤 Player Lookup", value="Full card with match history",       inline=True)
     e.add_field(name="📊 Stats",         value="Region overview & leaderboards",     inline=True)
     e.add_field(name="🏅 Top Rankings",  value="Top Wins, Win Rate, MP",            inline=True)
@@ -480,6 +467,7 @@ class MainPanel(ui.View):
         except Exception: pass
 
 class RegionView(ui.View):
+    """Dinâmica — botões gerados a partir de REGIONS em tempo de execução."""
     def __init__(self, mode):
         super().__init__(timeout=None)
         self.mode = mode
@@ -491,20 +479,20 @@ class RegionView(ui.View):
             discord.ButtonStyle.primary,
         ]
         for idx, region in enumerate(REGIONS):
-            flag = region_flag(region)
             btn = discord.ui.Button(
-                label=f"{flag} {region}",
+                label=f"{region_flag(region)} {region}",
                 style=_styles[idx % len(_styles)],
-                custom_id=f"rv_{region.lower()}",
-                row=idx // 4   # máx 4 por linha, overflow vai pra row 1
+                custom_id=f"rv_{region.lower()}_{mode}",  # inclui mode para evitar colisão
+                row=min(idx // 4, 3)
             )
             btn.callback = self._make_cb(region)
             self.add_item(btn)
+        back_row = min(len(REGIONS) // 4 + 1, 4)
         back_btn = discord.ui.Button(
             label="🔙 Back",
             style=discord.ButtonStyle.secondary,
-            custom_id="rv_back",
-            row=(len(REGIONS) // 4) + 1
+            custom_id=f"rv_back_{mode}",
+            row=back_row
         )
         back_btn.callback = self._back
         self.add_item(back_btn)
@@ -519,16 +507,16 @@ class RegionView(ui.View):
 
     async def _go(self, i, region):
         if not await safe_defer(i): return
-        data, _ = await get_data(); reg = data.get(region, {})
+        data, _ = await get_data()
+        reg = data.get(region, {})
         if self.mode == "ranking":
-            view = RankView(region, data)
             embed = build_ranking_embed(region, reg.get("ranking", []), reg.get("unranked", {}))
+            view  = RankView(region, data)
         else:
-            view = StatsView(region, data)
             embed = build_stats_embed(region, reg)
+            view  = StatsView(region, data)
         try: await i.edit_original_response(embed=embed, view=view)
         except Exception: pass
-
 
 class RankView(ui.View):
     def __init__(self,region,data):
@@ -604,9 +592,10 @@ class StatsView(ui.View):
         except Exception: pass
 
 class HistNavView(ui.View):
-    def __init__(self,dn,fights,page,back_region="EU"):
+    def __init__(self,dn,fights,page,back_region=None):
         super().__init__(timeout=300)
-        self.dn=dn; self.fights=fights; self.page=page; self.back_region=back_region
+        self.dn=dn; self.fights=fights; self.page=page
+        self.back_region=back_region or (REGIONS[0] if REGIONS else "EU")
         self.tp=max(1,(len(fights)+FIGHTS_PER_PAGE-1)//FIGHTS_PER_PAGE)
         self._upd()
     def _upd(self):
@@ -644,7 +633,7 @@ class PlayerModal(ui.Modal,title="🔍 Player Lookup"):
         if not entry and not fights:
             return await i.followup.send(f"❌ Player **{self.name.value}** not found.")
         if not entry:
-            ereg=Counter(r for r,_ in fights).most_common(1)[0][0] if fights else "EU"
+            ereg=Counter(r for r,_ in fights).most_common(1)[0][0] if fights else REGIONS[0]
             entry={"pos":"—","wins":sum(1 for _,f in fights if f["result"].lower()=="win"),
                    "losses":sum(1 for _,f in fights if f["result"].lower()=="loss"),"mp":len(fights),"affiliation":""}
         embed=build_player_embed(entry,ereg,fights,dn)
@@ -707,22 +696,23 @@ async def on_ready():
 async def _preload():
     await asyncio.sleep(2)
     if os.path.exists(JSON_PATH):
-        print("[PL Bot] JSON on disk found — loading light copy, no PDF download needed.")
+        print("[PL Bot] JSON on disk found — loading light copy.")
     else:
-        print("[PL Bot] No JSON on disk — will download and parse PDF on first request.")
+        print("[PL Bot] No JSON on disk — downloading and parsing PDF.")
     await get_data()
-    # Registra RegionView após dados carregados (REGIONS já populado)
+    # Registra RegionView DEPOIS de carregar dados, quando REGIONS já está populado
     bot.add_view(RegionView("ranking"))
     bot.add_view(RegionView("stats"))
-    print("[PL Bot] Ready!")
+    print(f"[PL Bot] Ready! Regions: {REGIONS}")
 
 @bot.event
 async def on_member_join(member):
     if not WELCOME_CHANNEL_ID: return
     ch=bot.get_channel(WELCOME_CHANNEL_ID)
     if not ch: return
+    regions_str=" | ".join(REGIONS)
     e=discord.Embed(title="🏁 NEW COMPETITOR IN THE PRO LEAGUE!",
-        description=f"**Welcome to the DW2 Pro League, {member.mention}!**\n\nThe Pro League is the official DW2 tournament with rankings across EU, NA, SA and Global.\n\n🏆 Check rankings with `!panel`\n📋 Register in the sign-up channel to compete.",
+        description=f"**Welcome to the DW2 Pro League, {member.mention}!**\n\nThe Pro League is the official DW2 tournament with rankings across {regions_str}.\n\n🏆 Check rankings with `!panel`\n📋 Register in the sign-up channel to compete.",
         color=PANEL_COLOR)
     e.set_thumbnail(url=member.display_avatar.url)
     await ch.send(embed=e)
@@ -734,25 +724,25 @@ async def cmd_panel(ctx): await ctx.send(embed=build_main_embed(),view=MainPanel
 @bot.command(name="ranking")
 async def cmd_ranking(ctx,region:str=None):
     if not region or region.upper() not in [r.upper() for r in REGIONS]:
-        await ctx.send("Usage: `!ranking <EU|NA|SA|Global>`",view=RegionView("ranking")); return
+        await ctx.send("Usage: `!ranking <" + "|".join(REGIONS) + ">`",view=RegionView("ranking")); return
     rk=next(r for r in REGIONS if r.upper()==region.upper())
     data,_=await get_data(); reg=data.get(rk,{})
     await ctx.send(embed=build_ranking_embed(rk,reg.get("ranking",[]),reg.get("unranked",{})),view=RankView(rk,data))
 
 @bot.command(name="player",aliases=["jogador"])
 async def cmd_player(ctx,*,name:str=None):
-    if not name: return await ctx.send("Usage: `!player <n>`")
+    if not name: return await ctx.send("Usage: `!player <name>`")
     data,_=await get_data(); dn,fights,entry,ereg=collect_fights(name.lower(),data)
     if not entry and not fights: return await ctx.send(f"❌ Player **{name}** not found.")
     if not entry:
-        ereg=Counter(r for r,_ in fights).most_common(1)[0][0] if fights else "EU"
+        ereg=Counter(r for r,_ in fights).most_common(1)[0][0] if fights else REGIONS[0]
         entry={"pos":"—","wins":sum(1 for _,f in fights if f["result"].lower()=="win"),
                "losses":sum(1 for _,f in fights if f["result"].lower()=="loss"),"mp":len(fights),"affiliation":""}
     await ctx.send(embed=build_player_embed(entry,ereg,fights,dn),view=HistNavView(dn,fights,0,back_region=ereg))
 
 @bot.command(name="history",aliases=["historico","hist"])
 async def cmd_history(ctx,*,name:str=None):
-    if not name: return await ctx.send("Usage: `!history <n>`")
+    if not name: return await ctx.send("Usage: `!history <name>`")
     data,_=await get_data(); dn,fights,_,_=collect_fights(name.lower(),data)
     if not fights: return await ctx.send(f"❌ Player **{name}** not found.")
     await ctx.send(embed=build_history_page(dn,fights,0),view=HistNavView(dn,fights,0))
@@ -760,7 +750,7 @@ async def cmd_history(ctx,*,name:str=None):
 @bot.command(name="stats",aliases=["estatisticas"])
 async def cmd_stats(ctx,region:str=None):
     if not region or region.upper() not in [r.upper() for r in REGIONS]:
-        return await ctx.send("Usage: `!stats <EU|NA|SA|Global>`")
+        return await ctx.send("Usage: `!stats <" + "|".join(REGIONS) + ">`")
     rk=next(r for r in REGIONS if r.upper()==region.upper())
     data,_=await get_data()
     await ctx.send(embed=build_stats_embed(rk,data.get(rk,{})),view=StatsView(rk,data))
@@ -790,10 +780,10 @@ async def cmd_refresh(ctx):
 async def cmd_help(ctx):
     e=discord.Embed(title="📜 PL Bot — Commands",description="Use **`!panel`** for the full interactive panel.",color=PANEL_COLOR)
     e.add_field(name="!panel",value="Interactive panel with buttons",inline=False)
-    e.add_field(name="!ranking <EU|NA|SA|Global>",value="Region top 10",inline=False)
-    e.add_field(name="!player <n>",value="Player card. e.g. `!player NLG`",inline=False)
-    e.add_field(name="!history <n>",value="Fight log. e.g. `!history Jab`",inline=False)
-    e.add_field(name="!stats <EU|NA|SA|Global>",value="Region statistics",inline=False)
+    e.add_field(name="!ranking <region>",value=f"Region top 10 — `{'|'.join(REGIONS)}`",inline=False)
+    e.add_field(name="!player <name>",value="Player card. e.g. `!player NLG`",inline=False)
+    e.add_field(name="!history <name>",value="Fight log. e.g. `!history Jab`",inline=False)
+    e.add_field(name="!stats <region>",value="Region statistics",inline=False)
     e.add_field(name="!top [wins|wr|mp]",value="`wins` | `wr` | `mp`",inline=False)
     e.add_field(name="!refresh",value="Reload data from Google Docs",inline=False)
     await ctx.send(embed=e)
