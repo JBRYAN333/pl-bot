@@ -59,7 +59,7 @@ _RE_EV  = re.compile(
 _RE_HDR = re.compile(r'\bRes\.?\s+Record\b|\bOpponent\b.*\bScore\b', re.I)
 _SKIP   = re.compile(
     r'Non-Tournament|Qualifiers?|Prelims?|VOD Link|'
-    r'Round \d+|Losers|Winners|Bracket|Inaugural|won the|replaced |forfeited|'
+    r'Round \d+|Losers|Winners|Bracket|'
     r'Finals?|Exhibitions?|Inactive|'
     r'^\s*(Top \d+|DW2PL|Rules?|Lag Rule|Inter-Regional|Same.region)\b', re.I
 )
@@ -331,14 +331,16 @@ def build_main_embed():
         title="PRO LEAGUE — RECORD BOOK",
         description="**Drunken Wrestlers 2 — Pro League** | Interactive Panel\n\nRankings, player cards and match history across all regions.",
         color=PANEL_DARK)
-    e.add_field(name="🌍 Rankings",      value="Top 10 by region",                  inline=True)
-    e.add_field(name="👤 Player Lookup", value="Full card with match history",       inline=True)
-    e.add_field(name="📊 Stats",         value="Region overview & leaderboards",     inline=True)
-    e.add_field(name="🏅 Top Rankings",  value="Top Wins, Win Rate, MP",            inline=True)
-    e.add_field(name="👥 All Players",   value="Full all-time roster",              inline=True)
+    e.add_field(name="🌍 Rankings",        value="Top 10 by region",                inline=True)
+    e.add_field(name="👤 Player Lookup",   value="Full card with match history",     inline=True)
+    e.add_field(name="📊 Stats",           value="Region overview & leaderboards",   inline=True)
+    e.add_field(name="🏅 Top Rankings",    value="Top Wins, Win Rate, MP",          inline=True)
+    e.add_field(name="👥 All Players",     value="Full all-time roster",            inline=True)
     e.add_field(name="🌟 Fight of the Night", value="Award-winning fights",         inline=True)
-    e.add_field(name="📅 Events",        value="Browse by region & event",          inline=True)
-    e.add_field(name="🔄 Refresh",       value="Reload data from Google Docs",      inline=True)
+    e.add_field(name="📅 Events",          value="Browse by region & event",        inline=True)
+    e.add_field(name="🏆 Championship",    value="Title fight history by region",   inline=True)
+    e.add_field(name="🐐 GOAT",            value="Greatest of All Time per region", inline=True)
+    e.add_field(name="🔄 Refresh",         value="Reload data from Google Docs",    inline=True)
     e.set_footer(text="PL Bot • Source: DW2PL Records (Google Docs) • EST. 2021")
     return e
 
@@ -468,7 +470,16 @@ class MainPanel(ui.View):
         except Exception: pass
     @ui.button(label="📅 Events",       style=discord.ButtonStyle.success,  custom_id="pl_events",  row=2)
     async def events(self,i,b): await safe_edit(i,embed=discord.Embed(title="📅 Events — Select Region",color=PANEL_COLOR),view=EventRegionView())
-    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=2)
+    @ui.button(label="🏆 Championship", style=discord.ButtonStyle.danger,   custom_id="pl_champ",   row=3)
+    async def champ(self,i,b): await safe_edit(i,embed=discord.Embed(title="🏆 Championship History — Select Region",color=PANEL_COLOR),view=ChampHistoryRegionView())
+    @ui.button(label="🐐 GOAT",         style=discord.ButtonStyle.primary,  custom_id="pl_goat",    row=3)
+    async def goat(self,i,b):
+        if not await safe_defer(i): return
+        data,_=await get_data()
+        goat_data=compute_goat(data)
+        try: await i.edit_original_response(embed=build_goat_embed(goat_data),view=GoatView())
+        except Exception: pass
+    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=3)
     async def refresh(self,i,b):
         await safe_defer(i)
         try:
@@ -827,7 +838,7 @@ def build_all_players_embed(all_players, page=0, per_page=25):
 # ── Fight of the Night ────────────────────────────────────────────────────────
 def collect_fotn(data):
     """Collect all fights flagged as Fight of the Night (any variant)."""
-    _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|FOTN|\bFON\b', re.I)
+    _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|fight\s+of\s+night|FOTN|\bFON\b', re.I)
     results = []
     for region, reg in data.items():
         for pname, fights in reg.get("records", {}).items():
@@ -847,16 +858,16 @@ def build_fotn_embed(fotn_list, page=0, per_page=8):
         color=0xFFAA00
     )
     for region, pname, f in chunk:
-        vod = f" [▶]({f['vod']})" if f.get("vod") else ""
+        vod = f" [\u25b6]({f['vod']})" if f.get("vod") else ""
         notes = f.get("notes", "") or ""
         e.add_field(
-            name=f"🌟 {pname} vs {f.get('opponent','?')} `{f.get('score','')}`",
-            value=f"{region_flag(region)} {region} | {res_emoji(f['result'])} {f['result'].upper()} | 📅 {f.get('event','')}{vod}\n_{notes}_" if notes else
-                  f"{region_flag(region)} {region} | {res_emoji(f['result'])} {f['result'].upper()} | 📅 {f.get('event','')}{vod}",
+            name=f"🌟 {pname} vs {f.get('opponent','?')}" + " `" + f.get("score","") + "`",
+            value=(f"{region_flag(region)} {region} | {res_emoji(f['result'])} {f['result'].upper()} | 📅 {f.get('event','')}{vod}\n_{notes}_" if notes else
+                   f"{region_flag(region)} {region} | {res_emoji(f['result'])} {f['result'].upper()} | 📅 {f.get('event','')}{vod}"),
             inline=False
         )
     if not chunk:
-        e.description = "No Fight of the Night records found in the current data."
+        e.description = "No Fight of the Night records found. Try **🔄 Refresh** to reload data."
     e.set_footer(text="PL Bot • Fight of the Night Awards")
     return e
 
@@ -890,6 +901,205 @@ class FOTNView(ui.View):
         except Exception: pass
 
     @ui.button(label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="fotn_home", row=1)
+    async def home(self, i, b): await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+# ── Champion History ───────────────────────────────────────────────────────────
+def collect_champion_history(data):
+    _re_won      = re.compile(r'\bwon\b.+championship', re.I)
+    _re_defended = re.compile(r'\bdefended\b.+championship', re.I)
+    _re_lost     = re.compile(r'\blost\b.+championship', re.I)
+    _re_for      = re.compile(r'\bfor\b.+championship', re.I)
+    _re_elim     = re.compile(r'title\s+eliminator', re.I)
+    _re_mandatory= re.compile(r'mandatory\s+rematch', re.I)
+    history = {}
+    for region, reg in data.items():
+        entries = []
+        for pname, fights in reg.get("records", {}).items():
+            for f in fights:
+                notes = f.get("notes", "") or ""
+                if not notes: continue
+                tag = None
+                if _re_won.search(notes):        tag = "👑 Won"
+                elif _re_defended.search(notes): tag = "🛡️ Defended"
+                elif _re_lost.search(notes):     tag = "💀 Lost"
+                elif _re_for.search(notes):      tag = "🥊 Title Fight"
+                elif _re_elim.search(notes):     tag = "⚡ Eliminator"
+                elif _re_mandatory.search(notes):tag = "🔁 Mandatory Rematch"
+                if tag:
+                    entries.append((pname, f, tag, notes))
+        history[region] = entries
+    return history
+
+def build_champ_history_embed(region, entries, page=0, per_page=8):
+    total_pages = max(1, (len(entries) + per_page - 1) // per_page)
+    chunk = entries[page * per_page:(page + 1) * per_page]
+    e = discord.Embed(
+        title=f"🏆 {region_flag(region)} {region} — Championship History",
+        description=f"**{len(entries)} title fights recorded** | Page {page+1}/{total_pages}",
+        color=region_color(region)
+    )
+    for pname, f, tag, notes in chunk:
+        vod = f" [\u25b6]({f['vod']})" if f.get("vod") else ""
+        e.add_field(
+            name=f"{tag} — **{pname}** vs {f.get('opponent','?')}" + " `" + f.get("score","") + "`",
+            value=f"📅 {f.get('event','')}{vod}\n_{notes}_",
+            inline=False
+        )
+    if not chunk:
+        e.description = "No championship history found. Try **🔄 Refresh**."
+    e.set_footer(text=f"PL Bot • {region} Championship History")
+    return e
+
+class ChampHistoryRegionView(ui.View):
+    def __init__(self):
+        super().__init__(timeout=None)
+        _styles = [discord.ButtonStyle.primary, discord.ButtonStyle.danger,
+                   discord.ButtonStyle.success, discord.ButtonStyle.secondary,
+                   discord.ButtonStyle.primary]
+        for idx, region in enumerate(REGIONS):
+            btn = discord.ui.Button(
+                label=region, emoji=region_flag(region),
+                style=_styles[idx % len(_styles)],
+                custom_id=f"ch_reg_{region.lower()}",
+                row=min(idx // 4, 2)
+            )
+            btn.callback = self._make_cb(region)
+            self.add_item(btn)
+        home_btn = discord.ui.Button(label="🏠 Main Menu", style=discord.ButtonStyle.primary,
+                                     custom_id="ch_home", row=min(len(REGIONS)//4+1,3))
+        home_btn.callback = self._home
+        self.add_item(home_btn)
+
+    def _make_cb(self, region):
+        async def cb(i):
+            if not await safe_defer(i): return
+            data, _ = await get_data()
+            history = collect_champion_history(data)
+            entries = history.get(region, [])
+            embed = build_champ_history_embed(region, entries)
+            view = ChampHistoryNavView(region, entries)
+            try: await i.edit_original_response(embed=embed, view=view)
+            except Exception: pass
+        return cb
+
+    async def _home(self, i):
+        await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+class ChampHistoryNavView(ui.View):
+    def __init__(self, region, entries, page=0):
+        super().__init__(timeout=None)
+        self.region = region; self.entries = entries; self.page = page
+        self.per_page = 8
+        self.total_pages = max(1, (len(entries) + self.per_page - 1) // self.per_page)
+        self._upd()
+
+    def _upd(self):
+        self.btn_prev.disabled = self.page == 0
+        self.btn_next.disabled = self.page >= self.total_pages - 1
+        self.btn_prev.label = f"◀ {self.page}/{self.total_pages}" if self.page > 0 else "◀"
+        self.btn_next.label = f"{self.page+2}/{self.total_pages} ▶" if self.page < self.total_pages-1 else "▶"
+
+    @ui.button(label="◀", style=discord.ButtonStyle.secondary, custom_id="ch_prev", row=0, disabled=True)
+    async def btn_prev(self, i, b):
+        if not await safe_defer(i): return
+        self.page -= 1; self._upd()
+        try: await i.edit_original_response(embed=build_champ_history_embed(self.region, self.entries, self.page), view=self)
+        except Exception: pass
+
+    @ui.button(label="▶", style=discord.ButtonStyle.secondary, custom_id="ch_next", row=0)
+    async def btn_next(self, i, b):
+        if not await safe_defer(i): return
+        self.page += 1; self._upd()
+        try: await i.edit_original_response(embed=build_champ_history_embed(self.region, self.entries, self.page), view=self)
+        except Exception: pass
+
+    @ui.button(label="🔙 Back", style=discord.ButtonStyle.secondary, custom_id="ch_back", row=1)
+    async def back(self, i, b): await safe_edit(i, embed=discord.Embed(title="🏆 Championship History — Select Region", color=PANEL_COLOR), view=ChampHistoryRegionView())
+
+    @ui.button(label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="ch_home2", row=1)
+    async def home(self, i, b): await safe_edit(i, embed=build_main_embed(), view=MainPanel())
+
+# ── GOAT Card ─────────────────────────────────────────────────────────────────
+def compute_goat(data):
+    _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|FOTN', re.I)
+    _re_won  = re.compile(r'\bwon\b.+championship', re.I)
+    _re_def  = re.compile(r'\bdefended\b.+championship', re.I)
+    goat_by_region = {}
+    for region, reg in data.items():
+        records = reg.get("records", {})
+        ranking = reg.get("ranking", [])
+        player_stats = {}
+        for p in ranking:
+            player_stats[p["player"].lower()] = {
+                "name": p["player"], "wins": p["wins"], "losses": p["losses"],
+                "mp": p["mp"], "affiliation": p.get("affiliation",""), "pos": p["pos"],
+                "fotn": 0, "titles_won": 0, "titles_defended": 0
+            }
+        for pname, fights in records.items():
+            key = pname.lower()
+            if key not in player_stats: continue
+            for f in fights:
+                notes = f.get("notes","") or ""
+                if _re_fotn.search(notes) or _re_fotn.search(f.get("event","") or ""):
+                    player_stats[key]["fotn"] += 1
+                if _re_won.search(notes):
+                    player_stats[key]["titles_won"] += 1
+                if _re_def.search(notes):
+                    player_stats[key]["titles_defended"] += 1
+        eligible = [v for v in player_stats.values() if v["wins"] + v["losses"] >= 5]
+        if not eligible:
+            goat_by_region[region] = []; continue
+        max_wins = max(p["wins"] for p in eligible) or 1
+        max_mp   = max(p["mp"] for p in eligible) or 1
+        scored = []
+        for p in eligible:
+            total = p["wins"] + p["losses"]
+            wr    = p["wins"] / total if total > 0 else 0
+            score = (wr * 0.40
+                     + (p["wins"] / max_wins) * 0.25
+                     + (p["mp"] / max_mp) * 0.15
+                     + min(p["titles_won"] * 0.10, 0.30)
+                     + min(p["titles_defended"] * 0.05, 0.15)
+                     + min(p["fotn"] * 0.04, 0.20))
+            scored.append((round(score, 4), p))
+        goat_by_region[region] = sorted(scored, key=lambda x: -x[0])
+    return goat_by_region
+
+def build_goat_embed(goat_by_region):
+    e = discord.Embed(
+        title="🐐 GOAT Card — Pro League All Time",
+        description="Greatest of All Time per region, scored by win rate, championship history, matches played and Fight of the Night awards.",
+        color=0xFFD700
+    )
+    for region in REGIONS:
+        scores = goat_by_region.get(region, [])
+        if not scores:
+            e.add_field(name=f"{region_flag(region)} {region}", value="Not enough data", inline=False); continue
+        top_score, goat = scores[0]
+        total = goat["wins"] + goat["losses"]
+        wr_pct = round(goat["wins"] / total * 100, 1) if total > 0 else 0
+        fotn_str = f" | 🌟 {goat['fotn']} FOTN" if goat["fotn"] > 0 else ""
+        title_str = ""
+        if goat["titles_won"]: title_str += f" | 👑 {goat['titles_won']}x Champ"
+        if goat["titles_defended"]: title_str += f" | 🛡️ {goat['titles_defended']}x Def."
+        aff = f" *{goat['affiliation']}*" if goat.get("affiliation") else ""
+        runners = []
+        for sc, p in scores[1:4]:
+            t2 = p["wins"] + p["losses"]
+            wr2 = round(p["wins"]/t2*100,1) if t2>0 else 0
+            runners.append(f"`#{scores.index((sc,p))+1}` **{p['name']}** {wr2}% ({p['wins']}-{p['losses']})")
+        runner_str = "\n".join(runners) if runners else ""
+        value = (f"**{goat['name']}**{aff} — Score `{top_score}`\n"
+                 f"`{goat['wins']}-{goat['losses']}` | {wr_pct}% WR | {goat['mp']} MP{fotn_str}{title_str}")
+        if runner_str:
+            value += f"\n\n**Runners-up:**\n{runner_str}"
+        e.add_field(name=f"{region_flag(region)} {region} GOAT", value=value, inline=False)
+    e.set_footer(text="PL Bot • GOAT formula: WR(40%) + Wins(25%) + MP(15%) + Titles(up to 30%) + FOTN(up to 20%)")
+    return e
+
+class GoatView(ui.View):
+    def __init__(self): super().__init__(timeout=None)
+    @ui.button(label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="goat_home", row=0)
     async def home(self, i, b): await safe_edit(i, embed=build_main_embed(), view=MainPanel())
 
 # ── Events Browser ────────────────────────────────────────────────────────────
@@ -1188,6 +1398,24 @@ async def cmd_fotn(ctx):
     fotn=collect_fotn(data)
     await ctx.send(embed=build_fotn_embed(fotn),view=FOTNView(fotn))
 
+@bot.command(name="goat")
+async def cmd_goat(ctx):
+    data,_=await get_data()
+    goat_data=compute_goat(data)
+    await ctx.send(embed=build_goat_embed(goat_data),view=GoatView())
+
+@bot.command(name="championship",aliases=["champ","champions"])
+async def cmd_championship(ctx,region:str=None):
+    data,_=await get_data()
+    history=collect_champion_history(data)
+    if region:
+        rf=next((r for r in REGIONS if r.upper()==region.upper()),None)
+        if rf:
+            entries=history.get(rf,[])
+            await ctx.send(embed=build_champ_history_embed(rf,entries),view=ChampHistoryNavView(rf,entries))
+            return
+    await ctx.send(embed=discord.Embed(title="🏆 Championship History — Select Region",color=PANEL_COLOR),view=ChampHistoryRegionView())
+
 @bot.command(name="events",aliases=["eventos"])
 async def cmd_events(ctx,region:str=None):
     data,_=await get_data()
@@ -1210,6 +1438,8 @@ async def cmd_help(ctx):
     e.add_field(name="!stats <region>",value="Region statistics",inline=False)
     e.add_field(name="!top [wins|wr|mp]",value="`wins` | `wr` | `mp`",inline=False)
     e.add_field(name="!fotn",value="Fight of the Night awards",inline=False)
+    e.add_field(name="!goat",value="GOAT card — greatest per region",inline=False)
+    e.add_field(name="!championship [region]",value="Title fight history by region",inline=False)
     e.add_field(name="!events [region]",value="Browse events by region",inline=False)
     e.add_field(name="!refresh",value="Reload data from Google Docs",inline=False)
     await ctx.send(embed=e)
