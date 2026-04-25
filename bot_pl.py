@@ -320,7 +320,9 @@ def collect_fights(query, data):
                 for f in fs: fights.append((region,f))
     seen=set(); unique=[]
     for region,f in fights:
-        key=(f.get("record",""),f.get("opponent",""),f.get("score",""))
+        # Deduplicate: same fight can appear if player listed in multiple regions
+        # Key: result + record + opponent + score (all fields together)
+        key=(f.get("result",""),f.get("record",""),f.get("opponent",""),f.get("score",""),f.get("event",""))
         if key not in seen:
             seen.add(key); unique.append((region,f))
     return dn, unique, entry, ereg
@@ -479,7 +481,14 @@ class MainPanel(ui.View):
         goat_data=compute_goat(data)
         try: await i.edit_original_response(embed=build_goat_embed(goat_data),view=GoatView())
         except Exception: pass
-    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=3)
+    @ui.button(label="👑 Ex-Champions", style=discord.ButtonStyle.secondary,custom_id="pl_exchamp", row=3)
+    async def exchamp(self,i,b):
+        if not await safe_defer(i): return
+        data,_=await get_data()
+        ex_data=collect_ex_champions(data)
+        try: await i.edit_original_response(embed=build_ex_champ_embed(ex_data),view=ExChampView())
+        except Exception: pass
+    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=4)
     async def refresh(self,i,b):
         await safe_defer(i)
         try:
@@ -1089,13 +1098,73 @@ def build_goat_embed(goat_by_region):
             wr2 = round(p["wins"]/t2*100,1) if t2>0 else 0
             runners.append(f"`#{scores.index((sc,p))+1}` **{p['name']}** Score `{round(sc*100,1)}` | {wr2}% WR ({p['wins']}-{p['losses']})")
         runner_str = "\n".join(runners) if runners else ""
-        value = (f"**{goat['name']}**{aff} — Score `{top_score}`\n"
+        value = (f"**{goat['name']}**{aff} — Score `{round(top_score*100,1)}`\n"
                  f"`{goat['wins']}-{goat['losses']}` | {wr_pct}% WR | {goat['mp']} MP{fotn_str}{title_str}")
         if runner_str:
             value += f"\n\n**Runners-up:**\n{runner_str}"
         e.add_field(name=f"{region_flag(region)} {region} GOAT", value=value, inline=False)
     e.set_footer(text="PL Bot • GOAT formula: WR(40%) + Wins(25%) + MP(15%) + Titles(up to 30%) + FOTN(up to 20%)")
     return e
+
+
+# ── Ex-Champions ──────────────────────────────────────────────────────────────
+def collect_ex_champions(data):
+    """Return dict of region -> {current_champ, ex_champs: [{name, titles, defenses, record}]}"""
+    _re_won = re.compile(r'\bwon\b.+championship', re.I)
+    _re_def = re.compile(r'\bdefended\b.+championship', re.I)
+    result = {}
+    for region in REGIONS:
+        reg = data.get(region, {})
+        ranking = reg.get("ranking", [])
+        records = reg.get("records", {})
+        # Current champion from ranking
+        current = next((p["player"] for p in ranking if str(p.get("pos","")).lower() in ["champion","c"]), None)
+        # Collect everyone who ever won a title
+        champ_stats = {}
+        for pname, fights in records.items():
+            titles = sum(1 for f in fights if _re_won.search(f.get("notes","") or ""))
+            defenses = sum(1 for f in fights if _re_def.search(f.get("notes","") or ""))
+            if titles > 0:
+                # Get their record from ranking if available
+                entry = next((p for p in ranking if p["player"].lower() == pname.lower()), None)
+                rec = f"{entry['wins']}-{entry['losses']}" if entry else "?"
+                champ_stats[pname] = {"name": pname, "titles": titles, "defenses": defenses, "record": rec}
+        # Remove current champion from ex list
+        ex = [v for k, v in champ_stats.items() if not (current and k.lower() == current.lower())]
+        ex.sort(key=lambda x: (-x["titles"], -x["defenses"]))
+        result[region] = {"current": current, "ex": ex}
+    return result
+
+def build_ex_champ_embed(ex_data):
+    e = discord.Embed(
+        title="👑 Champions History — All Regions",
+        description="Current and former champions of every region.",
+        color=0xFFD700
+    )
+    for region in REGIONS:
+        rd = ex_data.get(region, {})
+        current = rd.get("current") or "Vacant"
+        ex_list = rd.get("ex", [])
+        lines = [f"👑 **{current}** *(Current)*"]
+        if ex_list:
+            for p in ex_list:
+                def_str = f" | 🛡️ {p['defenses']}x def." if p["defenses"] > 0 else ""
+                title_str = f"🏆 {p['titles']}x" if p["titles"] > 1 else "🏆"
+                lines.append(f"{title_str} **{p['name']}** `{p['record']}`{def_str}")
+        else:
+            lines.append("*No former champions recorded*")
+        e.add_field(
+            name=f"{region_flag(region)} {region}",
+            value="\n".join(lines),
+            inline=True
+        )
+    e.set_footer(text="PL Bot • Based on championship notes in DW2PL Records")
+    return e
+
+class ExChampView(ui.View):
+    def __init__(self): super().__init__(timeout=None)
+    @ui.button(label="🏠 Main Menu", style=discord.ButtonStyle.primary, custom_id="exchamp_home", row=0)
+    async def home(self, i, b): await safe_edit(i, embed=build_main_embed(), view=MainPanel())
 
 class GoatView(ui.View):
     def __init__(self): super().__init__(timeout=None)
