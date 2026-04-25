@@ -183,12 +183,21 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                 rv = toks[0]; idx = 1
                 rec = toks[idx] if _RE_RF.match(toks[idx]) else ""
                 if rec: idx += 1
-                opp = toks[idx]     if idx     < len(toks) else ""
-                sc  = toks[idx + 1] if idx + 1 < len(toks) else ""
+                # Find score by NNNN-NNNN pattern — supports multi-word names like "El Master", "Big Red"
+                _RE_SCORE_PAT = re.compile(r'^\d{3,5}-\d{3,5}$')
+                sc_idx = next((j for j in range(idx, len(toks)) if _RE_SCORE_PAT.match(toks[j])), None)
+                if sc_idx:
+                    opp = " ".join(toks[idx:sc_idx])
+                    sc  = toks[sc_idx]
+                    rest_start = sc_idx + 1
+                else:
+                    opp = toks[idx] if idx < len(toks) else ""
+                    sc  = toks[idx + 1] if idx + 1 < len(toks) else ""
+                    rest_start = idx + 2
                 ep, np_ = [], []
                 in_n = False
                 region_toks = "|".join(REGIONS)
-                for tok in toks[idx + 2:]:
+                for tok in toks[rest_start:]:
                     if ep and not re.match(rf'^(DW2PL|{region_toks}|Fight|Night|Tournament|Global|Part|#\d+|\d+)$', tok, re.I):
                         in_n = True
                     (np_ if in_n else ep).append(tok)
@@ -201,7 +210,7 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
             cand  = re.sub(r'\s*\(G\)\s*$', '', line).strip()
             is_c  = False
             skip_upper = {r.upper() for r in REGIONS} | {"UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3"}
-            # Standalone FOTN marker — annotate the last fight rather than becoming a player name
+            # Standalone FOTN marker — annotate last fight instead of becoming a player name
             _re_fotn_inline = re.compile(r'^fight\s+of\s+the\s+\w+$|^FOTN$', re.I)
             if _re_fotn_inline.match(cand):
                 if cp and reg["records"].get(cp):
@@ -341,22 +350,16 @@ def build_main_embed():
         title="PRO LEAGUE — RECORD BOOK",
         description="**Drunken Wrestlers 2 — Pro League** | Interactive Panel\n\nRankings, player cards and match history across all regions.",
         color=PANEL_DARK)
-    # Row 0
-    e.add_field(name="🌍 Rankings",           value="Top 10 by region",                inline=True)
-    e.add_field(name="👤 Player Lookup",       value="Full card with match history",     inline=True)
-    e.add_field(name="📊 Stats",              value="Region overview & leaderboards",   inline=True)
-    # Row 1
-    e.add_field(name="🏅 Top Rankings",       value="Top Wins, Win Rate, MP",           inline=True)
-    e.add_field(name="👥 All Players",         value="Full all-time roster",             inline=True)
-    e.add_field(name="🌟 Fight of the Night", value="Award-winning fights",             inline=True)
-    # Row 2
-    e.add_field(name="📅 Events",             value="Browse by region & event",         inline=True)
-    e.add_field(name="🏆 Championship",       value="Title fight history by region",    inline=True)
-    e.add_field(name="🐐 GOAT",               value="Greatest of All Time per region",  inline=True)
-    # Row 3
-    e.add_field(name="🔄 Refresh",            value="Reload data from Google Docs",     inline=True)
-    e.add_field(name="\u200b",                value="\u200b",                           inline=True)
-    e.add_field(name="\u200b",                value="\u200b",                           inline=True)
+    e.add_field(name="🌍 Rankings",        value="Top 10 by region",                inline=True)
+    e.add_field(name="👤 Player Lookup",   value="Full card with match history",     inline=True)
+    e.add_field(name="📊 Stats",           value="Region overview & leaderboards",   inline=True)
+    e.add_field(name="🏅 Top Rankings",    value="Top Wins, Win Rate, MP",          inline=True)
+    e.add_field(name="👥 All Players",     value="Full all-time roster",            inline=True)
+    e.add_field(name="🌟 Fight of the Night", value="Award-winning fights",         inline=True)
+    e.add_field(name="📅 Events",          value="Browse by region & event",        inline=True)
+    e.add_field(name="🏆 Championship",    value="Title fight history by region",   inline=True)
+    e.add_field(name="🐐 GOAT",            value="Greatest of All Time per region", inline=True)
+    e.add_field(name="🔄 Refresh",         value="Reload data from Google Docs",    inline=True)
     e.set_footer(text="PL Bot • Source: DW2PL Records (Google Docs) • EST. 2021")
     return e
 
@@ -462,44 +465,40 @@ class BackView(ui.View):
 
 class MainPanel(ui.View):
     def __init__(self): super().__init__(timeout=None)
-    # Row 0: Rankings | Player Lookup | Stats
-    @ui.button(label="🌍 Rankings",     style=discord.ButtonStyle.primary,  custom_id="pl_rankings", row=0)
+    @ui.button(label="🌍 Rankings",     style=discord.ButtonStyle.primary,  custom_id="pl_rankings",row=0)
     async def rankings(self,i,b): await safe_edit(i,embed=discord.Embed(title="🌍 Rankings — Select Region",color=PANEL_COLOR),view=RegionView("ranking"))
-    @ui.button(label="👤 Player Lookup",style=discord.ButtonStyle.success,  custom_id="pl_player",   row=0)
+    @ui.button(label="👤 Player Lookup",style=discord.ButtonStyle.success,  custom_id="pl_player",  row=0)
     async def player(self,i,b): await i.response.send_modal(PlayerModal())
-    @ui.button(label="📊 Stats",        style=discord.ButtonStyle.secondary,custom_id="pl_stats",    row=0)
+    @ui.button(label="📊 Stats",        style=discord.ButtonStyle.secondary,custom_id="pl_stats",   row=0)
     async def stats(self,i,b): await safe_edit(i,embed=discord.Embed(title="📊 Stats — Select Region",color=PANEL_COLOR),view=RegionView("stats"))
-    # Row 1: Top Rankings | All Players | Fight of the Night
-    @ui.button(label="🏅 Top Rankings", style=discord.ButtonStyle.danger,   custom_id="pl_top",      row=1)
+    @ui.button(label="🏅 Top Rankings", style=discord.ButtonStyle.danger,   custom_id="pl_top",     row=1)
     async def top(self,i,b): await safe_edit(i,embed=discord.Embed(title="🏅 Top Rankings",color=PANEL_COLOR),view=TopView())
-    @ui.button(label="👥 All Players",  style=discord.ButtonStyle.primary,  custom_id="pl_allp",     row=1)
+    @ui.button(label="👥 All Players",  style=discord.ButtonStyle.primary,  custom_id="pl_allp",    row=1)
     async def all_players(self,i,b):
         if not await safe_defer(i): return
         data,_=await get_data()
         all_p=build_all_players_options(data)
         try: await i.edit_original_response(embed=build_all_players_embed(all_p),view=AllPlayersView(all_p))
         except Exception: pass
-    @ui.button(label="🌟 Fight of the Night",style=discord.ButtonStyle.secondary,custom_id="pl_fotn",row=1)
+    @ui.button(label="🌟 Fight of the Night",style=discord.ButtonStyle.secondary,custom_id="pl_fotn",row=2)
     async def fotn(self,i,b):
         if not await safe_defer(i): return
         data,_=await get_data()
         fotn=collect_fotn(data)
         try: await i.edit_original_response(embed=build_fotn_embed(fotn),view=FOTNView(fotn))
         except Exception: pass
-    # Row 2: Events | Championship | GOAT
-    @ui.button(label="📅 Events",       style=discord.ButtonStyle.success,  custom_id="pl_events",   row=2)
+    @ui.button(label="📅 Events",       style=discord.ButtonStyle.success,  custom_id="pl_events",  row=2)
     async def events(self,i,b): await safe_edit(i,embed=discord.Embed(title="📅 Events — Select Region",color=PANEL_COLOR),view=EventRegionView())
-    @ui.button(label="🏆 Championship", style=discord.ButtonStyle.danger,   custom_id="pl_champ",    row=2)
+    @ui.button(label="🏆 Championship", style=discord.ButtonStyle.danger,   custom_id="pl_champ",   row=3)
     async def champ(self,i,b): await safe_edit(i,embed=discord.Embed(title="🏆 Championship History — Select Region",color=PANEL_COLOR),view=ChampHistoryRegionView())
-    @ui.button(label="🐐 GOAT",         style=discord.ButtonStyle.primary,  custom_id="pl_goat",     row=2)
+    @ui.button(label="🐐 GOAT",         style=discord.ButtonStyle.primary,  custom_id="pl_goat",    row=3)
     async def goat(self,i,b):
         if not await safe_defer(i): return
         data,_=await get_data()
         goat_data=compute_goat(data)
         try: await i.edit_original_response(embed=build_goat_embed(goat_data),view=GoatView())
         except Exception: pass
-    # Row 3: Refresh (centered, alone)
-    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh",  row=3)
+    @ui.button(label="🔄 Refresh",      style=discord.ButtonStyle.secondary,custom_id="pl_refresh", row=3)
     async def refresh(self,i,b):
         await safe_defer(i)
         try:
@@ -857,27 +856,38 @@ def build_all_players_embed(all_players, page=0, per_page=25):
 
 # ── Fight of the Night ────────────────────────────────────────────────────────
 def collect_fotn(data):
-    """Collect all fights flagged as Fight of the Night.
-    
-    The parser now annotates standalone FOTN markers onto the preceding fight,
-    so a single regex pass on notes+event is sufficient.
-    """
+    """Collect FOTN fights, deduplicated per unique match (A vs B = B vs A)."""
     _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|\bof\s+the\s+night\b|fight\s+of\s+night|FOTN|\bFON\b', re.I)
-    seen = set()
+    seen_exact = set()
+    seen_match = set()
     results = []
+
+    def _match_key(pname, f):
+        score = f.get("score", "") or ""
+        event = (f.get("event", "") or "").strip().rstrip("Fight").strip()
+        opp   = (f.get("opponent", "") or "").lower()
+        parts = score.split("-")
+        score_key = frozenset(parts) if len(parts) == 2 else score
+        return (frozenset([pname.lower(), opp]), score_key, event)
 
     for region, reg in data.items():
         for pname, fights in reg.get("records", {}).items():
             for f in fights:
                 notes = f.get("notes", "") or ""
                 event = f.get("event", "") or ""
-                if _re_fotn.search(notes) or _re_fotn.search(event):
-                    key = (pname, f.get("record", ""), f.get("opponent", ""), f.get("score", ""))
-                    if key not in seen:
-                        seen.add(key)
-                        results.append((region, pname, f))
+                combined = event + " " + notes
+                if not _re_fotn.search(combined):
+                    continue
+                exact = (pname, f.get("record",""), f.get("opponent",""), f.get("score",""))
+                if exact in seen_exact:
+                    continue
+                seen_exact.add(exact)
+                mkey = _match_key(pname, f)
+                if mkey in seen_match:
+                    continue
+                seen_match.add(mkey)
+                results.append((region, pname, f))
 
-    # Sort by region order
     region_order = {r: i for i, r in enumerate(REGIONS)}
     results.sort(key=lambda x: region_order.get(x[0], 99))
     return results
