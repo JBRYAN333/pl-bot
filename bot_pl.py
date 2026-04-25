@@ -183,21 +183,12 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                 rv = toks[0]; idx = 1
                 rec = toks[idx] if _RE_RF.match(toks[idx]) else ""
                 if rec: idx += 1
-                # Find score by NNNN-NNNN pattern — supports multi-word names like "El Master", "Big Red"
-                _RE_SCORE_PAT = re.compile(r'^\d{3,5}-\d{3,5}$')
-                sc_idx = next((j for j in range(idx, len(toks)) if _RE_SCORE_PAT.match(toks[j])), None)
-                if sc_idx:
-                    opp = " ".join(toks[idx:sc_idx])
-                    sc  = toks[sc_idx]
-                    rest_start = sc_idx + 1
-                else:
-                    opp = toks[idx] if idx < len(toks) else ""
-                    sc  = toks[idx + 1] if idx + 1 < len(toks) else ""
-                    rest_start = idx + 2
+                opp = toks[idx]     if idx     < len(toks) else ""
+                sc  = toks[idx + 1] if idx + 1 < len(toks) else ""
                 ep, np_ = [], []
                 in_n = False
                 region_toks = "|".join(REGIONS)
-                for tok in toks[rest_start:]:
+                for tok in toks[idx + 2:]:
                     if ep and not re.match(rf'^(DW2PL|{region_toks}|Fight|Night|Tournament|Global|Part|#\d+|\d+)$', tok, re.I):
                         in_n = True
                     (np_ if in_n else ep).append(tok)
@@ -210,16 +201,6 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
             cand  = re.sub(r'\s*\(G\)\s*$', '', line).strip()
             is_c  = False
             skip_upper = {r.upper() for r in REGIONS} | {"UNRANKED","TOP 10:","TOP 15:","TIER 1","TIER 2","TIER 3"}
-            # Standalone FOTN marker — annotate last fight instead of becoming a player name
-            _re_fotn_inline = re.compile(r'^fight\s+of\s+the\s+\w+$|^FOTN$', re.I)
-            if _re_fotn_inline.match(cand):
-                if cp and reg["records"].get(cp):
-                    last = reg["records"][cp][-1]
-                    existing = last.get("notes", "") or ""
-                    if "fight of the" not in existing.lower():
-                        last["notes"] = (existing + " Fight of the Night").strip()
-                pending_name = None
-                continue
             if has_g and 1 <= len(cand) <= 35 and not _SKIP.search(cand):
                 is_c = True
             elif (2 <= len(cand) <= 35 and not re.search(r'\d{4,}', cand)
@@ -856,40 +837,16 @@ def build_all_players_embed(all_players, page=0, per_page=25):
 
 # ── Fight of the Night ────────────────────────────────────────────────────────
 def collect_fotn(data):
-    """Collect FOTN fights, deduplicated per unique match (A vs B = B vs A)."""
-    _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|\bof\s+the\s+night\b|fight\s+of\s+night|FOTN|\bFON\b', re.I)
-    seen_exact = set()
-    seen_match = set()
+    """Collect all fights flagged as Fight of the Night (any variant)."""
+    _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|fight\s+of\s+night|FOTN|\bFON\b', re.I)
     results = []
-
-    def _match_key(pname, f):
-        score = f.get("score", "") or ""
-        event = (f.get("event", "") or "").strip().rstrip("Fight").strip()
-        opp   = (f.get("opponent", "") or "").lower()
-        parts = score.split("-")
-        score_key = frozenset(parts) if len(parts) == 2 else score
-        return (frozenset([pname.lower(), opp]), score_key, event)
-
     for region, reg in data.items():
         for pname, fights in reg.get("records", {}).items():
             for f in fights:
                 notes = f.get("notes", "") or ""
                 event = f.get("event", "") or ""
-                combined = event + " " + notes
-                if not _re_fotn.search(combined):
-                    continue
-                exact = (pname, f.get("record",""), f.get("opponent",""), f.get("score",""))
-                if exact in seen_exact:
-                    continue
-                seen_exact.add(exact)
-                mkey = _match_key(pname, f)
-                if mkey in seen_match:
-                    continue
-                seen_match.add(mkey)
-                results.append((region, pname, f))
-
-    region_order = {r: i for i, r in enumerate(REGIONS)}
-    results.sort(key=lambda x: region_order.get(x[0], 99))
+                if _re_fotn.search(notes) or _re_fotn.search(event):
+                    results.append((region, pname, f))
     return results
 
 def build_fotn_embed(fotn_list, page=0, per_page=8):
@@ -1130,7 +1087,7 @@ def build_goat_embed(goat_by_region):
         for sc, p in scores[1:4]:
             t2 = p["wins"] + p["losses"]
             wr2 = round(p["wins"]/t2*100,1) if t2>0 else 0
-            runners.append(f"`#{scores.index((sc,p))+1}` **{p['name']}** {wr2}% ({p['wins']}-{p['losses']})")
+            runners.append(f"`#{scores.index((sc,p))+1}` **{p['name']}** Score `{round(sc*100,1)}` | {wr2}% WR ({p['wins']}-{p['losses']})")
         runner_str = "\n".join(runners) if runners else ""
         value = (f"**{goat['name']}**{aff} — Score `{top_score}`\n"
                  f"`{goat['wins']}-{goat['losses']}` | {wr_pct}% WR | {goat['mp']} MP{fotn_str}{title_str}")
