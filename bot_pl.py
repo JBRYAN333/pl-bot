@@ -1030,7 +1030,6 @@ class ChampHistoryNavView(ui.View):
 
 # ── GOAT Card ─────────────────────────────────────────────────────────────────
 def compute_goat(data):
-    _re_fotn = re.compile(r'fight\s+of\s+the\s+\w+|FOTN', re.I)
     _re_won  = re.compile(r'\bwon\b.+championship', re.I)
     _re_def  = re.compile(r'\bdefended\b.+championship', re.I)
     goat_by_region = {}
@@ -1042,7 +1041,7 @@ def compute_goat(data):
             player_stats[p["player"].lower()] = {
                 "name": p["player"], "wins": p["wins"], "losses": p["losses"],
                 "mp": p["mp"], "affiliation": p.get("affiliation",""), "pos": p["pos"],
-                "fotn": 0, "titles_won": 0, "titles_defended": 0
+                "titles_won": 0, "titles_defended": 0
             }
         for pname, fights in records.items():
             key = pname.lower()
@@ -1052,17 +1051,16 @@ def compute_goat(data):
                 player_stats[key] = {
                     "name": pname, "wins": wins, "losses": losses,
                     "mp": len(fights), "affiliation": "", "pos": "—",
-                    "fotn": 0, "titles_won": 0, "titles_defended": 0
+                    "titles_won": 0, "titles_defended": 0
                 }
             for f in fights:
                 notes = f.get("notes","") or ""
-                if _re_fotn.search(notes) or _re_fotn.search(f.get("event","") or ""):
-                    player_stats[key]["fotn"] += 1
                 if _re_won.search(notes):
                     player_stats[key]["titles_won"] += 1
                 if _re_def.search(notes):
                     player_stats[key]["titles_defended"] += 1
-        eligible = [v for v in player_stats.values() if v["wins"] + v["losses"] >= 5]
+        eligible = [v for v in player_stats.values()
+                    if v["wins"] + v["losses"] >= 10 or v["titles_won"] > 0]
         if not eligible:
             goat_by_region[region] = []; continue
         max_wins = max(p["wins"] for p in eligible) or 1
@@ -1074,17 +1072,20 @@ def compute_goat(data):
             score = (wr * 0.40
                      + (p["wins"] / max_wins) * 0.25
                      + (p["mp"] / max_mp) * 0.15
-                     + min(p["titles_won"] * 0.10, 0.30)
-                     + min(p["titles_defended"] * 0.05, 0.15)
-                     + min(p["fotn"] * 0.04, 0.20))
+                     + p["titles_won"] * 0.15
+                     + p["titles_defended"] * 0.10)
             scored.append((round(score, 4), p))
-        goat_by_region[region] = sorted(scored, key=lambda x: -x[0])
+        champs = [s for s in scored if s[1]["titles_won"] > 0]
+        non_champs = [s for s in scored if s[1]["titles_won"] == 0]
+        champs.sort(key=lambda x: -x[0])
+        non_champs.sort(key=lambda x: -x[0])
+        goat_by_region[region] = champs + non_champs
     return goat_by_region
 
 def build_goat_embed(goat_by_region):
     e = discord.Embed(
         title="🐐 GOAT Card — Pro League All Time",
-        description="Greatest of All Time per region, scored by win rate, championship history, matches played and Fight of the Night awards.",
+        description="Greatest of All Time per region, scored by win rate, championship history and matches played. Champions are ranked above non-champions.",
         color=0xFFD700
     )
     for region in REGIONS:
@@ -1094,7 +1095,6 @@ def build_goat_embed(goat_by_region):
         top_score, goat = scores[0]
         total = goat["wins"] + goat["losses"]
         wr_pct = round(goat["wins"] / total * 100, 1) if total > 0 else 0
-        fotn_str = f" | 🌟 {goat['fotn']} FOTN" if goat["fotn"] > 0 else ""
         title_str = ""
         if goat["titles_won"]: title_str += f" | 👑 {goat['titles_won']}x Champ"
         if goat["titles_defended"]: title_str += f" | 🛡️ {goat['titles_defended']}x Def."
@@ -1106,11 +1106,11 @@ def build_goat_embed(goat_by_region):
             runners.append(f"`#{scores.index((sc,p))+1}` **{p['name']}** Score `{round(sc*100,1)}` | {wr2}% WR ({p['wins']}-{p['losses']})")
         runner_str = "\n".join(runners) if runners else ""
         value = (f"**{goat['name']}**{aff} — Score `{round(top_score*100,1)}`\n"
-                 f"`{goat['wins']}-{goat['losses']}` | {wr_pct}% WR | {goat['mp']} MP{fotn_str}{title_str}")
+                 f"`{goat['wins']}-{goat['losses']}` | {wr_pct}% WR | {goat['mp']} MP{title_str}")
         if runner_str:
             value += f"\n\n**Runners-up:**\n{runner_str}"
         e.add_field(name=f"{region_flag(region)} {region} GOAT", value=value, inline=False)
-    e.set_footer(text="PL Bot • GOAT formula: WR(40%) + Wins(25%) + MP(15%) + Titles(up to 30%) + FOTN(up to 20%)")
+    e.set_footer(text="PL Bot • GOAT formula: WR(40%) + Wins(25%) + MP(15%) + Titles(0.15 each) + Defenses(0.10 each) | Min. 10 fights (waived for champs) | Champs ranked first")
     return e
 
 
