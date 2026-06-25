@@ -1046,7 +1046,14 @@ def compute_goat(data):
             }
         for pname, fights in records.items():
             key = pname.lower()
-            if key not in player_stats: continue
+            if key not in player_stats:
+                wins = sum(1 for f in fights if f.get("result","").lower() == "win")
+                losses = sum(1 for f in fights if f.get("result","").lower() == "loss")
+                player_stats[key] = {
+                    "name": pname, "wins": wins, "losses": losses,
+                    "mp": len(fights), "affiliation": "", "pos": "—",
+                    "fotn": 0, "titles_won": 0, "titles_defended": 0
+                }
             for f in fights:
                 notes = f.get("notes","") or ""
                 if _re_fotn.search(notes) or _re_fotn.search(f.get("event","") or ""):
