@@ -1038,10 +1038,11 @@ def compute_goat(data):
         ranking = reg.get("ranking", [])
         player_stats = {}
         for p in ranking:
+            titles = 1 if str(p.get("pos","")).lower() == "champion" else 0
             player_stats[p["player"].lower()] = {
                 "name": p["player"], "wins": p["wins"], "losses": p["losses"],
                 "mp": p["mp"], "affiliation": p.get("affiliation",""), "pos": p["pos"],
-                "titles_won": 0, "titles_defended": 0
+                "titles_won": titles, "titles_defended": 0
             }
         for pname, fights in records.items():
             key = pname.lower()
