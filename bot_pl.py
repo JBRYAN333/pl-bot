@@ -1030,8 +1030,8 @@ class ChampHistoryNavView(ui.View):
 
 # ── GOAT Card ─────────────────────────────────────────────────────────────────
 def compute_goat(data):
-    _re_won  = re.compile(r'\bwon\b.+championship', re.I)
-    _re_def  = re.compile(r'\bdefended\b.+championship', re.I)
+    _re_title = re.compile(r'\bchampionship\b|\btitle\b|\bbelt\b', re.I)
+    _re_def   = re.compile(r'\bdefend(?:ed|ing|s)?\b|\bretain(?:ed|ing|s)?\b', re.I)
     goat_by_region = {}
     for region, reg in data.items():
         records = reg.get("records", {})
@@ -1056,10 +1056,13 @@ def compute_goat(data):
                 }
             for f in fights:
                 notes = f.get("notes","") or ""
-                if _re_won.search(notes):
-                    player_stats[key]["titles_won"] += 1
+                result = f.get("result","").lower()
+                if result != "win":
+                    continue
                 if _re_def.search(notes):
                     player_stats[key]["titles_defended"] += 1
+                elif _re_title.search(notes):
+                    player_stats[key]["titles_won"] += 1
         eligible = [v for v in player_stats.values()
                     if v["wins"] + v["losses"] >= 10 or v["titles_won"] > 0]
         if not eligible:
