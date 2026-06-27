@@ -1030,7 +1030,7 @@ class ChampHistoryNavView(ui.View):
 
 # ── GOAT Card ─────────────────────────────────────────────────────────────────
 def compute_goat(data):
-    _re_title = re.compile(r'\bchampionship\b|\btitle\b|\bbelt\b', re.I)
+    _re_title = re.compile(r'(?:won|for|claim|captur|became).{0,40}(?:championship|title|belt)', re.I)
     _re_def   = re.compile(r'\bdefend(?:ed|ing|s)?\b|\bretain(?:ed|ing|s)?\b', re.I)
     goat_by_region = {}
     for region, reg in data.items():
