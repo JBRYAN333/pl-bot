@@ -9,31 +9,16 @@ import io
 import json
 from collections import Counter
 
-# ── Google OAuth ──────────────────────────────────────────────────────────────
+# ── Google Docs (public PDF) ─────────────────────────────────────────────────
 import urllib.request
-import urllib.parse
 
-GOOGLE_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID",     "511113456386-lm9tc5gspiuhevfl62u5t5b0clqtklbc.apps.googleusercontent.com")
-GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "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")
-GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN", "1//0hVI-rgLdkxFhCgYIARAAGBESNwF-L9IrzRLHFPewWNYSZmD3MalLC-RZ0L59Y9lefeTRc_3QhPMTjlgDvYzwnIeavoYE1hpfeR8")
 DOC_ID               = "1fYokf-Tbj1NgZa1fukSFH7snGgP1xqYOyUVPd2EkRHQ"
 JSON_PATH            = "pl_records.json"
 
-def _get_access_token() -> str:
-    data = urllib.parse.urlencode({
-        "client_id":     GOOGLE_CLIENT_ID,
-        "client_secret": GOOGLE_CLIENT_SECRET,
-        "refresh_token": GOOGLE_REFRESH_TOKEN,
-        "grant_type":    "refresh_token",
-    }).encode()
-    req = urllib.request.Request("https://oauth2.googleapis.com/token", data=data)
-    with urllib.request.urlopen(req, timeout=15) as r:
-        return json.loads(r.read())["access_token"]
-
 def _download_pdf_bytes() -> bytes:
-    token = _get_access_token()
+    """Download PDF directly — doc is public, no auth needed."""
     url   = f"https://docs.google.com/document/d/{DOC_ID}/export?format=pdf"
-    req   = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+    req   = urllib.request.Request(url)
     with urllib.request.urlopen(req, timeout=60) as r:
         return r.read()
 
@@ -121,6 +106,7 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
     cr = cs = cp = None
     th = []
     pending_name = None
+    last_entry = None
     for line in lines:
         m = _RE_SR.match(line)
         if m:
@@ -196,7 +182,25 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                 vm = _RE_EV.search(ev)
                 vod = vod_map.get(re.sub(r"\s+", " ", vm.group(1).strip()), "") if vm else ""
                 reg["records"][cp].append({"result": rv, "record": rec, "opponent": opp, "score": sc, "event": ev, "notes": nt, "vod": vod})
+                last_entry = reg["records"][cp][-1]
                 continue
+            # ── Separate-line notes capture ──
+            if last_entry is not None and not line.startswith('#'):
+                # If line looks like notes (not a player name, not a header)
+                cand_note = line.strip()
+                if (4 <= len(cand_note) <= 80 and not re.search(r'\d{4,}', cand_note)
+                        and not _SKIP.search(cand_note)
+                        and not re.match(r'^(Res\.?|Record|Opponent|Score|Event|Notes)', cand_note, re.I)):
+                    # Check if it doesn't look like a valid player name (3+ words, or has title keywords)
+                    words = cand_note.split()
+                    if len(words) >= 3 or any(kw in cand_note.lower() for kw in ['won', 'championship', 'title', 'eliminator', 'fotn', 'fight of the']):
+                        existing = last_entry.get("notes", "") or ""
+                        if existing and cand_note not in existing:
+                            last_entry["notes"] = existing + " " + cand_note
+                        elif not existing:
+                            last_entry["notes"] = cand_note
+                        last_entry = None  # don't re-capture
+                        continue
             has_g = bool(re.search(r'\(G\)\s*$', line))
             cand  = re.sub(r'\s*\(G\)\s*$', '', line).strip()
             is_c  = False
@@ -209,6 +213,9 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
                     and not _SKIP.search(cand)):
                 is_c = True
             pending_name = cand if is_c else None
+            if pending_name is not None:
+                # If we have a pending_name, next line might be notes for last_entry
+                last_entry = None  # reset until we get actual fight data
     return res, vod_map
 
 def _rebuild_json() -> tuple[dict, dict]:
