@@ -189,7 +189,12 @@ def build_app():
     return app
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
+    import subprocess
+    bot_proc = subprocess.Popen([sys.executable, "bot_pl.py"])
+    port = int(os.environ.get("PORT", 80))
     app = build_app()
     print(f"[PL API] Starting on port {port}...", flush=True)
-    web.run_app(app, host="0.0.0.0", port=port, print=lambda *a: None)
+    try:
+        web.run_app(app, host="0.0.0.0", port=port, print=lambda *a: None)
+    finally:
+        bot_proc.terminate()
