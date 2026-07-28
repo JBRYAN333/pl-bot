@@ -1,4 +1,4 @@
-MAIN=start.sh
+MAIN=launcher.py
 MEMORY=512
 VERSION=recommended
 DISPLAY_NAME=PL Bot
