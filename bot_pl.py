@@ -22,8 +22,7 @@ def _download_pdf_bytes() -> bytes:
     with urllib.request.urlopen(req, timeout=60) as r:
         return r.read()
 
-# ── Parser ────────────────────────────────────────────────────────────────────
-import pdfplumber
+# ── Parser ─────────────────────────────────────────────────────────────────
 
 # Populado dinamicamente pelo parser. Fallback garante que nunca fica vazio.
 REGIONS: list[str] = ["EU", "NA", "SA", "AS", "Global"]
@@ -54,6 +53,7 @@ def _canonical(raw: str) -> str:
     return raw.upper() if len(raw) <= 3 else raw.capitalize()
 
 def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
+    import pdfplumber
     global REGIONS
     re_ev = re.compile(
         r'DW2PL\s+(?:Fight\s+Night\s+|[A-Za-z]{2,8}\s+Tournament\s+'
