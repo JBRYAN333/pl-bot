@@ -226,7 +226,7 @@ def _rebuild_json() -> tuple[dict, dict]:
         [sys.executable, script],
         capture_output=True, text=True, timeout=120
     )
-    for line in result.stdout.splitlines():
+    for line in result.stderr.splitlines():
         print(line)
     if result.returncode != 0:
         raise RuntimeError(f"parse_pdf failed:\n{result.stderr}")

@@ -76,7 +76,7 @@ def parse(pdf_bytes: bytes) -> tuple[dict, dict, list[str]]:
     if "global" in seen:
         ordered.append(seen["global"])
     regions = ordered if ordered else ["EU", "NA", "SA", "AS", "Global"]
-    print(f"Regions detected: {regions}", flush=True)
+    print(f"Regions detected: {regions}", file=sys.stderr, flush=True)
 
     res = {r: {"ranking": [], "unranked": {}, "records": {}} for r in regions}
     cr = cs = cp = None
@@ -191,17 +191,17 @@ def parse(pdf_bytes: bytes) -> tuple[dict, dict, list[str]]:
     return res, vod_map, regions
 
 def main():
-    print("parse_pdf: downloading...", flush=True)
+    print("parse_pdf: downloading...", file=sys.stderr, flush=True)
     url = f"https://docs.google.com/document/d/{DOC_ID}/export?format=pdf"
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req, timeout=60) as r:
         pdf_bytes = r.read()
-    print(f"parse_pdf: downloaded {len(pdf_bytes)//1024} KB. parsing...", flush=True)
+    print(f"parse_pdf: downloaded {len(pdf_bytes)//1024} KB. parsing...", file=sys.stderr, flush=True)
     data, vods, regions = parse(pdf_bytes)
-    print(f"parse_pdf: done. VODs: {len(vods)}", flush=True)
+    print(f"parse_pdf: done. VODs: {len(vods)}", file=sys.stderr, flush=True)
     for r in regions:
         reg = data.get(r, {})
-        print(f"parse_pdf: {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history", flush=True)
+        print(f"parse_pdf: {r}: {len(reg.get('ranking',[]))} ranked, {len(reg.get('records',{}))} with history", file=sys.stderr, flush=True)
     json.dump({"data": data, "vods": vods, "regions": regions}, sys.stdout,
               ensure_ascii=False, separators=(',', ':'))
     sys.stdout.flush()
