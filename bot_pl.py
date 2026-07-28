@@ -7,6 +7,7 @@ import re
 import os
 import io
 import json
+import subprocess
 from collections import Counter
 
 # ── Google Docs (public PDF) ─────────────────────────────────────────────────
@@ -219,11 +220,23 @@ def _parse_pdf_bytes(pdf_bytes: bytes) -> tuple[dict, dict]:
     return res, vod_map
 
 def _rebuild_json() -> tuple[dict, dict]:
-    print("[PL Bot] Downloading PDF from Google Docs...")
-    pdf_bytes = _download_pdf_bytes()
-    print(f"[PL Bot] PDF downloaded ({len(pdf_bytes)//1024} KB). Parsing...")
-    data, vods = _parse_pdf_bytes(pdf_bytes)
-    del pdf_bytes
+    script = os.path.join(os.path.dirname(__file__), "parse_pdf.py")
+    print("[PL Bot] Spawning parse_pdf subprocess...")
+    result = subprocess.run(
+        [sys.executable, script],
+        capture_output=True, text=True, timeout=120
+    )
+    for line in result.stdout.splitlines():
+        print(line)
+    if result.returncode != 0:
+        raise RuntimeError(f"parse_pdf failed:\n{result.stderr}")
+    obj = json.loads(result.stdout)
+    data = obj["data"]
+    vods = obj["vods"]
+    saved_regions = obj.get("regions", [])
+    if saved_regions:
+        global REGIONS
+        REGIONS[:] = saved_regions
     with open(JSON_PATH, "w", encoding="utf-8") as f:
         json.dump({"data": data, "vods": vods, "regions": REGIONS}, f, ensure_ascii=False, separators=(',', ':'))
     size = os.path.getsize(JSON_PATH)
