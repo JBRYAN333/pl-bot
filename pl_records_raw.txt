@@ -1,0 +1,3806 @@
+DW2PL Records
+DW2PL RULES
+1. Fights are to take place on the official Pro League small Fight Night cage, using the Official Pro League
+game mode
+Exceptions CAN be made, mostly for mobile players, and that will be treated on a case-by-case basis
+2. One 20 minute round for title fights, 15 minute round for ranked matches, 10 minute round for
+prelim/unranked matches.
+3. The player with the most points at the end of the time wins. In the event of a tie, the player with more KOs
+will win. If players have equal kills, HP will be the deciding factor. All player records/event results are
+maintained within this document.
+4. Same-region fights: Players must maintain a stable, REASONABLE connection for the duration of their fight.
+Lag spikes may be addressed with pauses if the present admins deem it necessary, and they will invoke the
+Lag Rule if they see fit.
+Inter-Regional/mobile fights: Lag is to be expected; however, players with notoriously bad latency in any
+region are not allowed to compete in Global. In SEVERE cases, the Lag Rule will be invoked.
+Lag Rule: If players have lag issues during their match that would qualify for cancellation, they will have the
+OPTION (both parties must agree) to proceed with the match under special rules; if the player with the
+disruptive ping wins, the fight becomes a no contest (essentially an exhibition). If the player with the
+disruptive ping loses, the fight will still count towards their rankings.
+5. Turtling, running, spamming, and all other playstyles/tactics are ALLOWED. Although, freecam is not to be
+used as a mechanic to assist striking.
+6. BM (trash talk) is allowed. That being said, slurs and derogatory comments related to race, religion, etc. are
+off limits and grounds for a ban. Fighters are also allowed to tune into the livestream during your own fight
+and listen to the commentary if they so choose.
+7. Santa Beards, Particles (including Yankee), Trails, Capes, hidden health bars, and visually dark presets that
+hide player movement are all BANNED for the sake of performance and/or visual clarity.
+8. Livestreaming, downloading games, videos, etc. or other actions that negatively affect player bandwidth are
+prohibited during competition to keep the connection clean.
+9. There will be no use of the in-game chat function from anyone except the admins officiating the fight, and
+the two fighters themselves during competition.
+10. All rules that apply outside of the Pro League in terms of conduct apply here as well.
+11. Admin intervention in matches is up to our discretion, and our word is final.
+EU Rankings
+Top 10:
+EU Top 10
+Position Nation Player MP Wins Losses Affiliation
+Champion NLG 21 13 8 BBK
+#1 Jab 19 13 6 BBK
+#2 Weewarrior 34 28 6 BBK
+#3 Shnookams 27 17 10 BBK
+#4 Baloniarz 30 15 15 BBK
+#5 Suharik 8 4 4 Chaos
+#6 Nimo 19 12 7 Chaos
+#7 Warlord 6 4 2 Chaos
+#8 Forbs 6 1 5 Chaos
+#9 Jemala 4 1 3
+Unranked
+Tier 1 Tier 2 Tier 3
+Praise (3-4) Oleg (7-15) Cheers (4-13)
+Soul Reaper (6-5) SenorChief (0-4)
+Sater (0-1)
+EU Records
+Hawk
+Res. Record Opponent Score Event Notes
+Loss 16-5 Weewarrior 7590-8869 DW2PL #10 Fight of the Night
+Win 16-4 Baloniarz 6021-5764 DW2PL Fight Night #24
+Win 15-4 Peww 6772-6566 DW2PL EU Tournament #3
+Non-Tournament Fights
+Loss 14-4 Baloniarz 4695-5895 DW2PL EU Tournament #3
+Loss 14-3 Weewarrior 8475-8729 DW2PL EU Tournament #3 Lost the EU Championship
+Fight of the Night
+Win 14-2 Baloniarz 9366-7187 DW2PL EU Tournament #3 Defended the EU Championship
+Win 13-2 Fetis 10470-8281 DW2PL EU Tournament #3 Defended the EU Championship
+Win 12-2 Weewarrior 9102-6853 DW2PL #8 Defended the EU Championship
+Fight of the Night
+Win 11-2 Shnookams 9476-6640 DW2PL #6 Won the EU Championship
+Win 10-2 Baloniarz 7922-5652 DW2PL Fight Night #19
+Win 9-2 Austin 9679-7676 DW2PL Fight Night #18
+Loss 8-2 Shnookams 6329-7014 DW2PL #5 Lost the EU Championship
+Fight of the Night
+Win 8-1 Shusky 10262-7887 DW2PL #3 Won the EU Championship
+Win 7-1 Szadel 8072-6591 DW2PL Fight Night #11
+Loss 6-1 Shusky 10934-11348 DW2PL EU Tournament #2 Lost the EU Championship
+Win 6-0 Szadel 11279-10185 DW2PL #1 Defended the EU Championship
+Win 5-0 ToxicYugi 8532-7027 DW2PL Fight Night #4 Defended the EU Championship
+Win 4-0 Anus 9684-5403 DW2PL EU Tournament #1 Won the inaugural EU Championship
+Win 3-0 Shusky 7835-5607 DW2PL EU Tournament #1
+Win 2-0 Konor 7188-6368 DW2PL EU Tournament #1
+Win 1-0 Szadel 8859-5189 DW2PL EU Tournament #1
+ToxicYugi
+Res. Record Opponent Score Event Notes
+Win 4-1 Baloniarz 6560-5797 DW2PL Fight Night #12
+Loss 3-1 Hawk 7027-8532 DW2PL Fight Night #4 For the EU Championship
+Win 3-0 Oleg 7642-7232 DW2PL Fight Night #3
+Win 2-0 Anus 9267-4418 DW2PL Fight Night #2
+Win 1-0 Anus 4848-3435 (F) DW2PL Fight Night #1 Anus forfeited (broken spacebar)
+Oleg
+Res. Record Opponent Score Event Notes
+Loss 7-15 Warlord 5268-9555 DW2PL Fight Night #29
+Loss 7-14 Forbs 3453-6884 DW2PL #18
+Loss 7-13 Keevo 6097-9196 DW2PL EU Tournament #4
+Loss 7-12 Weewarrior 5284-12831 DW2PL EU Tournament #4
+Loss 7-11 NLG 4238-5497 DW2PL #13
+Loss 7-10 Jab 6190-12002 DW2PL #11
+Win 7-9 Kolmorrik 6808-6712 EU Tournament #3
+Qualifiers
+Loss 6-9 Riku 7034-8543 EU Tournament #3
+Qualifiers
+Loss 6-8 Fetis 6426-8957 DW2PL Fight Night #23
+Loss 6-7 Weewarrior 6508-8437 DW2PL Fight Night #20
+Loss 6-6 Austin 7247-9492 DW2PL #6
+Win 6-5 Quad 9468-7302 DW2PL #6 Quad’s score recorded before
+additional points were illegally added in
+the last 5 seconds
+Win 5-5 Coa 8570-6888 DW2PL Fight Night #16
+Loss 4-5 Gandhi 6135-6760 DW2PL #5
+Loss 4-4 Szadel 6718-8301 DW2PL #4
+Loss 4-3 Analfister 6657-7260 DW2PL EU Tournament #2
+Win 4-2 Soul Reaper 8322-7424 DW2PL EU Tournament #2
+Win 3-2 Quad 10044-7915 DW2PL #1
+Loss 2-2 ToxicYugi 7232-7642 DW2PL Fight Night #3
+Win 2-1 African Magician 7957-5320 DW2PL Fight Night #1 Score is before African began
+blockspamming at the end of the bout
+Loss 1-1 Anus 6277-7488 DW2PL EU Tournament #1
+Win 1-0 Bruckshot 7223-4815 DW2PL EU Tournament #1
+Szadel
+Res. Record Opponent Score Event Notes
+Loss 12-10 Austin 7197-8969 DW2PL EU Tournament #4
+Loss 12-9 Praise 5341-7570 DW2PL EU Tournament #4
+Win 12-8 Szon 8955-7419 DW2PL EU Tournament #4
+Win 11-8 Flash 8889-8268 DW2PL #14
+Loss 10-8 Jab 8185-12794 DW2PL #13 Both Jab and Szadel disconnected at
+2:46 so the score is added from 2 parts
+Loss 10-7 Gandhi 6139-6474 DW2PL EU Tournament #3 Fight of the Night
+Loss 10-6 Shnookams 4017-6820 DW2PL EU Tournament #3
+Win 10-5 Zivese 9937-7333 DW2PL EU Tournament #3
+Loss 9-5 Shnookams 5021-6796 DW2PL Fight Night #14
+Win 9-4 Oleg 8301-6718 DW2PL #4
+Loss 8-4 Hawk 6591-8072 DW2PL Fight Night #11
+Loss 8-3 Shusky 11186-11315 DW2PL EU Tournament #2 For the EU Championship
+Fight of the Night
+Win 8-2 Analfister 8191-7260 DW2PL EU Tournament #2
+Win 7-2 Quad 9443-8947 DW2PL EU Tournament #2
+Win 6-2 Gandhi 9480-5193 DW2PL EU Tournament #2
+Win 5-2 Galor 9496-6929 DW2PL #2
+Loss 4-2 Hawk 10185-11279 DW2PL #1 For the EU Championship
+Win 4-1 Flash 7039-6173 DW2PL Fight Night #4 Fight of the Night
+Win 3-1 Why 9167-8136 DW2PL Fight Night #3
+Win 2-1 African Magician 7487-7321 DW2PL Fight Night #2 Fight of the night
+Win 1-1 Stivka 8655-6782 DW2PL Fight Night #1
+Loss 0-1 Hawk 5189-8859 DW2PL EU Tournament #1
+African Magician
+Res. Record Opponent Score Event Notes
+Loss 1-3 Szadel 7321-7487 DW2PL Fight Night #2 Fight of the night
+Loss 1-2 Oleg 5320-7957 DW2PL Fight Night #1 Score is before African began
+blockspamming at the end of the bout
+Loss 1-1 Flash 6592-7176 DW2PL EU Tournament #1
+Win 1-0 Helking 6961-5890 DW2PL EU Tournament #1
+Anus
+Res. Record Opponent Score Event Notes
+Loss 3-3 ToxicYugi 4418-9267 DW2PL Fight Night #2
+Loss 3-2 ToxicYugi 3435-4848 (F) DW2PL Fight Night #1 Forfeit (broken spacebar)
+Loss 3-1 Hawk 5403-9684 DW2PL EU Tournament #1 For the EU championship
+Win 3-0 Flash 7110-6929 DW2PL EU Tournament #1 Fight of the night
+Win 2-0 Oleg 7488-6277 DW2PL EU Tournament #1
+Win 1-0 Amingo 7357-1420 DW2PL EU Tournament #1
+Konor
+Res. Record Opponent Score Event Notes
+Loss 2-3 Coa 3886-7359 DW2PL #3
+Loss 2-2 Austin 5900-8604 DW2PL Fight Night #8
+Win 2-1 Quad 6781-6507 DW2PL Fight Night #4
+Loss 1-1 Hawk 6368-7188 DW2PL EU Tournament #1
+Win 1-0 Voortex 7770-4329 DW2PL EU Tournament #1
+Austin
+Res. Record Opponent Score Event Notes
+Loss 11-8 Weewarrior 6488-7964 DW2PL EU Tournament #4
+Win 11-7 Keevo 9491-6122 DW2PL EU Tournament #4
+Win 10-7 Szadel 8969-7197 DW2PL EU Tournament #4
+Win 9-7 SenorChief 8038-4702 DW2PL EU Tournament #4
+Loss 8-7 Nimo 7225-9049 DW2PL EU Tournament #4
+Loss 8-6 Weewarrior 6592-7164 DW2PL Fight Night #20 Fight of the Night
+Loss 8-5 Shnookams 4670-6305 DW2PL Fight Night #20
+Win 8-4 Oleg 9492-7247 DW2PL #6
+Loss 7-4 Baloniarz 5197-5490 DW2PL Fight Night #18
+Loss 7-3 Hawk 7676-9679 DW2PL Fight Night #18
+Win 7-2 Gandhi 5903-3494 (F) DW2PL Fight Night #16 Gandhi forfeited with 4:35 left
+Loss 6-2 Galor 6494-8015 DW2PL #5
+Win 6-1 Baloniarz 7199-7101 DW2PL Fight Night #14 Fight of the Night
+Win 5-1 Analfister 8483-7911 DW2PL EU Tournament #2 EU Tournament #2 3rd place match
+Loss 4-1 Shusky 10639-12616 DW2PL EU Tournament #2 For the EU Championship
+Win 4-0 Zivese 10172-6943 DW2PL EU Tournament #2
+Win 3-0 Konor 8604-5900 DW2PL Fight Night #8
+Win 2-0 Helking 7867-7558 DW2PL Fight Night #3
+Win 1-0 Galor 8992-7712 DW2PL Fight Night #2
+Helking
+Res. Record Opponent Score Event Notes
+Loss 0-4 Sydanahooi 4601-5073 DW2PL Fight Night #8
+Loss 0-3 Cheers 4408-5143 DW2PL Fight Night #5 Fight of the Night
+Loss 0-2 Austin 7558-7867 DW2PL Fight Night #3
+Loss 0-1 African Magician 5890-6961 DW2PL EU Tournament #1
+DXPS
+Res. Record Opponent Score Event Notes
+Loss 0-1 Cheers 4511-5150 DW2PL Fight Night #4
+Cheers
+Res. Record Opponent Score Event Notes
+Loss 4-13 Nimo 5909-8423 DW2PL EU Tournament #5
+Loss 4-12 Nimbus 5905-8839 DW2PL EU Tournament #5
+Loss 4-11 Szon 2895-5338 DW2PL EU Tournament #4
+Loss 4-10 Arima 3821-6541 EU Tournament #3
+Non-Tournament
+Loss 4-9 Nimo 6011-8029 DW2PL EU Tournament #3
+Qualifiers
+Loss 4-8 Zivese 4801-8088 DW2PL #8
+Loss 4-7 Szyja 1304 (F)-2669 DW2PL #7 Cheers forfeited with 2:30 left
+Loss 4-6 Kolmorrik 3152-3623 DW2PL #6
+Loss 4-5 13bot 6602-7864 DW2PL #5 15 minute prelim for vacant ranking
+spot
+Win 4-4 Venom 4045-2406 April 2022 EU Prelims
+Loss 3-4 Shnookams 2032-3930 DW2PL Fight Night #12
+Loss 3-3 Soul Reaper 5253-7515 EU Tournament #2 Recording unavailable
+Qualifiers
+Loss 3-2 Flash 4389-8564 DW2PL Fight Night #8
+Win 3-1 Helking 5143-4408 DW2PL Fight Night #5 Fight of the Night
+Win 2-1 DXPS 5150-4511 DW2PL Fight Night #4
+Loss 1-1 Quad 5071-7036 DW2PL Fight Night #3
+Win 1-0 Stivka 4838-4293 DW2PL Fight Night #1 2 parts (Cheers DCed)
+Stivka
+Res. Record Opponent Score Event Notes
+Loss 0-4 Zivese 5312-6748 EU Tournament #2
+Qualifiers
+Loss 0-3 Analfister 4730-5745 DW2PL Fight Night #5
+Loss 0-2 Cheers 4293-4838 DW2PL Fight Night #1 2 parts (Cheers DCed)
+Loss 0-1 Szadel 6782-8655 DW2PL Fight Night #1
+Quad
+Res. Record Opponent Score Event Notes
+Loss 3-8 Web 7278-9768 DW2PL EU Tournament #3
+Qualifiers
+Loss 3-7 Oleg 7302-9468 DW2PL #6 Quad’s score recorded before
+additional points were illegally added in
+the last 5 seconds
+Loss 3-6 Coa 7862-8334 DW2PL Fight Night #14
+Loss 3-5 Galor 5911-9677 DW2PL #3
+Loss 3-4 Szadel 8947-9443 DW2PL EU Tournament #2
+Win 3-3 Baloniarz 8027-7044 DW2PL EU Tournament #2
+Loss 2-3 Analfister 7430-7941 DW2PL #2.5 Fight of the Night
+Loss 2-2 Oleg 7915-10044 DW2PL #1
+Loss 2-1 Konor 6507-6781 DW2PL Fight Night #4
+Win 2-0 Cheers 7036-5071 DW2PL Fight Night #3
+Win 1-0 Ender 5619-5093 DW2PL Fight Night #2
+Galor
+Res. Record Opponent Score Event Notes
+Win 5-3 Austin 8015-6494 DW2PL #5
+Win 4-3 Quad 9677-5911 DW2PL #3
+Win 3-3 Zivese 9073-5403 DW2PL Fight Night #11
+Loss 2-3 Szadel 6929-9496 DW2PL #2
+Win 2-2 Why 6583-6050 DW2PL Fight Night #4
+Loss 1-2 Austin 7712-8992 DW2PL Fight Night #2
+Loss 1-1 Shusky 4147-8232 DW2PL EU Tournament #1
+Win 1-0 Kucito 7334-2915 DW2PL EU Tournament #1
+Matheis
+Res. Record Opponent Score Event Notes
+Win 1-0 Voortex 6390-2593 DW2PL Fight Night #2
+Bruckshot
+Res. Record Opponent Score Event Notes
+Loss 0-1 Oleg 4815-7223 DW2PL EU Tournament #1
+Ender
+Res. Record Opponent Score Event Notes
+Loss 2-2 Analfister 7748-10014 DW2PL Fight Night #7
+Win 2-1 Spookybain 6465-6019 DW2PL #1
+Win 1-1 Zivese 5328-4554 DW2PL Fight Night #5
+Loss 0-1 Quad 5093-5619 DW2PL Fight Night #2
+Analfister
+Res. Record Opponent Score Event Notes
+Loss 6-3 Ghosterz 6789-6803 DW2PL EU Tournament #3
+Qualifiers
+Loss 6-2 Austin 7911-8483 DW2PL EU Tournament #2 EU Tournament #2 3rd place match
+Loss 6-1 Szadel 7260-8191 DW2PL EU Tournament #2
+Win 6-0 Oleg 7260-6657 DW2PL EU Tournament #2
+Win 5-0 Quad 7941-7430 DW2PL #2.5 Fight of the Night
+Win 4-0 Ender 10014-7748 DW2PL Fight Night #7
+Win 3-0 Stivka 5745-4730 DW2PL Fight Night #5
+Win 2-0 Amingo 5515-2388 DW2PL Fight Night #3
+Win 1-0 Krystiz 4408-3630 DW2PL Fight Night #2
+Krystiz
+Res. Record Opponent Score Event Notes
+Loss 0-1 Analfister 3630-4408 DW2PL Fight Night #2
+Kucito
+Res. Record Opponent Score Event Notes
+Loss 0-1 Galor 2915-7334 DW2PL EU Tournament #1
+Voortex
+Res. Record Opponent Score Event Notes
+Loss 0-2 Matheis 2593-6390 DW2PL Fight Night #2
+Loss 0-1 Konor 4329-7770 DW2PL EU Tournament #1
+Amingo
+Res. Record Opponent Score Event Notes
+Loss 0-2 Analfister 2388-5515 DW2PL Fight Night #3
+Loss 0-1 Anus 1420-7357 DW2PL EU Tournament #1
+Spookybain
+Res. Record Opponent Score Event Notes
+Loss 2-11 Rusco 2756-4806 DW2PL Fight Night #24
+Loss 2-10 NLG 3142-3698 EU Tournament #3
+Non-Tournament
+Loss 2-9 Jab 2383-5928 EU Tournament #3
+Non-Tournament
+Loss 2-8 Houston Jones 5058-5977 DW2PL EU Tournament #3
+Qualifiers
+Loss 2-7 Fetis 4401-8638 DW2PL Fight Night #22
+Win 2-6 Ghosterz 3472-2094 DW2PL Fight Night #21
+Loss 1-6 Weewarrior 5108-2323 DW2PL Fight Night #17
+Loss 1-5 Sydanahooi 4478-7020 EU Tournament #2
+Qualifiers
+Loss 1-4 Samur4i 3704-4416 DW2PL #2.5
+Loss 1-3 Gandhi 3796-5284 DW2PL Fight Night #7
+Loss 1-2 Ender 6019-6465 DW2PL #1
+Win 1-1 Tommo 4983-3910 DW2PL Fight Night #6
+Loss 0-1 Shusky 4449-8942 DW2PL EU Tournament #1
+Shusky
+Res. Record Opponent Score Event Notes
+Loss 10-7 Weewarrior 8879-6488 DW2PL EU Tournament #4
+Loss 10-6 Praise 5621-7266 DW2PL EU Tournament #4
+Win 10-5 NLG 8186-7640 DW2PL EU Tournament #4
+Win 9-5 Riku 6758-5641 DW2PL EU Tournament #4
+Loss 8-5 Peww 5763-7243 DW2PL #10
+Loss 8-4 Baloniarz 3020-3869 DW2PL EU Tournament #3 Shusky Forfeited with 5:30 left
+Win 8-3 Faded 7857-6953 DW2PL EU Tournament #3
+Loss 7-3 Hawk 7887-10262 DW2PL #3 Lost the EU Championship
+Win 7-2 Szadel 11315-11186 DW2PL EU Tournament #2 Defended the EU Championship
+Fight of the Night
+Win 6-2 Austin 12616-10639 DW2PL EU Tournament #2 Defended the EU Championship
+Win 5-2 Hawk 11348-10934 DW2PL EU Tournament #2 Won the EU Championship
+Win 4-2 Markku 8829-7317 DW2PL EU Tournament #2 Fight of the Night
+Win 3-2 Glebka 10776-4819 EU Tournament #2 Qualified for EU Open #2
+Qualifiers
+Loss 2-2 Flash 6497-6865 DW2PL EU Tournament #1
+Loss 2-1 Hawk 5607-7835 DW2PL EU Tournament #1
+Win 2-0 Galor 8232-4147 DW2PL EU Tournament #1
+Win 1-0 Spookybain 8942-4449 DW2PL EU Tournament #1
+Flash
+Res. Record Opponent Score Event Notes
+Loss 8-6 Weewarrior 6540-8879 DW2PL EU Tournament #4
+Win 8-5 Szon 7959-7313 DW2PL EU Tournament #4
+Loss 7-5 Nimo 6060-8760 DW2PL EU Tournament #4
+Win 7-4 SenorChief 7488-5776 DW2PL EU Tournament #4
+Loss 6-4 Szadel 8268-8889 DW2PL #14
+Loss 6-3 Shnookams 5274-6259 DW2PL Fight Night #23 Title eliminator
+Win 6-2 Malthe 8278-4336 DW2PL #8
+Win 5-2 Sydanahooi 9015-6546 DW2PL EU Tournament #2
+Win 4-2 Cheers 8564-4389 DW2PL Fight Night #8
+Loss 3-2 Szadel 6173-7039 DW2PL Fight Night #4 Fight of the night
+Win 3-1 Shusky 6865-6497 DW2PL EU Tournament #1
+Loss 2-1 Anus 6929-7110 DW2PL EU Tournament #1 Fight of the night
+Win 2-0 African Magician 7176-6592 DW2PL EU Tournament #1
+Win 1-0 Justfrost 6491-5135 DW2PL EU Tournament #1 Fight of the night
+Justfrost
+Res. Record Opponent Score Event Notes
+Loss 0-1 Flash 5135-6491 DW2PL EU Tournament #1 Fight of the night
+Why
+Res. Record Opponent Score Event Notes
+Loss 0-2 Galor 6050-6583 DW2PL Fight Night #4
+Loss 0-1 Szadel 8136-9167 DW2PL Fight Night #3 Szadel replaced Zivese
+Coa
+Res. Record Opponent Score Event Notes
+Loss 7-3 Oleg 6888-8570 DW2PL Fight Night #16
+Win 7-2 Namesnick 7589-7319 DW2PL #5
+Loss 6-2 Gandhi 5032 (F)-6400 DW2PL Fight Night #14 Coa forfeited with 1:10 left
+Coa replaced Zivese (#11)
+Win 6-1 Quad 8334-7862 DW2PL Fight Night #14
+Win 5-1 Konor 7359-3886 DW2PL #3
+Win 4-1 Riku 6920-5927 EU Tournament #2 Qualified for EU Tournament #2
+Qualifiers
+Loss 3-1 Namesnick 7332-8052 DW2PL #2 Coa replaced Spookybain
+Fight of the Night
+Win 3-0 Zivese 9297-5676 DW2PL #2
+Win 2-0 Sydanahooi 4610-4035 DW2PL #1
+Win 1-0 Leondono 5519-3930 DW2PL Fight Night #3
+Leondono
+Res. Record Opponent Score Event Notes
+Loss 0-1 Coa 3930-5519 DW2PL Fight Night #3 Prelim
+Namesnick
+Res. Record Opponent Score Event Notes
+Loss 2-5 Weewarrior 6039-9753 DW2PL #7
+Loss 2-4 Coa 7319-7589 DW2PL #5
+Loss 2-3 Markku 6947-8648 DW2PL Fight Night #12
+Win 2-2 Zivese 7867-7219 DW2PL Fight Night #12
+Loss 1-2 Baloniarz 5406-6357 EU Tournament #2
+Qualifiers
+Win 1-1 Coa 8052-7332 DW2PL #2 Fight of the Night
+Loss 0-1 Bigmantobs 3895-5181 DW2PL Fight Night #4
+Bigmantobs
+Res. Record Opponent Score Event Notes
+Win 1-0 Namesnick 5181-3895 DW2PL Fight Night #4
+Zivese
+Res. Record Opponent Score Event Notes
+Loss 9-10 Nimo 6570-8830 DW2PL #13
+Win 9-9 Riku 5646-5390 DW2PL #10
+Loss 8-9 Peww 6672-8226 DW2PL EU Tournament #3
+Loss 8-8 Szadel 7333-9937 DW2PL EU Tournament #3
+Win 8-7 Ghosterz 5617-5498 DW2PL EU Tournament #3
+Qualifiers
+Win 7-7 13bot 7756-6482 DW2PL Fight Night #23
+Win 6-7 Cheers 8088-4801 DW2PL #8
+Loss 5-7 Weewarrior 5556-7042 DW2PL Fight Night #18
+Win 5-6 Bigfoot 8075-4560 DW2PL Fight Night #17
+Loss 4-6 Soul Reaper 7117-8425 DW2PL Fight Night #13
+Win 4-5 Malthe 7080-5477 DW2PL #4
+Loss 3-5 Namesnick 7219-7867 DW2PL Fight Night #12
+Loss 3-4 Galor 5403-9073 DW2PL Fight Night #11
+Loss 3-3 Austin 6943-10172 DW2PL EU Tournament #2
+Win 3-2 Stivka 6748-5312 EU Tournament #2 Qualified for EU Tournament #2
+Qualifiers
+Win 2-2 Markku 7303-5698 DW2PL Fight Night #9
+Loss 1-2 Coa 5676-9297 DW2PL #2
+Win 1-1 Tion 6440-4927 DW2PL Fight Night #7
+Loss 0-1 Ender 4554-5328 DW2PL Fight Night #5
+Samur4i
+Res. Record Opponent Score Event Notes
+Win 3-2 Houston Jones 4682-4653 DW2PL #5
+Loss 2-2 Gandhi 5596-6594 DW2PL #3
+Win 2-1 Spookybain 4416-3704 DW2PL #2.5
+Loss 1-1 Tion 4800-6703 DW2PL #1
+Win 1-0 Jonyshark 4557-2356 DW2PL Fight Night #6 10 mins
+Jonyshark
+Res. Record Opponent Score Event Notes
+Loss 0-1 Samur4i 2356-4557 DW2PL Fight Night #6 10 mins
+Tion
+Res. Record Opponent Score Event Notes
+Win 3-1 Jugmain 3841-3432 DW2PL Fight Night #12 Jugmain crashed with 0:31 left
+Loss 2-1 Zivese 4927-6440 DW2PL Fight Night #7 Zivese replaced coa
+Win 2-0 Samur4i 6703-4800 DW2PL #1
+Win 1-0 Lawwy 4837-4645 The Drunkest Wrestler #1 EU finals to determine the Drunkest
+Wrestler
+Lawwy
+Res. Record Opponent Score Event Notes
+Loss 0-2 Baloniarz 1131-3119 DW2PL #2 Prelim
+Loss 0-1 Tion 4645-4837 The Drunkest Wrestler #1 EU finals to determine the Drunkest
+Wrestler
+Tommo
+Res. Record Opponent Score Event Notes
+Loss 0-2 Markku 3628-5017 DW2PL Fight Night #8 Markku replaced Rasberry
+Loss 0-1 Spookybain 3910-4983 DW2PL Fight Night #6 10 mins
+Sydanahooi
+Res. Record Opponent Score Event Notes
+Loss 3-3 Baloniarz 3661-4973 DW2PL #3
+Loss 3-2 Flash 6546-9015 DW2PL EU Tournament #2
+Win 3-1 Spookybain 7020-4478 EU Tournament #2 Qualified for EU Tournament #2
+Qualifiers
+Win 2-1 Gandhi 6137-4413 DW2PL #2 Prelim
+Win 1-1 Helking 5073-4601 DW2PL Fight Night #8 Sydanahooi replaced Ridas
+Loss 0-1 Coa 4035-4610 DW2PL #1
+Gandhi
+Res. Record Opponent Score Event Notes
+Loss 7-5 Baloniarz 4017-5028 DW2PL EU Tournament #3
+Win 7-4 Faded 4570-4397 DW2PL EU Tournament #3
+Win 6-4 Szadel 6474-6139 DW2PL EU Tournament #3 Fight of the Night
+Loss 5-4 Fetis 5154-9118 DW2PL EU Tournament #3 Recording unavailable
+Loss 5-3 Austin 3494 (F)-5903 DW2PL Fight Night #16 Gandhi forfeited with 4:35 left
+Win 5-2 Oleg 6760-6135 DW2PL #5
+Win 4-2 Coa 6400-5032 (F) DW2PL Fight Night #14 Coa forfeited with 1:10 left
+Coa replaced Zivese (#11)
+Win 3-2 Samur4i 6594-5596 DW2PL #3
+Loss 2-2 Szadel 5193-9480 DW2PL EU Tournament #2
+Win 2-1 Malthe 7824-7030 EU Tournament #2 Qualified for EU Tournament #2
+Qualifiers
+Loss 1-1 Sydanahooi 4413-6137 DW2PL #2 Prelim
+Win 1-0 Spookybain 5284-3796 DW2PL Fight Night #7
+Markku
+Res. Record Opponent Score Event Notes
+Loss 4-3 Baloniarz 5096-5770 DW2PL #4
+Win 4-2 Namesnick 8648-6947 DW2PL Fight Night #12
+Loss 3-2 Shusky 7317-8829 DW2PL EU Tournament #2 Fight of the Night
+FWin 3-1 CrackGolem 7247-5953 EU Tournament #2 Qualified for EU Tournament #2
+Qualifiers
+Win 2-1 Sansio 5444-3536 DW2PL Fight Night #9
+Loss 1-1 Zivese 5698-7303 DW2PL Fight Night #9
+Win 1-0 Tommo 5017-3628 DW2PL Fight Night #8 Markku replaced Rasberry
+Glebka
+Res. Record Opponent Score Event Notes
+Loss 0-1 Shusky 4819-10776 EU Tournament #2
+Qualifiers
+Baloniarz
+Res. Record Opponent Score Event Notes
+Loss 15-15 Weewarrior 3313-4774 DW2PL #19 Baloniarz forfeits with 5:23 left in the
+match
+Win 15-14 Suharik 6310-5753 DW2PL Fight Night #29
+Loss 14-14 NLG 5050-5809 DW2PL EU Tournament #5
+Win 14-13 Nimo 6063-5805 DW2PL EU Tournament #5
+Loss 13-13 Suharik 4224-5789 DW2PL EU Tournament #5 Baloniarz forfeits with 2:30 left
+Win 13-12 Jemala 6196-5317 DW2PL EU Tournament #5
+Loss 12-12 Fetis 5466-6839 DW2PL #18
+Loss 12-11 Peww 6559-7177 DW2PL #15 For the EU Championship
+Win 12-10 NLG 4379-3380 DW2PL Fight Night #26
+Loss 11-10 Hawk 5764-6021 DW2PL Fight Night #24
+Loss 11-9 Weewarrior 6069-6599 DW2PL EU Tournament #3 For the EU Championship
+Win 11-8 Hawk 5895-4695 DW2PL EU Tournament #3
+Win 10-8 Shnookams 5651-4818 DW2PL EU Tournament #3
+Win 9-8 Gandhi 5028-4017 DW2PL EU Tournament #3
+Loss 8-8 Hawk 7187-9366 DW2PL EU Tournament #3 For the EU Championship
+Win 8-7 Shusky 3869-3020 DW2PL EU Tournament #3 Shusky Forfeited with 5:30 left
+Loss 7-7 Weewarrior 4670-4890 DW2PL Fight Night #23 Fight of the Night
+Loss 7-6 Shnookams 4914-5677 DW2PL Fight Night #22 Fight of the Night
+Loss 7-5 Hawk 5652-7922 DW2PL Fight Night #19 Title eliminator
+Win 7-4 Austin 5490-5197 DW2PL Fight Night #18 Austin replaced Coa (#5)
+Win 6-4 Soul Reaper 1819-735 (F) DW2PL Fight Night #16 Soul Reaper Forfeited with 11:10 left
+Loss 5-4 Austin 7101-7199 DW2PL Fight Night #14 Fight of the Night
+Win 5-3 Markku 5770-5096 DW2PL #4
+Loss 4-3 Shnookams 3113-6142 DW2PL #4 Shnookams replaced Coa (#8)
+Loss 4-2 ToxicYugi 5797-6560 DW2PL Fight Night #12
+Win 4-1 Sydanahooi 4973-3661 DW2PL #3
+Loss 3-1 Quad 7044-8027 DW2PL EU Tournament #2
+Win 3-0 Namesnick 6357-5406 EU Tournament #2 Qualified for EU Tournament #2
+Qualifiers
+Win 2-0 olti 7843-4282 EU Tournament #2
+Qualifiers
+Win 1-0 Lawwy 3119-1131 DW2PL #2
+olti
+Res. Record Opponent Score Event Notes
+Loss 1-2 Shnookams 2544-3945 DW2PL Fight Night #11
+Loss 1-1 Baloniarz 4282-7843 EU Tournament #2
+Qualifiers
+Win 1-0 hoihouhoi 3513-3343 DW2PL #2 hoihouhoi deducted a total of 352
+points for damage during a lag spike
+and a timeout
+Prelim
+hoihouhoi
+Res. Record Opponent Score Event Notes
+Loss 0-1 olti 3343-3513 DW2PL #2 hoihouhoi deducted a total of 352
+points for damage during a lag spike
+and a timeout
+Prelim
+Sansio
+Res. Record Opponent Score Event Notes
+Win 2-1 Kolmorrik 4965-3882 The Drunkest Wrestler #2 EU Finals to determine the Drunkest
+Wrestler #2
+Win 1-1 DNKL 5983-4433 The Drunkest Wrestler #2
+Loss 0-1 Markku 3536-5444 DW2PL Fight Night #9
+Riku
+Res. Record Opponent Score Event Notes
+Loss 3-6 Weewarrior 4676-9663 DW2PL EU Tournament #4
+Win 3-5 Miecieks 7848-2277 DW2PL EU Tournament #4
+Loss 2-5 Shusky 6758-5641 DW2PL EU Tournament #4
+Loss 2-4 Zivese 5390-5646 DW2PL #10
+Loss 2-3 Weewarrior 7139-7193 DW2PL EU Tournament #3 Fight of the Night
+Win 2-2 Niklaus 10539-6239 DW2PL EU Tournament #3
+Qualifiers
+Win 1-2 Oleg 8543-7034 DW2PL EU Tournament #3
+Qualifiers
+Loss 0-2 Shnookams 1464 (F)-2326 DW2PL #3 Riku forfeited with 2:26 left
+Loss 0-1 Coa 5927-6920 EU Tournament #2
+Qualifiers
+Malthe
+Res. Record Opponent Score Event Notes
+Loss 5-3 Flash 4336-8278 DW2PL #8
+Win 5-2 Soul Reaper 7510-6742 DW2PL Fight Night #21
+Win 4-2 Kolmorrik 5437-4806 DW2PL #7
+Win 3-2 Owl 5478-5022 DW2PL Fight Night #18 Fight of the Night
+Loss 2-2 Zivese 5477-7080 DW2PL #4
+Win 2-1 Houston Jones 4652-3425 February 2022 EU Prelims
+Win 1-1 Jugmain 4670-3691 DW2PL #3 Prelims
+Loss 0-1 Gandhi 7030-7824 EU Tournament #2
+Qualifiers
+CrackGolem
+Res. Record Opponent Score Event Notes
+Loss 0-1 Markku 5953-7247 EU Tournament #2
+Qualifiers
+Soul Reaper
+Res. Record Opponent Score Event Notes
+Loss 6-5 Jemala 4192-5392 DW2PL #20
+Win 6-4 Sater 5658-3235 DW2PL Fight Night #29
+Loss 5-4 Suharik 5026-7303 DW2PL EU Tournament #5
+Win 5-3 Kolmorrik 6957-5478 DW2PL EU Tournament #3
+Qualifiers
+Loss 4-3 Malthe 6742-7510 DW2PL Fight Night #21
+Loss 4-2 Baloniarz 735 (F)-1819 DW2PL Fight Night #16 Soul Reaper Forfeited with 11:10 left
+Win 4-1 13bot 9399-7452 DW2PL Fight Night #15 Soul Reaper replaced Zivese
+Win 3-1 Zivese 8425-7117 DW2PL Fight Night #13
+Win 2-1 Yoshimitsu 4914-3810 DW2PL #4
+Loss 1-1 Oleg 7424-8322 DW2PL EU Tournament #2
+Win 1-0 Cheers 7515-5253 EU Tournament #2 Qualified for EU Open #2
+Qualifiers Recording unavailable
+Shnookams
+Res. Record Opponent Score Event Notes
+Loss 17-10 NLG 5979-5504 DW2PL EU Tournament #5
+Win 17-9 Suharik 8356-4668 DW2PL EU Tournament #5
+Win 16-9 Warlord 5801-5784 DW2PL EU Tournament #5
+Win 15-9 Jemala 6865-4221 DW2PL EU Tournament #5
+Loss 14-9 Jab 6421-7847 DW2PL EU Tournament #5
+Win 14-8 SenorChief 8710-2840 DW2PL EU Tournament #5
+Loss 13-8 Jab 5630-6833 DW2PL Fight Night #28
+Win 13-7 Nimo 6490-6295 DW2PL Fight Night #25 Fight of The Night
+Loss 12-7 Jab 6449-7947 DW2PL #14
+Loss 12-6 Peww 3759-6530 DW2PL #11
+Loss 12-5 Fetis 4773-5961 EU Tournament #3
+Non-Tournament
+Loss 12-4 Baloniarz 4818-5651 DW2PL EU Tournament #3
+Win 12-3 Peww 7546-6040 DW2PL EU Tournament #3
+Loss 11-3 Weewarrior 4698-5422 DW2PL EU Tournament #3
+Win 11-2 Szadel 6820-4017 DW2PL EU Tournament #3
+Win 10-2 Peww 5560-5359 DW2PL EU Tournament #3 Fight of the Night
+Win 9-2 Flash 6259-5274 DW2PL Fight Night #23 Title eliminator
+Win 8-2 Baloniarz 5677-4914 DW2PL Fight Night #22 Fight of the Night
+Loss 7-2 Weewarrior 3832-4258 DW2PL Fight Night #21 Title eliminator
+Win 7-1 Austin 6305-4670 DW2PL Fight Night #20
+Loss 6-1 Hawk 6640-9476 DW2PL #6 Lost the EU Championship
+Win 6-0 Hawk 7014-6329 DW2PL #5 Won the EU Championship
+Fight of the Night
+Win 5-0 Szadel 6796-5021 DW2PL Fight Night #14
+Win 4-0 Baloniarz 6142-3113 DW2PL #4 Shnookams replaced Coa (#8)
+Win 3-0 Cheers 3930-2032 DW2PL Fight Night #12
+Win 2-0 Riku 2326-1464 (F) DW2PL #3 Riku forfeited with 2:26 left
+Win 1-0 Olti 3945-2544 DW2PL Fight Night #11
+Jugmain
+Res. Record Opponent Score Event Notes
+Loss 0-2 Tion 3841-3432 DW2PL Fight Night #12 Jugmain crashed with 0:31 left
+Loss 0-1 Malthe 3691-4670 DW2PL #3 Prelims
+Houston Jones
+Res. Record Opponent Score Event Notes
+Loss 3-4 Peww 5426-10048 DW2PL EU Tournament #3
+Qualifiers
+Win 3-3 Spookybain 5977-5058 DW2PL EU Tournament #3
+Qualifiers
+Loss 2-3 Samur4i 4653-4682 DW2PL #5
+Loss 2-2 13bot 1563-3869 (F) April 2022 EU Prelims Houston Jones forfeited with 4:50 left
+Win 2-1 Jankez 4204-3387 DW2PL #4 100 points deducted for Houston Jones
+due to damage dealt during lag spike
+Loss 1-1 Malthe 3425-4652 February 2022 EU Prelims
+Win 1-0 lil toxic 6348-2307 DW2PL #3 Prelims
+lil toxic
+Res. Record Opponent Score Event Notes
+Loss 1-4 Kolmorrik 2739-5698 The Drunkest Wrestler #2
+Loss 1-3 BigLorg 2610-4908 April 2022 EU Prelims
+Loss 1-2 Venom 1734-4231 February 2022 EU Prelims
+Win 1-1 Ryuk 2978-2743 DW2PL #3 Prelims
+Loss 0-1 Houston Jones 2307-6348 DW2PL #3 Prelims
+Ryuk
+Res. Record Opponent Score Event Notes
+Loss 0-1 lil toxic 2743-2978 DW2PL #3 Prelims
+Venom
+Res. Record Opponent Score Event Notes
+Loss 1-1 Cheers 2406-4045 April 2022 EU Prelims
+Win 1-0 lil toxic 4231-1734 February 2022 EU Prelims
+Yoshimitsu
+Res. Record Opponent Score Event Notes
+Loss 0-1 Soul Reaper 3810-4914 DW2PL #4
+Jankez
+Res. Record Opponent Score Event Notes
+Loss 0-1 Houston Jones 3387-4204 DW2PL #4 100 points deducted for Houston Jones
+due to damage dealt during lag spike
+13bot
+Res. Record Opponent Score Event Notes
+Loss 4-3 Zivese 6482-7756 DW2PL Fight Night #23 13bot replaced Quad (#9)
+Loss 4-2 Fetis 6395-8184 DW2PL Fight Night #22 Fetis replaced Quad
+Win 4-1 Kolmorrik 5931-5811 DW2PL Fight Night #21
+Loss 3-1 Soul Reaper 7452-9399 DW2PL Fight Night #15 Soul Reaper replaced Zivese
+Win 3-0 Cheers 7864-6602 DW2PL #5 15 minute prelim for vacant ranking
+spot
+Win 2-0 Houston Jones 3869-1563 (F) April 2022 EU Prelims Houston Jones forfeited with 4:50 left
+Win 1-0 Bonjoni 4601-3528 April 2022 EU Prelims
+Bonjoni
+Res. Record Opponent Score Event Notes
+Loss 0-1 13bot 3528-4601 April 2022 EU Prelims
+Szyja
+Res. Record Opponent Score Event Notes
+Win 2-0 Cheers 2669-1304 (F) DW2PL #7 Cheers forfeited with 2:30 left
+Win 1-0 Miecieks 8406-1326 April 2022 EU Prelims
+Miecieks
+Res. Record Opponent Score Event Notes
+Loss 0-4 Riku 2277-7848 DW2PL EU Tournament #4
+Loss 0-3 NLG 3347-11370 DW2PL EU Tournament #4
+Loss 0-2 Kolmorrik 3378-5501 DW2PL Fight Night #20 Kolmorrik replaced Ghosterz
+Loss 0-1 Szyja 1326-8406 April 2022 EU Prelims
+BigLorg
+Res. Record Opponent Score Event Notes
+Win 1-0 lil toxic 4908-2610 April 2022 EU Prelims
+Coral
+Res. Record Opponent Score Event Notes
+Win 1-0 the bingler 3716-2734 April 2022 EU Prelims
+the bingler
+Res. Record Opponent Score Event Notes
+Loss 0-1 Coral 2734-3716 April 2022 EU Prelims
+Weewarrior
+Res. Record Opponent Score Event Notes
+Win 28-6 Forbs (DQ) DW2PL #20 Forbs is disqualified for repeated
+disconnection
+Loss 27-6 Jab 5873-6065 DW2PL #19
+Win 27-5 Baloniarz 4774-3313 DW2PL #19 Baloniarz forfeits with 5:23 left in the
+match
+Loss 26-5 NLG 5728-6062 DW2PL EU Tournament #5 For the EU Championship
+Loss 26-4 NLG 6345-7011 DW2PL EU Tournament #5
+Win 26-3 Jab 6070-4839 DW2PL EU Tournament #5
+Win 25-3 Suharik 8063-4719 DW2PL EU Tournament #5
+Win 24-3 Nimo 8029-6590 DW2PL EU Tournament #5
+Win 23-3 Forbs 5580-5401 DW2PL EU Tournament #5
+Win 22-3 Glokum 6120-5884 DW2PL #17 Fight of the Night
+Win 21-3 Jab 7600-6239 DW2PL Fight Night #25
+Loss 20-3 Peww 3761-4044 DW2PL EU Tournament #4 For the EU Championship
+Win 20-2 Praise 8293-5282 DW2PL EU Tournament #4
+Win 19-2 Austin 7964-6488 DW2PL EU Tournament #4
+Win 18-2 Shusky 8879-6540 DW2PL EU Tournament #4
+Win 17-2 Flash 9663-6086 DW2PL EU Tournament #4
+Win 16-2 Riku 7453-4676 DW2PL EU Tournament #4
+Loss 15-2 Peww 3551-4608 DW2PL EU Tournament #4
+Win 15-1 Oleg 12831-5284 DW2PL EU Tournament #4
+Win 14-1 Hawk 8869-7590 DW2PL #10 Defended the EU Championship
+Fight of the Night
+Win 13-1 Baloniarz 6599-6069 DW2PL EU Tournament #3 Defended the EU Championship
+Won the EU Tournament
+Win 12-1 Hawk 8729-8475 DW2PL EU Tournament #3 Won the EU Championship
+Fight of the Night
+Win 11-1 Shnookams 5422-4698 DW2PL EU Tournament #3
+Win 10-1 Riku 7193-7139 DW2PL EU Tournament #3 Fight of the Night
+Win 9-1 Web 10642-6201 DW2PL EU Tournament #3
+Win 8-1 Baloniarz 4890-4670 DW2PL Fight Night #23 Fight of the Night
+Loss 7-1 Hawk 6853-9102 DW2PL #8 For the EU Championship
+Fight of the Night
+Win 7-0 Shnookams 4258-3832 DW2PL Fight Night #21 Title eliminator
+Win 6-0 Austin 7164-6592 DW2PL Fight Night #20 Fight of the Night
+Win 5-0 Oleg 8437-6508 DW2PL Fight Night #20
+Win 4-0 Namesnick 9753-6039 DW2PL #7
+Win 3-0 Bigfoot 9861-3990 DW2PL #6 Bigfoot replaced Canasto (the bout was
+initially scheduled as an exhibition)
+Win 2-0 Zivese 7042-5556 DW2PL Fight Night #18
+Win 1-0 Spookybain 5108-2323 DW2PL Fight Night #17
+Bigfoot
+Res. Record Opponent Score Event Notes
+Loss 1-2 Weewarrior 3990-9861 DW2PL #6 Bigfoot replaced Canasto (the bout was
+initially scheduled as an exhibition)
+Loss 1-1 Zivese 4560-8075 DW2PL Fight Night #17 Bigfoot replaced 13bot (#12)
+Win 1-0 Rusco 3825-3208 DW2PL Fight Night #17
+Rusco
+Res. Record Opponent Score Event Notes
+Win 1-2 Spookybain 4806-2756 DW2PL Fight Night #24
+Loss 0-2 Peww 3343-3707 DW2PL Fight Night #23 Peww replaced Spookybain
+Loss 0-1 Bigfoot 3208-3825 DW2PL Fight Night #17
+Owl
+Res. Record Opponent Score Event Notes
+Loss 0-1 Malthe 5022-5478 DW2PL Fight Night #18 Fight of the Night
+Kolmorrik
+Res. Record Opponent Score Event Notes
+Loss 3-5 Oleg 6712-6808 DW2PL EU Tournament #3
+Qualifiers
+Loss 3-4 Soul Reaper 5478-6957 DW2PL EU Tournament #3
+Qualifiers
+Loss 3-3 13bot 5811-5931 DW2PL Fight Night #21
+Win 3-2 Miecieks 5501-3378 DW2PL Fight Night #20
+Loss 2-2 Malthe 4806-5437 DW2PL #7
+Win 2-1 Cheers 3623-3152 DW2PL #6
+Loss 1-1 Sansio 3882-4965 The Drunkest Wrestler #2 EU Finals to determine the Drunkest
+Wrestler #2
+Win 1-0 lil toxic 5698-2739 The Drunkest Wrestler #2
+DNKL
+Res. Record Opponent Score Event Notes
+Loss 0-1 Sansio 4433-5983 The Drunkest Wrestler #2
+Ghosterz
+Res. Record Opponent Score Event Notes
+Loss 4-5 Jab 5565-9013 DW2PL #12 Ghosterz Forfeited with 1:52 left
+Loss 4-4 Faded 4094-4959 DW2PL #10
+Win 4-3 Jab 5216-5097 DW2PL Fight Night #24
+Loss 3-3 Zivese 5498-5617 DW2PL EU Tournament #3
+Qualifiers
+Loss 3-2 Faded 6714-6978 DW2PL EU Tournament #3
+Qualifiers
+Win 3-1 Analfister 6803-6789 DW2PL EU Tournament #3
+Qualifiers
+Win 2-1 Cronobis 4128-3716 DW2PL Fight Night #23
+Win 1-1 Makrelazz 4385-2135 DW2PL Fight Night #22
+Loss 0-1 Spookybain 2094-3472 DW2PL Fight Night #21
+Fetis
+Res. Record Opponent Score Event Notes
+Win 8-2 Baloniarz 6839-5466 DW2PL #18
+Win 7-2 Peww 7587-6317 DW2PL #12 Won the EU Championship
+Win 6-2 Peww 7385-5618 DW2PL #9
+Win 5-2 Shnookams 5961-4773 EU Tournament #3
+Non-Tournament
+Loss 4-2 Peww 4926-5946 DW2PL EU Tournament #3
+Loss 4-1 Hawk 8281-10470 DW2PL EU Tournament #3 For the EU Championship
+Win 4-0 Gandhi 9118-5154 DW2PL EU Tournament #3 Recording unavailable
+Win 3-0 Oleg 8957-6426 DW2PL Fight Night #23
+Win 2-0 Spookybain 8638-4401 DW2PL Fight Night #22 Spookybain replaced Zivese
+Win 1-0 13bot 8184-6395 DW2PL Fight Night #22 Fetis replaced Quad
+Makrelazz
+Res. Record Opponent Score Event Notes
+Loss 0-1 Ghosterz 2135-4385 DW2PL Fight Night #22
+Peww
+Res. Record Opponent Score Event Notes
+Win 14-5 Jab 7974-7463 DW2PL #18 Defended the EU Championship
+Fight of the Night
+Win 13-5 Baloniarz 7177-6559 DW2PL #15 Defended the EU Championship
+Win 12-5 Weewarrior 4044-3761 DW2PL EU Tournament #4 Won the EU Championship
+Win 11-5 Praise 5385-4591 DW2PL EU Tournament #4
+Win 10-5 Weewarrior 4608-3551 DW2PL EU Tournament #4
+Win 9-5 Keevo 8319-4403 DW2PL EU Tournament #4
+Loss 8-5 Fetis 6317-7587 DW2PL #12 For the EU Championship
+Win 8-4 Shnookams 6530-3759 DW2PL #11
+\Win 7-4 Shusky 7243-5763 DW2PL #10
+Loss 6-4 Fetis 5618-7385 DW2PL #9
+Loss 6-3 Hawk 6566-6722 EU Tournament #3
+Non-Tournament
+Loss 6-2 Shnookams 6040-7545 DW2PL EU Tournament #3
+Win 6-1 Web 8850-6507 DW2PL EU Tournament #3
+Win 5-1 Fetis 5946-4926 DW2PL EU Tournament #3
+Win 4-1 Zivese 8226-6672 DW2PL EU Tournament #3
+Loss 3-1 Shnookams 5359-5560 DW2PL EU Tournament #3 Fight of the Night
+Win 3-0 Houston Jones 10048-5426 DW2PL EU Tournament #3
+Qualifiers
+Win 2-0 Uber 8677-7092 DW2PL EU Tournament #3 Uber replaced 13bot
+Qualifiers
+Win 1-0 Rusco 3707-3343 DW2PL Fight Night #23 Peww replaced Spookybain
+Cronobis
+Res. Record Opponent Score Event Notes
+Loss 0-1 Ghosterz 3716-4128 DW2PL Fight Night #23
+Uber
+Res. Record Opponent Score Event Notes
+Loss 0-1 Peww 7092-8677 DW2PL EU Tournament #3 Uber replaced 13bot
+Qualifiers
+Nimo
+Res. Record Opponent Score Event Notes
+Loss 12-7 Baloniarz 5805-6063 DW2PL EU Tournament #5
+Win 12-6 Cheers 8423-5909 DW2PL EU Tournament #5
+Loss 11-6 Weewarrior 6590-8029 DW2PL EU Tournament #5
+Win 11-5 Warlord 6180-5934 DW2PL EU Tournament #5
+Win 10-5 Web 8189-6596 DW2PL #18
+Loss 9-5 Jab 8124-10125 DW2PL #16
+Loss 9-4 Shnookams 6295-6490 DW2PL Fight Night #25 Fight of The Night
+Win 9-3 Flash 8750-6060 DW2PL EU Tournament #4
+Win 8-3 Austin 9049-7225 DW2PL EU Tournament #4
+Win 7-3 NLG 6359-6090 DW2PL #14 NLG replaced Larry
+Win 6-3 Zivese 8830-6570 DW2PL #13
+Win 5-3 Praise 4409-4130 DW2PL #12
+Win 4-3 Nokia 4483-3712 DW2PL #11
+Loss 3-3 Jab 3439-6510 DW2PL #11
+Win 3-2 Arima 4868-4675 DW2PL #9
+Win 2-2 Aw1k 6940-4000 DW2PL Fight Night #24
+Loss 1-2 Jab 5761-6274 EU Tournament #3
+Non-Tournament
+Loss 1-1 Web 6389-10790 DW2PL EU Tournament #3
+Qualifiers
+Win 1-0 Cheers 8029-6011 DW2PL EU Tournament #3
+Qualifiers
+Eraca
+Res. Record Opponent Score Event Notes
+Win 1-0 Arima 8526-5332 DW2PL EU Tournament #3
+Qualifiers
+Arima
+Res. Record Opponent Score Event Notes
+Loss 1-2 Nimo 4675-4868 DW2PL #9
+Win 1-1 Cheers 6541-3821 EU Tournament #3
+Non-Tournament
+Loss 0-1 Eraca 5332-8526 DW2PL EU Tournament #3
+Qualifiers
+Overallshot
+Res. Record Opponent Score Event Notes
+Win 1-0 Enzane 6566-3626 DW2PL EU Tournament #3
+Qualifiers
+Enzane
+Res. Record Opponent Score Event Notes
+Loss 0-1 Overallshot 3626-6566 DW2PL EU Tournament #3
+Qualifiers
+Web
+Res. Record Opponent Score Event Notes
+Loss 4-3 Nimo 6596-8189 DW2PL #18
+Win 4-2 Suharik 7527-5186 DW2PL Fight Night #27
+Win 3-2 Artem 5437-4220 DW2PL #16
+Loss 2-2 Peww 6507-8850 DW2PL EU Tournament #3
+Loss 2-1 Weewarrior 6201-10642 DW2PL EU Tournament #3
+Win 2-0 Nimo 10790-6389 DW2PL EU Tournament #3
+Qualifiers
+Win 1-0 Quad 9768-7278 DW2PL EU Tournament #3
+Qualifiers
+Niklaus
+Res. Record Opponent Score Event Notes
+Loss 1-1 Riku 6239-10539 DW2PL EU Tournament #3
+Qualifiers
+Win 1-0 NLG 6823-4797 DW2PL EU Tournament #3
+Qualifiers
+NLG
+Res. Record Opponent Score Event Notes
+Win 13-8 Jab 10296-10099 DW2PL #20 Defended the EU Championship
+Win 12-8 Weewarrior 6062-5728 DW2PL EU Tournament #5 Won the EU Championship
+Win 11-8 Weewarrior 7011-6345 DW2PL EU Tournament #5
+Win 10-8 Jab 6044-5466 DW2PL EU Tournament #5
+Win 9-8 Shnookams 5979-5504 DW2PL EU Tournament #5
+Win 8-8 Baloniarz 5809-5050 DW2PL EU Tournament #5
+Loss 7-8 Jab 6104-7058 DW2PL EU Tournament #5
+Win 7-7 Nimbus 5798-4802 DW2PL EU Tournament #5
+Win 6-7 Glokum 5631-5483 DW2PL #15
+Loss 5-7 Baloniarz 3380-4379 DW2PL Fight Night #26
+Loss 5-6 Keevo 6807-6744 DW2PL EU Tournament #4
+Loss 5-5 Shusky 7640-8186 DW2PL EU Tournament #4
+Win 5-4 Miecieks 11370-3347 DW2PL EU Tournament #4
+Loss 4-4 Nimo 6090-6359 DW2PL #14 NLG replaced Larry
+Loss 4-3 Henli 5499-7302 DW2PL #14
+Win 4-2 Oleg 5497-4238 DW2PL #13
+Win 3-2 Nokia 4661-4523 DW2PL #12
+Win 2-2 Keevo 6647-3912 DW2PL #11
+Loss 1-2 Praise 2686-4883 DW2PL #10
+Win 1-1 Spookybain 3698-3142 EU Tournament #3
+Non-Tournament
+Loss 0-1 Niklaus 4797-6823 DW2PL EU Tournament #3
+Qualifiers
+Faded
+Res. Record Opponent Score Event Notes
+Win 3-2 Ghosterz 4959-4094 DW2PL #10
+Win 2-2 Forbs 4414-4088 DW2PL #9
+Loss 1-2 Gandhi 4397-4570 DW2PL EU Tournament #3
+Loss 1-1 Shusky 6953-7857 DW2PL EU Tournament #3
+Win 1-0 Ghosterz 6978-6714 DW2PL EU Tournament #3
+Qualifiers
+Jab
+Res. Record Opponent Score Event Notes
+Loss 13-6 NLG 10099-10296 DW2PL #20 For the EU Championship
+Win 13-5 Weewarrior 6065-5873 DW2PL #19
+Loss 12-5 NLG 5466-6044 DW2PL EU Tournament #5
+Loss 12-4 Weewarrior 4839-6070 DW2PL EU Tournament #5
+Win 12-3 NLG 7058-6104 DW2PL EU Tournament #5
+Win 11-3 Shnookams 7847-6421 DW2PL EU Tournament #5
+Win 10-3 Shnookams 6833-5630 DW2PL Fight Night #28
+Loss 9-3 Peww 7463-7974 DW2PL #18 For the EU Championship
+Fight of the Night
+Win 9-2 Nimo 10125-8124 DW2PL #16
+Win 8-2 Keevo 9412-6536 DW2PL Fight Night #26
+Loss 7-2 Weewarrior 6239-7600 DW2PL Fight Night #25
+Win 7-1 Shnookams 7947-6449 DW2PL #14
+Win 6-1 Szadel 12794-8185 DW2PL #13 Both Jab and Szadel disconnected at
+2:46 so the score is added from 2 parts
+Win 5-1 Ghosterz 9013-5565 DW2PL #12 Ghosterz Forfeited with 1:52 left
+Win 4-1 Oleg 12002-6190 DW2PL #11
+Win 3-1 Nimo 6510-3439 DW2PL #11
+Loss 2-1 Ghosterz 5097-5216 DW2PL Fight Night #24
+Win 2-0 Nimo 6274-5761 EU Tournament #3
+Non-Tournament
+Win 1-0 Spookybain 5928-2383 EU Tournament #3
+Non-Tournament
+Aw1k
+Res. Record Opponent Score Event Notes
+Loss 0-1 Nimo 4000-6940 DW2PL Fight Night #24
+Forbs
+Res. Record Opponent Score Event Notes
+Loss 1-5 Weewarrior (DQ) DW2PL #20 Forbs is disqualified for repeated
+disconnection
+Loss 1-4 Warlord 6762-6865 DW2PL EU Tournament #5
+Loss 1-3 Weewarrior 5401-5580 DW2PL EU Tournament #5
+Win 1-2 Oleg 6884-3453 DW2PL #18
+Loss 0-2 Glokum 4260-5111 DW2PL Fight Night #26
+Loss 0-1 Faded 4088-4414 DW2PL #9
+Praise
+Res. Record Opponent Score Event Notes
+Loss 3-4 Suharik 5400-6627 DW2PL #19
+Loss 3-3 Weewarrior 8293-5282 DW2PL EU Tournament #4
+Loss 3-2 Peww 4591-5385 DW2PL EU Tournament #4
+Win 3-1 Shusky 8186-7640 DW2PL EU Tournament #4
+Win 2-1 Szadel 7570-5341 DW2PL EU Tournament #4
+Loss 1-1 Nimo 4130-4409 DW2PL #12
+Win 1-0 NLG 4883-2686 DW2PL #10
+Nokia
+Res. Record Opponent Score Event Notes
+Win 1-3 Black Gangsta 1976-1048 DW2PL #14 Black Gangsta forfeited with 6.40 left
+Loss 0-3 Keevo 4742-5127 DW2PL #13
+Loss 0-2 NLG 4523-4661 DW2PL #12
+Loss 0-1 Nimo 3712-4483 DW2PL #11
+Keevo
+Res. Record Opponent Score Event Notes
+Loss 4-5 Jab 6536-9412 DW2PL Fight Night #26
+Win 4-4 Glokum 5375-5336 DW2PL Fight Night #25
+Loss 3-4 Austin 6122-9491 DW2PL EU Tournament #4
+Win 3-3 NLG 6807-6744 DW2PL EU Tournament #4
+Win 2-3 Oleg 9196-6097 DW2PL EU Tournament #4
+Loss 1-3 Peww 4403-8319 DW2PL EU Tournament #4
+Win 1-2 Nokia 5127-4742 DW2PL #13
+Loss 0-2 Henli 4301-7000 DW2PL #12
+Loss 0-1 NLG 3912-6647 DW2PL #11
+Henli
+Res. Record Opponent Score Event Notes
+Win 2-0 NLG 7302-5499 DW2PL #14
+Win 1-0 Keevo 7000-4301 DW2PL #12
+Black Gangsta
+Res. Record Opponent Score Event Notes
+Loss 0-1 Nokia 1048-1976 DW2PL #14 Black Gangsta forfeited with 6.40 left
+Szon
+Res. Record Opponent Score Event Notes
+Loss 1-2 Flash 7313-7959 DW2PL EU Tournament #4
+Loss 1-1 Szadel 7419-8955 DW2PL EU Tournament #4
+Win 1-0 Cheers 5338-2895 DW2PL EU Tournament #4
+SenorChief
+Res. Record Opponent Score Event Notes
+Loss 0-4 Shnookams 2840-8710 DW2PL EU Tournament #5
+Loss 0-3 Suharik 3643-4098 DW2PL #16 SenorChief disconnected at 0.59
+remaining, ending the match
+Loss 0-2 Austin 4702-8038 DW2PL EU Tournament #4
+Loss 0-1 Flash 5776-7488 DW2PL EU Tournament #4
+Glokum
+Res. Record Opponent Score Event Notes
+Loss 1-3 Weewarrior 5884-6120 DW2PL #17 Fight of the Night
+Loss 1-2 NLG 5483-5631 DW2PL #15
+Win 1-1 Forbs 5111-4260 DW2PL Fight Night #26
+Loss 0-1 Keevo 5336-5375 DW2PL Fight Night #25
+Suharik
+Res. Record Opponent Score Event Notes
+Win 4-4 Praise 6627-5400 DW2PL #19
+Loss 3-4 Baloniarz 5753-6310 DW2PL Fight Night #29
+Loss 3-3 Shnookams 4668-8356 DW2PL EU Tournament #5
+Loss 3-2 Weewarrior 4719-8063 DW2PL EU Tournament #5
+Win 3-1 Baloniarz 5789-4224 DW2PL EU Tournament #5 Baloniarz forfeits with 2:30 left
+Win 2-1 Soul Reaper 7303-5026 DW2PL EU Tournament #5
+Loss 1-1 Web 5186-7527 DW2PL Fight Night #27
+Win 1-0 SenorChief 4098-3643 DW2PL #16 SenorChief disconnected at 0.59
+remaining, ending the match
+Artem
+Res. Record Opponent Score Event Notes
+Loss 0-1 Web 4220-5437 DW2PL #16
+Nimbus
+Res. Record Opponent Score Event Notes
+Loss 1-2 Warlord 4523-7754 DW2PL EU Tournament #5
+Loss 1-1 NLG 4802-5798 DW2PL EU Tournament #5
+Win 1-0 Cheers 8839-5905 DW2PL EU Tournament #5
+Warlord
+Res. Record Opponent Score Event Notes
+Win 4-2 Jemala 7567-4610 DW2PL Fight Night #30
+Win 3-2 Oleg 9555-5268 DW2PL Fight Night #29
+Loss 2-2 Shnookams 5784-5801 DW2PL EU Tournament #5
+Win 2-1 Nimbus 7754-4523 DW2PL EU Tournament #5
+Win 1-1 Forbs 6865-6762 DW2PL EU Tournament #5
+Loss 0-1 Nimo 5934-6180 DW2PL EU Tournament #5
+Jemala
+Res. Record Opponent Score Event Notes
+Win 1-3 Soul Reaper 5392-4192 DW2PL #20
+Loss 0-3 Warlord 4610-7567 DW2PL Fight Night #30
+Loss 0-2 Shnookams 4221-6865 DW2PL EU Tournament #5
+Loss 0-1 Baloniarz 5317-6196 DW2PL EU Tournament #5
+Sater
+Res. Record Opponent Score Event Notes
+Loss 0-1 Soul Reaper 3235-5658 DW2PL Fight Night #29
+NA Rankings
+Top 10:
+NA Top 10
+Position Nation Player MP Wins Losses Affiliation
+/ State
+Champion N/A Vacant N/A N/A N/A N/A
+#1 Larry 29 20 9 BBK
+#2 JSteele 5 3 2 BBK
+#3 Pank 8 4 4 BBK
+#4 Still_Chill 9 3 6
+#5 Cpt Caveman 4 1 3
+#6 nm41 11 11 0
+#7 Danksito 4 3 1 BBK
+#8 Typhoon 8 5 3 BBK
+#9
+#10
+Unranked
+Tier 1 Tier 2 Tier 3
+Krabs (9-15) Bongmaster (0-4)
+Green Bastid (0-1)
+Black (0-2)
+NA Records
+nm41
+Res. Record Opponent Score Event Notes
+Win 11-0 Danksito 7233-7097 DW2PL #20
+Win 10-0 Motley 8845-8244 DW2PL #7 Defended the NA Championship
+Fight of the Night
+Win 9-0 Burrito 8898-4069 DW2PL #4 Defended the NA Championship
+Win 8-0 Motley 10818-8910 DW2PL NA Tournament #2 Defended the NA championship
+Win 7-0 Hydro 11086-7404 DW2PL NA Tournament #2 Defended the NA championship
+Win 6-0 BDK 9419-8923 DW2PL NA Tournament #2 Defended the NA championship
+Fight of the Night
+Win 5-0 Hank 13115-9531 DW2PL #2.5 Defended the NA championship
+Win 4-0 Hank 10589-9518 DW2PL Fight Night #3 Defended the NA championship
+Fight of the Night
+Win 3-0 Walrus 6529-5747 DW2PL NA Tournament #1 Won the inaugural NA championship
+2 parts (half USW half USE)
+Win 2-0 Larry 8237-7644 DW2PL NA Tournament #1
+Win 1-0 Big Red 8221-5582 DW2PL NA Tournament #1
+Hank
+Res. Record Opponent Score Event Notes
+Win 6-4 Ayo Slide 8335-7729 DW2PL Fight Night #16
+Loss 5-4 Motley 5865-7849 DW2PL NA Tournament #2
+Win 5-3 Big Red 9930-7140 DW2PL #3 Fight of the Night
+Loss 4-3 nm41 9531-13115 DW2PL #2.5 For the NA championship
+Win 4-2 Hydro 8302-7076 DW2PL #1
+Loss 3-2 nm41 9518-10589 DW2PL Fight Night #3 For the NA championship
+Fight of the Night
+Win 3-1 Burrito 8273-7572 DW2PL Fight Night #2
+Win 2-1 Larry 7844-7505 DW2PL Fight Night #1
+Loss 1-1 Caweb 4142-4813 DW2PL NA Tournament #1
+Win 1-0 thedubiousone 8152-6244 DW2PL NA Tournament #1
+Burrito
+Res. Record Opponent Score Event Notes
+Loss 4-2 nm41 4069-8898 DW2PL #4 For the NA Championship
+Win 4-1 Big Red 8274-7089 DW2PL Fight Night #11 Fight of the Night
+Title Eliminator
+Win 3-1 Larry 6870-6099 DW2PL Fight Night #9
+Win 2-1 Krabs 5908-5297 DW2PL Fight Night #6
+Loss 1-1 Hank 7572-8273 DW2PL Fight Night #2
+Win 1-0 Big Red 8029-6842 DW2PL Fight Night #1 Big Red replaced Caweb
+Moleboy
+Res. Record Opponent Score Event Notes
+Loss 1-1 Hydro 4742-6784 DW2PL Fight Night #4
+Win 1-0 Walrus 6384-4254 (F) DW2PL Fight Night #2 Walrus forfeited
+Larry
+Res. Record Opponent Score Event Notes
+Loss 19-10 Kymora 5634-8568 DW2PL NA Tournament #4 With 11:05 left Kymora disconnected,
+score is from 2 parts
+For the NA Championship
+Win 19-9 Kymora 7797-7097 DW2PL NA Tournament #4 Mandatory rematch required, Kymora’s
+first loss in the bracket (this fight was
+20 minutes but technically not for the
+NA Championship)
+Win 18-9 JSteele 7608-5975 DW2PL NA Tournament #4
+Loss 17-9 Kymora 3995-6432 DW2PL NA Tournament #4
+Win 17-8 BucketofBread 2750-3048 (DQ) DW2PL NA Tournament #4 Networking failure caused Bucket to
+DQ with 8:50 left
+Win 16-8 Black 8692-3401 DW2PL NA Tournament #4
+Win 15-8 Gleam 7199-6312 DW2PL #16
+Loss 14-8 Kymora 6316-10735 DW2PL NA Tournament #3 For the NA Championship
+Win 14-7 BucketofBread 7610-6309 DW2PL NA Tournament #3
+Loss 13-7 Kymora 6004-7424 DW2PL NA Tournament #3
+Win 13-6 BDK 7466-5290 DW2PL NA Tournament #3
+Win 12-6 Bongmaster 10997-3791 DW2PL NA Tournament #3
+Win 11-6 BDK 6395-5373 DW2PL #13
+Win 10-6 Krabs 6787-5348 DW2PL #13 Larry replaced Zay
+Win 9-6 Chiki 6398-6302 DW2PL #6 Chiki replaced Big Red
+Loss 8-6 Ayo Slide 6914-6801 DW2PL Fight Night #17
+Win 8-5 Chiki 5944-5797 DW2PL Fight Night #13 Fight of the Night
+Win 7-5 BDK 6185-5804 DW2PL #4 Fight of the Night
+Loss 6-5 Ayo Slide 5406-7820 DW2PL NA Tournament #2
+Win 6-4 Hydro 8035-6102 DW2PL #3
+Loss 5-4 Burrito 6099-6870 DW2PL Fight Night #9
+Win 5-3 Krabs 7261-6173 DW2PL #2
+Win 4-3 XKP 7835-7669 DW2PL Fight Night #7 Fight of the Night
+Loss 3-3 Big Red 6118-8205 DW2PL #1
+Win 3-2 Caweb 5378-5341 DW2PL Fight Night #2
+Loss 2-2 Hank 7505-7844 DW2PL Fight Night #1
+Loss 2-1 nm41 7644-8237 DW2PL NA Tournament #1
+Win 2-0 Krabs 7608-6828 DW2PL NA Tournament #1
+Win 1-0 Hydro 6043-5878 DW2PL NA Tournament #1 Last 1:36 of the bout failed to record;
+last known score listed
+Hydro
+Res. Record Opponent Score Event Notes
+Loss 6-7 BDK 6332-7871 DW2PL #7
+Loss 6-6 Motley 5890-7164 DW2PL #4
+Win 6-5 Ayo Slide 7216-6951 DW2PL NA Tournament #2 NA Open #2 3rd place match
+Loss 5-5 nm41 7404-11086 DW2PL NA Tournament #2 For the NA Championship
+Win 5-4 Krabs 6397-5710 DW2PL NA Tournament #2
+Win 4-4 thedubiousone 6478-5416 DW2PL NA Tournament #2
+Loss 3-4 Larry 6102-8035 DW2PL #3
+Loss 3-3 Big Red 7021-7223 DW2PL Fight Night #9
+Win 3-2 Caweb 6079-4757 DW2PL Fight Night #8
+Loss 2-2 Hank 7076-8302 DW2PL #1
+Win 2-1 Moleboy 6784-4742 DW2PL Fight Night #4
+Win 1-1 Krabs 8576-5497 DW2PL Fight Night #2
+Loss 0-1 Larry 5878-6043 DW2PL NA Tournament #1 Last 1:36 of the bout failed to record;
+last known score listed
+Caweb
+Res. Record Opponent Score Event Notes
+Loss 3-5 Chiki 4478-7212 DW2PL NA Tournament #2
+Loss 3-4 Jettfly 5478-8451 DW2PL Fight Night #9 Jettfly replaced Krabs
+Loss 3-3 Hydro 4757-6079 DW2PL Fight Night #8
+Win 3-2 Big Red 5713-5387 DW2PL Fight Night #5
+Loss 2-2 Larry 5341-5378 DW2PL Fight Night #2
+Loss 2-1 Walrus 3337-3510 DW2PL NA Tournament #1
+Win 2-0 Hank 4813-4142 DW2PL NA Tournament #1
+Win 1-0 Kody 4674-1405 DW2PL NA Tournament #1 Score is before Kody began
+blockspamming at the end of the bout
+Big Red
+Res. Record Opponent Score Event Notes
+Loss 4-5 Hank 7140-9930 DW2PL #3 Fight of the Night
+Loss 4-4 Burrito 7089-8274 DW2PL Fight Night #11 Fight of the Night
+Win 4-3 Hydro 7223-7021 DW2PL Fight Night #9
+Win 3-3 Larry 8205-6118 DW2PL #1
+Win 2-3 Motley 9422-6177 DW2PL Fight Night #6 Fight of the Night
+Loss 1-3 Caweb 5387-5713 DW2PL Fight Night #5
+Win 1-2 Pakku 7632-7072 DW2PL Fight Night #2
+Loss 0-2 Burrito 6842-8029 DW2PL Fight Night #1 Big Red replaced Caweb
+Loss 0-1 nm41 5582-8221 DW2PL NA Tournament #1
+Krabs
+Res. Record Opponent Score Event Notes
+Loss 9-15 Typhoon 3486-4817 DW2PL #20
+Loss 9-14 Cpt Caveman 4740-5562 DW2PL #16
+Loss 9-13 Pank 2965-3584 DW2PL #15
+Loss 9-12 Typhoon 7446-8222 DW2PL Fight Night #26
+Loss 9-11 BucketofBread 6935-8416 DW2PL NA Tournament #3 Interference, score is from two parts
+Loss 9-10 BDK 5236-5442 DW2PL NA Tournament #3
+Loss 9-9 BDK 5532-8784 DW2PL #14
+Loss 9-8 Larry 5348-6787 DW2PL #13 Larry replaced Zay
+Win 9-7 Soul 6833-6309 DW2PL Fight Night #24 Soul replaced Drunken Expert
+Win 8-7 danteh 7935-7242 DW2PL Fight Night #23
+Loss 7-7 Chiki 6511-7535 DW2PL Fight Night #16
+Win 7-6 Eyeballsac 7949-6948 DW2PL Fight Night #15 Fight of the Night
+Loss 6-6 Motley 7102-7969 DW2PL #5
+Loss 6-5 Hydro 5710-6397 DW2PL NA Tournament #2
+Win 6-4 MoosesEatApples 6245-5452 DW2PL NA Tournament #2
+Win 5-4 BDK 8305-6732 DW2PL Fight Night #10
+Loss 4-4 Larry 6173-7261 DW2PL #2
+Win 4-3 BDK 7072-6188 DW2PL Fight Night #8
+Win 3-3 Motley 7050-6082 DW2PL #1
+Loss 2-3 Burrito 5297-5908 DW2PL Fight Night #6
+Win 2-2 Pakku 6656-5857 DW2PL Fight Night #3
+Loss 1-2 Hydro 5497-8576 DW2PL Fight Night #2
+Loss 1-1 Larry 6828-7608 DW2PL NA Tournament #1
+Win 1-0 Allosaur 8159-6218 DW2PL NA Tournament #1
+Auglover
+Res. Record Opponent Score Event Notes
+Loss 1-1 Walrus 4961-6744 DW2PL NA Tournament #1 2 parts (half USE half USW)
+Win 1-0 Papa John 5566-5025 DW2PL NA Tournament #1
+Papa John
+Res. Record Opponent Score Event Notes
+Loss 0-1 Auglover 5025-5566 DW2PL NA Tournament #1
+Pakku
+Res. Record Opponent Score Event Notes
+Loss 3-10 Zay 4415-7753 DW2PL #8
+Loss 3-9 MoosesEatApples 5603-7492 DW2PL Fight Night #22
+Loss 3-8 eyeballsac 4089-5265 DW2PL #5
+Win 3-7 Gween Bastawd 4071-3674 DW2PL #4
+Loss 2-7 MoosesEatApples 4427-4510 NA Tournament #2
+Qualifiers
+Loss 2-6 Ayo Slide 6185-10187 DW2PL #3
+Loss 2-5 BDK 6765-9223 DW2PL #2
+Loss 2-4 Motley 6617-7180 DW2PL #2
+Win 2-3 Strandid 7561-6866 DW2PL Fight Night #7
+Win 1-3 War 7692-6084 DW2PL #1
+Loss 0-3 XKP 4866-8582 DW2PL Fight Night #6
+Loss 0-2 Krabs 5857-6656 DW2PL Fight Night #3
+Loss 0-1 Big Red 7072-7632 DW2PL Fight Night #2
+Kernal
+Res. Record Opponent Score Event Notes
+Loss 1-5 danteh 1628-7498 DW2PL Fight Night #20
+Loss 1-4 Roosta 3061-5198 NA Tournament #2 Kernal’s score pre-blockspam
+Qualifiers
+Win 1-3 R.K. Smith 3995-1662 DW2PL #2.5 Last Known score (17 seconds left)
+Loss 0-3 FireBlaze 2006-3643 DW2PL #2.5 Kernal replaced Delco
+Loss 0-2 Fastskull 5513-5770 DW2PL Fight Night #4
+Loss 0-1 Walrus ? DW2PL NA Tournament #1 Recording lost
+thedubiousone
+Res. Record Opponent Score Event Notes
+Loss 3-3 Hydro 5416-6478 DW2PL NA Tournament #2
+Win 3-2 Allosaur 6044-1698 NA Tournament #2 Qualified for NA Open #2
+Qualifiers
+Win 2-2 Fastskull 7199-3748 DW2PL #1
+Win 1-2 Mesanic 4132-2571 DW2PL Fight Night #6 10 mins
+Loss 0-2 BDK 5487-7053 DW2PL Fight Night #3
+Loss 0-1 Hank 6244-8152 DW2PL NA Tournament #1
+Motley
+Res. Record Opponent Score Event Notes
+Loss 12-7 Kymora 5387-7493 DW2PL NA Tournament #3
+Win 12-6 Still_Chill 6300-5046 DW2PL NA Tournament #3
+Win 11-6 BucketofBread 7017-6737 DW2PL NA Tournament #3
+Loss 10-6 Chiki 4722-6067 DW2PL #10
+Loss 10-5 nm41 8244-8845 DW2PL #7 For the NA Championship
+Fight of the Night
+Win 10-4 Chiki 5471-5340 DW2PL Fight Night #19 Title eliminator
+Fight of the Night
+Win 9-4 Krabs 7969-7102 DW2PL #5
+Win 8-4 Hydro 7164-5890 DW2PL #4
+Loss 7-4 nm41 8910-10818 DW2PL NA Tournament #2 For the NA Championship
+Win 7-3 Ayo Slide 6976-6335 DW2PL NA Tournament #2
+Win 6-3 Hank 7849-5865 DW2PL NA Tournament #2
+Win 5-3 Walrus 8722-5350 DW2PL NA Tournament #2
+Win 4-3 XKP 5800-5205 DW2PL #3
+Win 3-3 Roosta 7907-3701 DW2PL Fight Night #10
+Loss 2-3 BDK 7257-8606 DW2PL Fight Night #9 Fight of the Night
+Win 2-2 Pakku 7180-6617 DW2PL #2
+Loss 1-2 Krabs 6082-7050 DW2PL #1
+Loss 1-1 Big Red 6177-9422 DW2PL Fight Night #6 Fight of the Night
+Win 1-0 Fastskull 7811-6130 DW2PL Fight Night #3
+Kody
+Res. Record Opponent Score Event Notes
+Loss 0-1 Caweb 1405-4674 DW2PL NA Tournament #1 Score is before Kody began
+blockspamming at the end of the bout
+Allosaur
+Res. Record Opponent Score Event Notes
+Loss 0-3 thedubiousone 1698-6044 NA Tournament #2
+Qualifiers
+Loss 0-2 Fastskull 3313-4385 DW2PL Fight Night #3
+Loss 0-1 Krabs 6218-8159 DW2PL NA Tournament #1
+Walrus
+Res. Record Opponent Score Event Notes
+Loss 4-3 Motley 5350-8722 DW2PL NA Tournament #2
+Win 4-2 Jacob 4964-4161 NA Tournament #2
+Qualifiers
+Loss 3-2 Moleboy 4254-6384 (F) DW2PL Fight Night #2 Forfeit
+Loss 3-1 nm41 5747-6529 DW2PL NA Tournament #1 For the NA championship
+2 parts (half USW half USE)
+Win 3-0 Caweb 3510-3337 DW2PL NA Tournament #1
+Win 2-0 Auglover 6744-4961 DW2PL NA Tournament #1 2 parts (half USE half USW)
+Win 1-0 Kernal ? DW2PL NA Tournament #1 Recording lost
+BDK
+Res. Record Opponent Score Event Notes
+Loss 11-8 BucketofBread 6283-6673 DW2PL NA Tournament #3 At 5:46 BDK disconnected, score is
+from 2 parts
+Win 11-7 Still_Chill 5011-3118 DW2PL NA Tournament #3
+Loss 10-7 Larry 5290-7466 DW2PL NA Tournament #3
+Win 10-7 Krabs 5442-5236 DW2PL NA Tournament #3
+Win 9-7 Smorcc 8374-3889 DW2PL NA Tournament #3
+Win 8-7 Krabs 8784-5532 DW2PL #14
+Loss 7-7 Larry 5373-6395 DW2PL #13
+Win 7-6 Hydro 7871-6332 DW2PL #7
+Loss 6-6 Ayo Slide 6603-7175 DW2PL #6 Fight of the Night
+Win 6-5 eyeballsac 8389-5617 DW2PL Fight Night #19
+Loss 5-5 Chiki 6438-6936 DW2PL Fight Night #15
+Loss 5-4 Larry 5804-6185 DW2PL #4 Fight of the Night
+Loss 5-3 nm41 8923-9419 DW2PL NA Tournament #2 For the NA Championship
+Fight of the Night
+Win 5-2 MuayThaiGuy 8098-7080 DW2PL NA Tournament #2
+Loss 4-2 Krabs 6732-8305 DW2PL Fight Night #10
+Win 4-1 Motley 8606-7257 DW2PL Fight Night #9 Fight of the Night
+Win 3-1 Pakku 9223-6765 DW2PL #2
+Loss 2-1 Krabs 6188-7072 DW2PL Fight Night #8
+Win 2-0 Wasted Taint 4679-3219 DW2PL #1
+Win 1-0 thedubiousone 7053-5487 DW2PL Fight Night #3
+Fastskull
+Res. Record Opponent Score Event Notes
+Loss 2-3 thedubiousone 3748-7199 DW2PL #1
+Loss 2-2 Jettfly 5961-8347 DW2PL Fight Night #4 Last known score (30 seconds left)
+Win 2-1 Kernal 5770-5513 DW2PL Fight Night #4
+Loss 1-1 Motley 6130-7811 DW2PL Fight Night #3
+Win 1-0 Allosaur 4385-3313 DW2PL Fight Night #3
+XKP
+Res. Record Opponent Score Event Notes
+Loss 3-2 Motley 5205-5800 DW2PL #3
+Loss 3-1 Larry 7669-7835 DW2PL Fight Night #7 Fight of the Night
+Win 3-0 Pakku 8582-4866 DW2PL Fight Night #6
+Win 2-0 Kanadian Killa 6293-5388 DW2PL Fight Night #5
+Win 1-0 Merd 4673-1969 DW2PL Fight Night #4 Prelim
+Merd
+Res. Record Opponent Score Event Notes
+Loss 0-1 XKP 1969-4673 DW2PL Fight Night #4 Prelim
+eyeballsac
+Res. Record Opponent Score Event Notes
+Loss 3-5 BDK 5617-8389 DW2PL Fight Night #19
+Loss 3-4 Krabs 6948-7949 DW2PL Fight Night #15 Fight of the Night
+Win 3-3 Pakku 5265-4089 DW2PL #5
+Loss 2-3 MuayThaiGuy 5376-7829 DW2PL Fight Night #14
+Win 2-2 Queue 4527-4359 DW2PL Fight Night #13
+Win 1-2 War 5509-3400 DW2PL Fight Night #10
+Loss 0-2 Strandid 4483-5684 DW2PL #1
+Loss 0-1 Kanadian Killa 4204-4874 DW2PL Fight Night #5
+Mesanic
+Res. Record Opponent Score Event Notes
+Loss 0-1 thedubiousone 2571-4132 DW2PL Fight Night #6 10 mins
+Jettfly
+Res. Record Opponent Score Event Notes
+Win 3-0 Caweb 8451-5478 DW2PL Fight Night #9 Jettfly replaced Krabs
+Win 2-0 Strandid 8363-7531 DW2PL #2
+Win 1-0 Fastskull 8347-5961 DW2PL Fight Night #4 Last known score (30 seconds left)
+Kanadian Killa
+Res. Record Opponent Score Event Notes
+Win 1-1 eyeballsac 4874-4204 DW2PL Fight Night #5
+Loss 0-1 XKP 5388-6293 DW2PL Fight Night #5
+War
+Res. Record Opponent Score Event Notes
+Loss 1-3 Pank 3104-7213 NA Tournament #2
+Qualifiers
+Loss 1-2 eyeballsac 3400-5509 DW2PL Fight Night #10
+Loss 1-1 Pakku 6084-7692 DW2PL #1
+Win 1-0 FireBlaze 5457-4011 The Drunkest Wrestler #1 NA finals to determine the Drunkest
+Wrestler
+FireBlaze
+Res. Record Opponent Score Event Notes
+Win 1-1 Kernal 3643-2006 DW2PL #2.5 Kernal replaced Delco
+Loss 0-1 War 4011-5457 The Drunkest Wrestler #1 NA finals to determine the Drunkest
+Wrestler
+Wasted Taint
+Res. Record Opponent Score Event Notes
+Loss 0-1 BDK 3219-4679 DW2PL #1
+Strandid
+Res. Record Opponent Score Event Notes
+Loss 2-2 Jettfly 7531-8363 DW2PL #2
+Win 2-1 Mr.Mcfister 7872-7061 DW2PL #2
+Loss 1-1 Pakku 6866-7561 DW2PL Fight Night #7
+Win 1-0 eyeballsac 5684-4483 DW2PL #1
+Mr.Mcfister
+Res. Record Opponent Score Event Notes
+Loss 0-1 Strandid 7061-7872 DW2PL #2
+R.K. Smith
+Res. Record Opponent Score Event Notes
+Loss 0-1 Kernal 1662-3995 DW2PL #2.5 Last Known score (17 seconds left)
+Chiki
+Res. Record Opponent Score Event Notes
+Win 9-5 Motley 6067-4722 DW2PL #10
+Win 8-5 Ayo Slide 7153-4688 DW2PL Fight Night #24
+Win 7-5 Zay 5321-5031 DW2PL Fight Night #21 Fight of the Night
+Loss 6-5 Larry 6302-6398 DW2PL #6 Chiki replaced Big Red
+Loss 6-4 Motley 5340-5471 DW2PL Fight Night #19 Title eliminator
+Fight of the Night
+Win 6-3 Krabs 7535-6511 DW2PL Fight Night #16
+Win 5-3 BDK 6936-6438 DW2PL Fight Night #15
+Win 4-3 MoosesEatApples 8720-5564 DW2PL #5
+Loss 3-3 Larry 5797-5944 DW2PL Fight Night #13 Fight of the Night
+Loss 3-2 Ayo Slide 5857-8056 DW2PL NA Tournament #2
+Win 3-1 Caweb 7212-4478 DW2PL NA Tournament #2
+Win 2-1 Big Teal 4655-2794 NA Tournament #2 Qualified for NA Open #2
+Qualifiers
+Win 1-1 Roosta 5394-4264 DW2PL #3
+Loss 0-1 Ayo Slide 4724-5043 DW2PL Fight Night #10
+Ayo Slide
+Res. Record Opponent Score Event Notes
+Loss 6-4 Chiki 4688-7153 DW2PL Fight Night #24
+Win 6-3 BDK 7175-6603 DW2PL #6 Fight of the Night
+Win 5-3 Larry 6914-6801 DW2PL Fight Night #17
+Loss 4-3 Hank 7729-8335 DW2PL Fight Night #16
+Loss 4-2 Hydro 6951-7216 DW2PL NA Tournament #2 NA Tournament #2 3rd place match
+Loss 4-1 Motley 6335-6976 DW2PL NA Tournament #2
+Win 4-0 Chiki 8056-5857 DW2PL NA Tournament #2
+Win 3-0 Larry 7820-5406 DW2PL NA Tournament #2
+Win 2-0 Pakku 10187-6185 DW2PL #3
+Win 1-0 Chiki 5043-4724 DW2PL Fight Night #10
+Roosta
+Res. Record Opponent Score Event Notes
+Loss 1-5 danteh 3190-4614 DW2PL #7
+Loss 1-4 Queue 4599-4928 DW2PL Fight Night #14
+Loss 1-3 MoosesEatApples 3712-4627 NA Tournament #2
+Qualifiers
+Win 1-2 Kernal 5198-3061 NA Tournament #2 Kernal’s score pre-blockspam
+Qualifiers
+Loss 0-2 Chiki 4264-5394 DW2PL #3
+Loss 0-1 Motley 3701-7907 DW2PL Fight Night #10
+MuayThaiGuy
+Res. Record Opponent Score Event Notes
+Win 2-1 eyeballsac 7829-5376 DW2PL Fight Night #14
+Loss 1-1 BDK 7080-8098 DW2PL NA Tournament #2
+Win 1-0 Gween Bastawd 5937-3142 NA Tournament #2 Qualified for NA Tournament #2
+Qualifiers
+MoosesEatApples
+Res. Record Opponent Score Event Notes
+Win 3-4 Pakku 7492-5603 DW2PL Fight Night #22
+Loss 2-4 danteh 6350-8453 DW2PL Fight Night #21
+Loss 2-3 Zay 6264-7341 DW2PL #7
+Loss 2-2 Chiki 5564-8720 DW2PL #5
+Loss 2-1 Krabs 5452-6245 DW2PL NA Tournament #2
+Win 2-0 Roosta 4627-3712 NA Tournament #2 Qualified for NA Tournament #2
+Qualifiers
+Win 1-0 Pakku 4510-4427 NA Tournament #2
+Qualifiers
+Nute
+Res. Record Opponent Score Event Notes
+Win 1-1 Bongmaster 3069-1730 DW2PL Fight Night #15 Fight of the Night
+Loss 0-1 Gween Bastawd Unknown NA Tournament #2 Recording unavailable
+Qualifiers
+Gween Bastawd (NA)
+Res. Record Opponent Score Event Notes
+Win 2-2 Canasto 5991-628 December 2023 Prelims
+Loss 1-2 Pakku 3674-4071 DW2PL #4
+Loss 1-1 MuayThaiGuy 3142-5937 NA Tournament #2
+Qualifiers
+Win 1-0 Nute Unknown NA Tournament #2 Recording unavailable
+Qualifiers
+Jacob
+Res. Record Opponent Score Event Notes
+Loss 0-1 Walrus 4161-4964 NA Tournament #2
+Qualifiers
+Pank
+Res. Record Opponent Score Event Notes
+Loss 4-4 JSteele 5375-6106 DW2PL NA Tournament #4
+Win 4-3 Gleam 7651-6071 DW2PL NA Tournament #4
+Loss 3-3 Kymora 3329-3675 DW2PL NA Tournament #4
+Win 3-2 JSteele 6304-6277 DW2PL NA Tournament #4
+Win 2-2 Krabs 3584-2965 DW2PL #15
+Loss 1-2 Gleam 5834-6864 DW2PL NA Tournament #3
+Loss 1-1 Kymora 3828-6035 DW2PL NA Tournament #3
+Win 1-0 War 7213-3104 NA Tournament #2
+Qualifiers
+Big Teal
+Res. Record Opponent Score Event Notes
+Loss 0-1 Chiki 2794-4655 NA Tournament #2
+Qualifiers
+Queue
+Res. Record Opponent Score Event Notes
+Win 2-1 Zay 4388-3381 DW2PL Fight Night #15
+Win 1-1 Roosta 4928-4599 DW2PL Fight Night #14
+Loss 0-1 eyeballsac 4359-4527 DW2PL Fight Night #13
+Zay
+Res. Record Opponent Score Event Notes
+Loss 4-3 Kymora 5381-5471 DW2PL NA Tournament #3
+Win 4-2 Gleam 5776-5685 DW2PL NA Tournament #3
+Win 3-2 Kymora 8985-5564 DW2PL #10
+Win 2-2 Pakku 7753-4415 DW2PL #8
+Loss 1-2 Chiki 5031-5321 DW2PL Fight Night #21 Fight of the Night
+Win 1-1 Mooseseatapples 7341-6264 DW2PL #7
+Loss 0-1 Queue 3381-4388 DW2PL Fight Night #15
+Bongmaster
+Res. Record Opponent Score Event Notes
+Loss 0-4 Smorcc 3931-4610 DW2PL Fight Night #25
+Loss 0-3 Still_Chill 3986-5488 DW2PL NA Tournament #3 Bongmaster disconnected with 1:00 left
+Loss 0-2 Larry 3791-10997 DW2PL NA Tournament #3
+Loss 0-1 Nute 1730-3069 DW2PL Fight Night #15 Fight of the Night
+danteh
+Res. Record Opponent Score Event Notes
+Loss 3-1 Krabs 7242-7935 DW2PL Fight Night #23
+Win 3-0 Mooseseatapples 8453-6350 DW2PL Fight Night #21
+Win 2-0 Kernal 7498-1628 DW2PL Fight Night #20
+Win 1-0 Roosta 4614-3190 DW2PL #7
+Soul
+Res. Record Opponent Score Event Notes
+Loss 0-1 Krabs 6309-6833 DW2PL Fight Night #24 Soul replaced Drunken Expert
+Kymora
+Res. Record Opponent Score Event Notes
+Win 12-2 Larry 8568-5634 DW2PL NA Tournament #4 With 11:05 left Kymora disconnected,
+score is from 2 parts
+For the NA Championship
+Loss 11-2 Larry 7097-7797 DW2PL NA Tournament #4 Mandatory rematch required, Kymora’s
+first loss in the bracket (this fight was
+20 minutes but technically not for the
+NA Championship)
+Win 11-1 Larry 6432-3995 DW2PL NA Tournament #4
+Win 10-1 Pank 3675-3329 DW2PL NA Tournament #4
+Win 9-1 Still_Chill 8618-2907 DW2PL NA Tournament #4
+Win 8-1 BucketofBread 8462-6483 DW2PL #16
+Win 7-1 Larry 10735-6316 DW2PL NA Tournament #3 For the NA Championship
+Win 6-1 Larry 7424-6004 DW2PL NA Tournament #3
+Win 5-1 Motley 7493-5387 DW2PL NA Tournament #3
+Win 4-1 Zay 5471-5381 DW2PL NA Tournament #3
+Win 3-1 Pank 6035-3828 DW2PL NA Tournament #3
+Win 2-1 Purple Dude 3770-3408 DW2PL #12
+Win 1-1 Purple Dude 4384-4120 December 2023 Prelims
+Loss 0-1 Zay 5564-8985 DW2PL #10
+Purple Dude
+Res. Record Opponent Score Event Notes
+Win 2-2 Jackbro 6229-2592 DW2PL #13
+Loss 1-2 Kymora 3408-3770 DW2PL #12
+Win 1-1 Typhoon 5479-4662 DW2PL #11
+Loss 0-1 Kymora 4120-4384 December 2023 Prelims
+Canasto
+Res. Record Opponent Score Event Notes
+Loss 0-1 Gween Bastawd 628-5991 December 2023 Prelims
+Typhoon
+Res. Record Opponent Score Event Notes
+Win 5-3 Krabs 4817-3486 DW2PL #20
+Loss 4-2 Danksito 6796-7394 DW2PL #19
+Win 4-1 Still_Chill 7870-5234 DW2PL #16
+Win 3-1 Smorcc 9856-4255 DW2PL #15
+Win 2-1 Krabs 8222-7446 DW2PL Fight Night #26
+Win 1-1 Jackbro 5062-2447 DW2PL #14
+Loss 0-1 Purple Dude 4662-5479 DW2PL #11
+Jackbro
+Res. Record Opponent Score Event Notes
+Loss 0-2 Typhoon 2447-5062 DW2PL #14 Jackbro crashed at 1.21 left
+Loss 0-1 Purple Dude 6229-2592 DW2PL #13
+Still_Chill
+Res. Record Opponent Score Event Notes
+Win 3-6 Cpt Caveman 7135-5615 DW2PL Fight Night #28
+Loss 2-6 JSteele 3907-7812 DW2PL NA Tournament #4
+Loss 2-5 Kymora 2907-8618 DW2PL NA Tournament #4
+Loss 2-4 Typhoon 5234-7870 DW2PL #16
+Loss 2-3 Gleam 3794-6906 DW2PL Fight Night #26
+Loss 2-2 BDK 3118-5011 DW2PL NA Tournament #3
+Win 2-1 Bongmaster 5488-3986 DW2PL NA Tournament #3 Bongmaster disconnected with 1:00 left
+Win 1-1 Smorcc 5810-3939 DW2PL NA Tournament #3
+Loss 0-1 Motley 5046-6300 DW2PL NA Tournament #3
+BucketofBread
+Res. Record Opponent Score Event Notes
+Loss 5-4 Larry 2750-3048 (DQ) DW2PL NA Tournament #4 Networking failure caused Bucket to
+DQ with 8:50 left
+Win 5-3 Gleam 9100-7600 DW2PL NA Tournament #4
+Loss 4-3 Kymora 6483-8462 DW2PL #16
+Win 4-2 Gleam 9750-7607 DW2PL #15
+Loss 3-2 Larry 6309-7610 DW2PL NA Tournament #3
+Win 3-1 BDK 6673-6283 DW2PL NA Tournament #3 With 5:46 left BDK disconnected, score
+is from 2 parts
+Win 2-1 Gleam 8972-7892 DW2PL NA Tournament #3
+Win 1-1 Krabs 8416-6935 DW2PL NA Tournament #3 Interference, score is from two parts
+Loss 0-1 Motley 6737-7017 DW2PL NA Tournament #3
+Gleam
+Res. Record Opponent Score Event Notes
+Loss 3-7 Danksito 6215-6231 DW2PL Fight Night #28 Fight of the Night
+Loss 3-6 Pank 6071-7651 DW2PL NA Tournament #4
+Win 3-5 Black 8724-5495 DW2PL NA Tournament #4
+Loss 2-5 BucketofBread 7600-9100 DW2PL NA Tournament #4
+Loss 2-4 Larry 6312-7199 DW2PL #16
+Loss 2-3 BucketofBread 7607-9750 DW2PL #15
+Win 2-2 Still_Chill 6906-3794 DW2PL Fight Night #26
+Loss 1-2 BucketofBread 7892-8972 DW2PL NA Tournament #3
+Win 1-1 Pank 6864-5834 DW2PL NA Tournament #3
+Loss 0-1 Zay 5685-5776 DW2PL NA Tournament #3
+Smorcc
+Res. Record Opponent Score Event Notes
+Loss 2-3 Typhoon 4255-9856 DW2PL #15
+Win 2-2 Bongmaster 4610-3931 DW2PL Fight Night #25
+Loss 1-2 Still_Chill 3939-5810 DW2PL NA Tournament #3
+Loss 1-1 BDK 3889-8374 DW2PL NA Tournament #3
+Win 1-0 ppmaster 5337-3310 DW2PL NA Tournament #3 Play in match prior to Round 1
+ppmaster
+Res. Record Opponent Score Event Notes
+Loss 0-1 Smorcc 3310-5337 DW2PL NA Tournament #3 Play in match prior to Round 1
+Cpt Caveman
+Res. Record Opponent Score Event Notes
+Loss 1-3 Still_Chill 5615-7135 DW2PL Fight Night #28
+Loss 1-2 Danksito 5375-9798 DW2PL Fight Night #28
+Loss 1-1 Raz 5779-10637 DW2PL #17
+Win 1-0 Krabs 5562-4740 DW2PL #16
+Raz
+Res. Record Opponent Score Event Notes
+Win 1-0 Cpt Caveman 10637-5779 DW2PL #17
+Green Bastid
+Res. Record Opponent Score Event Notes
+Loss 0-1 JSteele 2581-6678 DW2PL NA Tournament #4
+JSteele
+Res. Record Opponent Score Event Notes
+Loss 3-2 Larry 5975-7608 DW2PL NA Tournament #4
+Win 3-1 Pank 6106-5375 DW2PL NA Tournament #4
+Win 2-1 Still_Chill 7812-3907 DW2PL NA Tournament #4
+Loss 1-1 Pank 6277-6304 DW2PL NA Tournament #4
+Win 1-0 Green Bastid 6678-2581 DW2PL NA Tournament #4
+Black
+Res. Record Opponent Score Event Notes
+Loss 0-2 Gleam 5495-8724 DW2PL NA Tournament #4
+Loss 0-1 Larry 3401-8692 DW2PL NA Tournament #4
+LainTheWired
+Res. Record Opponent Score Event Notes
+Win 1-0 ILikeMyOdds 3073-2618 DW2PL Fight Night #28
+ILikeMyOdds
+Res. Record Opponent Score Event Notes
+Loss 0-1 LainTheWired 2618-3073 DW2PL Fight Night #28
+Danksito
+Res. Record Opponent Score Event Notes
+Loss 3-1 nm41 7097-7233 DW2PL #20
+Win 3-0 Typhoon 7394-6796 DW2PL #19
+Win 2-0 Gleam 6231-6215 DW2PL Fight Night #28 Fight of the Night
+Win 1-0 Cpt Caveman 9798-5375 DW2PL Fight Night #28
+SA Rankings
+Top 10:
+SA Top 10
+Position Nation Player MP Wins Losses Affiliation
+Champion Preguiça 6 6 0 SAL
+#1 Amaciador 6 5 1 SAL
+#2 El Master 14 7 7 SAL
+#3 Bernas 5 2 3 SAL
+#4 Redman 6 1 5 SAL
+#5 Salt 1 1 0 SAL
+#6
+#7
+#8
+#9
+#10
+Unranked
+Tier 1 Tier 2 Tier 3
+Nixagorn (1-2) Bocaseca (0-3)
+SA Records
+Helicopto
+Res. Record Opponent Score Event Notes
+Loss 4-3 Michu 7817-9916 DW2PL #4 For the SA Championship
+Loss 4-2 Michu 5857-9170 DW2PL SA Tournament #2 For the vacant SA Championship
+Win 4-1 Bufo 5598-2961 DW2PL SA Tournament #2 Last known score (20 seconds left)
+Win 3-1 El Master 5451-3720 DW2PL SA Tournament #2
+Win 2-1 Yeyo 6222-3508 DW2PL SA Tournament #2
+Win 1-1 Carraduck 10956-2469 DW2PL SA Tournament #1
+Loss 0-1 acm 6163-6283 DW2PL SA Tournament #1
+Michu
+Res. Record Opponent Score Event Notes
+Loss 7-2 Amaciador 5443-6153 DW2PL SA Tournament #3
+Win 7-1 El Master 8781-6441 DW2PL #4 Defended the SA Championship
+Win 6-1 Helicopto 9916-7817 DW2PL #4 Defended the SA Championship
+Win 5-1 Helicopto 9170-5857 DW2PL SA Tournament #2 Won Vacant SA Championship
+Win 4-1 El Master 6295-3111 DW2PL SA Tournament #2
+Win 3-1 Bufo 5928-3890 DW2PL SA Tournament #2
+Loss 2-1 acm 3800-3992 DW2PL SA Tournament #1
+Win 2-0 Carraduck 3043-1640 DW2PL SA Tournament #1
+Win 1-0 El Master 5092-4911 DW2PL SA Tournament #1
+El Master
+Res. Record Opponent Score Event Notes
+Win 7-7 Redman 8194-8097 DW2PL Fight Night #30 Fight of the Night
+Loss 6-7 Zaico 4894-6898 DW2PL #15
+Loss 6-6 Amaciador 6766-7250 DW2PL Fight Night #26 Fight of the Night
+Loss 6-5 Preguiça 6760-9643 DW2PL SA Tournament #3 For the SA Championship
+Win 6-4 Redman 5987-5140 DW2PL SA Tournament #3
+Win 5-4 Nixagorn 6246-5407 DW2PL SA Tournament #3
+Win 4-4 Exear 6905-5516 DW2PL SA Tournament #3
+Loss 3-4 Michu 6441-8781 DW2PL #4 For the SA Championship
+Win 3-3 El tipo 6162-2833 DW2PL Fight Night #10 El Master replaced Sausage
+Win 2-3 Bufo 8450-5986 DW2PL #2
+Loss 1-3 Michu 3111-6295 DW2PL SA Tournament #2
+Win 1-2 Yeyo 6024-4122 DW2PL SA Tournament #2
+Loss 0-2 Helicopto 3720-5451 DW2PL SA Tournament #2
+Loss 0-1 Michu 4911-5092 DW2PL SA Tournament #1 Fight of the night
+Sausage
+Res. Record Opponent Score Event Notes
+Loss 0-1 acm 2217-3973 DW2PL SA Tournament #1
+Carraduck
+Res. Record Opponent Score Event Notes
+Loss 0-2 Helicopto 2469-10956 DW2PL SA Tournament #1
+Loss 0-1 Michu 1640-3043 DW2PL SA Tournament #1
+acm
+Res. Record Opponent Score Event Notes
+Win 3-0 Michu 3992-3800 DW2PL SA Tournament #1
+Win 2-0 Helicopto 6283-6163 DW2PL SA Tournament #1
+Win 1-0 Sausage 3973-2217 DW2PL SA Tournament #1
+Albert X
+Res. Record Opponent Score Event Notes
+Win 1-0 Bufo 5879-2348 DW2PL SA Tournament #2 Albert X had 200+ ping but Bufo opted
+to continue the fight
+Yeyo
+Res. Record Opponent Score Event Notes
+Loss 0-2 El Master 4122-6024 DW2PL SA Tournament #2
+Loss 0-1 Helicopto 3508-6222 DW2PL SA Tournament #2
+Bufo
+Res. Record Opponent Score Event Notes
+Loss 0-4 El Master 5986-8450 DW2PL #2
+Loss 0-3 Helicopto 2961-5598 DW2PL SA Tournament #2 Last known score (20 seconds left)
+Loss 0-2 Michu 3890-5928 DW2PL SA Tournament #2
+Loss 0-1 Albert X 2348-5879 DW2PL SA Tournament #2 Albert X had 200+ ping but Bufo opted
+to continue the fight
+El Tipo
+Res. Record Opponent Score Event Notes
+Loss 0-1 El Master 2833-6162 DW2PL Fight Night #10 El Master replaced Sausage
+Redman
+Res. Record Opponent Score Event Notes
+Loss 1-5 El Master 8097-8194 DW2PL Fight Night #30 Fight of the Night
+Loss 1-4 Bernas 7425-9255 DW2PL #18
+Loss 1-3 Nixagorn 7608-7619 DW2PL #15 Redman replaced Michu
+Loss 1-2 Amaciador 5788-9004 DW2PL SA Tournament #3 Amaciador started lagging at 5:19,
+which led to him getting disconnected.
+The points he got while lagging aren’t
+counted for
+Loss 1-1 El Master 5140-5987 DW2PL SA Tournament #3
+Win 1-0 Bocaseca 10484-3698 DW2PL SA Tournament #3
+Bocaseca
+Res. Record Opponent Score Event Notes
+Loss 0-3 Amaciador 5568-8524 DW2PL #20
+Loss 0-2 Zaico 3380-7686 DW2PL #15
+Loss 0-1 Redman 3698-10484 DW2PL SA Tournament #3
+Exear
+Res. Record Opponent Score Event Notes
+Loss 0-1 El Master 5516-6905 DW2PL SA Tournament #3
+Preguiça
+Res. Record Opponent Score Event Notes
+Win 6-0 Bernas 5909-5599 DW2PL #19 For the SA Championship
+Win 5-0 Zaico 8842-8371 DW2PL #16 For the SA Championship
+Win 4-0 El Master 9643-6760 DW2PL SA Tournament #3 For the SA Championship
+Win 3-0 Amaciador 8348-7263 DW2PL SA Tournament #3
+Win 2-0 Poif2 9151-4645 DW2PL SA Tournament #3
+Win 1-0 Bernas 4149-2477 DW2PL SA Tournament #3 Bernas forfeited at 6:51
+Bernas
+Res. Record Opponent Score Event Notes
+Win 2-3 Nixagorn 4927-3788 DW2PL #20
+Loss 1-3 Amaciador 5870-6297 DW2PL Fight Night #30
+Loss 1-2 Preguica 5599-5909 DW2PL #19 For the SA Championship
+Win 1-1 Redman 9255-7425 DW2PL #18
+Loss 0-1 Preguiça 2477-4149 DW2PL SA Tournament #3 Bernas forfeited at 6:51
+Nixagorn
+Res. Record Opponent Score Event Notes
+Loss 1-2 Bernas 3788-4927 DW2PL #20
+Win 1-1 Redman 7619-7608 DW2PL #15 Redman replaced Michu
+Loss 0-1 El Master 5407-6246 DW2PL SA Tournament #3
+Amaciador
+Res. Record Opponent Score Event Notes
+Win 5-1 Bocaseca 8524-5568 DW2PL #20
+Win 4-1 Bernas 6297-5870 DW2PL Fight Night #30
+Win 3-1 El Master 7250-6766 DW2PL Fight Night #26 Fight of the Night
+Win 2-1 Redman 9004-5788 DW2PL SA Tournament #3 Amaciador started lagging at 5:19,
+which led to him getting disconnected.
+The points he got while lagging aren’t
+counted for
+Loss 1-1 Preguiça 7263-8348 DW2PL SA Tournament #3
+Win 1-0 Michu 6153-5443 DW2PL SA Tournament #3
+Poif2
+Res. Record Opponent Score Event Notes
+Loss 0-1 Preguiça 4645-9151 DW2PL SA Tournament #3
+Zaico
+Res. Record Opponent Score Event Notes
+Loss 2-1 Preguiça 8371-8842 DW2PL #16
+Win 2-0 El Master 6898-4894 DW2PL #15
+Win 1-0 Bocaseca 7686-3380 DW2PL #15 Zaico replaced Bernas
+Salt
+Res. Record Opponent Score Event Notes
+Win 1-0 Whiper 5116-4312 DW2PL #18
+Whiper
+Res. Record Opponent Score Event Notes
+Loss 0-1 Salt 4312-5116 DW2PL #18
+AS Rankings
+Top 10:
+AS Top 10
+Position Nation Player MP Wins Losses Affiliation
+Champion ZZANGGA 5 5 0
+#1 Golf 6 4 2
+#2 Ghost 7 5 2
+#3 DoitDoit 6 4 2
+#4 Kim Ki Tae 3 2 1
+#5 German 5 3 2
+#6 Jeusun 4 2 2
+#7 Poatan 5 2 3
+#8 Be2C 3 1 2
+#9 107 4 3 1
+#10 BJ Park 2 1 1
+Unranked
+Tier 1 Tier 2 Tier 3
+Gween Bastawd (1-2) Jakji (0-1) Cheetahman (0-1)
+Kickboxing Coach (1-2) Korean Boxer (0-1)
+PKDol (0-1)
+the Legend (0-2)
+Mr. Nam (0-2)
+BBH (0-2)
+12MJ (0-2)
+AS Records
+Be2C
+Res. Record Opponent Score Event Notes
+Loss 1-2 DoitDoit 4886-5611 DW2PL Asian Tournament
+#1
+Loss 1-1 Golf 3861-5380 DW2PL Asian Tournament
+#1
+Win 1-0 Jakji 6059-2757 DW2PL Asian Tournament
+#1
+Poatan
+Res. Record Opponent Score Event Notes
+Loss 2-3 Ghost 6138-6203 DW2PL #20
+Loss 2-2 DoitDoit 4853-5352 DW2PL Asian Tournament
+#1
+Win 2-1 PKDol 4163-3162 DW2PL Asian Tournament PKDol replaces 107 for day 2 of the
+#1 tournament
+Win 1-1 the Legend 4872-3467 DW2PL Asian Tournament
+#1
+Loss 0-1 ZZANGGA 3862-3984 DW2PL Asian Tournament
+#1
+BBH
+Res. Record Opponent Score Event Notes
+Loss 0-2 DoitDoit 4967-5805 DW2PL Asian Tournament
+#1
+Loss 0-1 Kim Ki Tae 3737-4492 DW2PL Asian Tournament
+#1
+107
+Res. Record Opponent Score Event Notes
+Win 3-1 Gween Bastawd 9134-6298 DW2PL #20
+Win 2-1 Gween Bastawd 4280-4169 DW2PL Fight Night #30 Gween Bastawd, formerly NA, makes
+his AS debut being the first PL fighter in
+history to compete from two different
+regions (not including Global)
+Loss 1-1 Ghost 5332-6125 DW2PL Asian Tournament
+#1
+Win 1-0 12MJ 6512-2898 DW2PL Asian Tournament
+#1
+PKDol
+Res. Record Opponent Score Event Notes
+Loss 0-1 Poatan 3162-4163 DW2PL Asian Tournament PKDol replaces 107 for day 2 of the
+#1 tournament
+Kickboxing Coach
+Res. Record Opponent Score Event Notes
+Loss 1-2 Jeusun 3480-6446 DW2PL Asian Tournament
+#1
+Win 1-1 12MJ 4705-3182 DW2PL Asian Tournament
+#1
+Loss 0-1 Ghost 2512-5237 DW2PL Asian Tournament
+#1
+German
+Res. Record Opponent Score Event Notes
+Loss 3-2 Ghost 4457-5467 DW2PL Asian Tournament
+#1
+Win 3-1 Jeusun 4863-4855 DW2PL Asian Tournament
+#1
+Win 2-1 BJ Park 4872-4005 DW2PL Asian Tournament
+#1
+Loss 1-1 Kim Ki Tae 4680-5205 DW2PL Asian Tournament
+#1
+Win 1-0 DoitDoit 4926-4832 DW2PL Asian Tournament
+#1
+Jeusun
+Res. Record Opponent Score Event Notes
+Loss 2-2 German 4855-4863 DW2PL Asian Tournament
+#1
+Win 2-1 Kickboxing Coach 6446-3480 DW2PL Asian Tournament
+#1
+Loss 1-1 ZZANGGA 4326-5211 DW2PL Asian Tournament
+#1
+Win 1-0 the Legend 5426-3670 DW2PL Asian Tournament
+#1
+Mr. Nam
+Res. Record Opponent Score Event Notes
+Loss 0-2 BJ Park 2837-4117 DW2PL Asian Tournament BJ Park replaces Jakji for day 2 of the
+#1 tournament
+Loss 0-1 Golf 3123-7032 DW2PL Asian Tournament
+#1
+Golf
+Res. Record Opponent Score Event Notes
+Loss 4-2 ZZANGGA (DQ) DW2PL Asian Tournament Golf is disqualified for repeated
+#1 disconnection
+ZZANGGA won the Inaugural Asian
+Championship
+Win 4-1 Ghost 4474-4302 DW2PL Asian Tournament
+#1
+Loss 3-1 ZZANGGA 4505-5031 DW2PL Asian Tournament
+#1
+Win 3-0 Ghost 6278-3941 DW2PL Asian Tournament
+#1
+Win 2-0 Be2C 5380-3861 DW2PL Asian Tournament
+#1
+Win 1-0 Mr. Nam 7032-3123 DW2PL Asian Tournament
+#1
+the Legend
+Res. Record Opponent Score Event Notes
+Loss 0-2 Poatan 3467-4872 DW2PL Asian Tournament
+#1
+Loss 0-1 Jeusun 3670-5426 DW2PL Asian Tournament
+#1
+DoitDoit
+Res. Record Opponent Score Event Notes
+Loss 4-2 Ghost 4956-5274 DW2PL Asian Tournament
+#1
+Win 4-1 Korean Boxer 5272-4838 DW2PL Asian Tournament Korean Boxer replaces Kim Ki Tae for
+#1 day 2 of the tournament
+Win 3-1 Poatan 5352-4853 DW2PL Asian Tournament
+#1
+Win 2-1 Be2C 5611-4886 DW2PL Asian Tournament
+#1
+Win 1-1 BBH 5805-4967 DW2PL Asian Tournament
+#1
+Loss 0-1 German 4832-4926 DW2PL Asian Tournament
+#1
+Ghost
+Res. Record Opponent Score Event Notes
+Win 5-2 Poatan 6203-6138 DW2PL #20
+Loss 4-2 Golf 4302-4474 DW2PL Asian Tournament
+#1
+Win 4-1 DoitDoit 5274-4956 DW2PL Asian Tournament
+#1
+Win 3-1 German 5467-4457 DW2PL Asian Tournament
+#1
+Loss 2-1 Golf 3941-6278 DW2PL Asian Tournament
+#1
+Win 2-0 107 6125-5332 DW2PL Asian Tournament
+#1
+Win 1-0 Kickboxing Coach 5237-2512 DW2PL Asian Tournament
+#1
+12MJ
+Res. Record Opponent Score Event Notes
+Loss 0-2 Kickboxing Coach 3182-4705 DW2PL Asian Tournament
+#1
+Loss 0-1 107 2898-6512 DW2PL Asian Tournament
+#1
+Kim Ki Tae
+Res. Record Opponent Score Event Notes
+Loss 2-1 ZZANGGA 5084-6046 DW2PL Asian Tournament
+#1
+Win 2-0 German 5205-4680 DW2PL Asian Tournament
+#1
+Win 1-0 BBH 4492-3737 DW2PL Asian Tournament
+#1
+Korean Boxer
+Res. Record Opponent Score Event Notes
+Loss 0-1 DoitDoit 4838-5272 DW2PL Asian Tournament Korean Boxer replaces Kim Ki Tae for
+#1 day 2 of the tournament
+ZZANGGA
+Res. Record Opponent Score Event Notes
+Win 5-0 Golf (DQ) DW2PL Asian Tournament Golf is disqualified for repeated
+#1 disconnection
+ZZANGGA won the Inaugural Asian
+Championship
+Win 4-0 Golf 5031-4505 DW2PL Asian Tournament
+#1
+Win 3-0 Kim Ki Tae 6046-5084 DW2PL Asian Tournament
+#1
+Win 2-0 Jeusun 5211-4326 DW2PL Asian Tournament
+#1
+Win 1-0 Poatan 3984-3862 DW2PL Asian Tournament
+#1
+Jakji
+Res. Record Opponent Score Event Notes
+Loss 0-1 Be2C 2757-6059 DW2PL Asian Tournament
+#1
+BJ Park
+Res. Record Opponent Score Event Notes
+Loss 1-1 German 4005-4872 DW2PL Asian Tournament
+#1
+Win 1-0 Mr. Nam 4117-2837 DW2PL Asian Tournament BJ Park replaces Jakji for day 2 of the
+#1 tournament
+Gween Bastawd (AS)
+Res. Record Opponent Score Event Notes
+Loss 1-2 107 6298-9134 DW2PL #20
+Win 1-1 Cheetahman 5015-1746 DW2PL Fight Night #30
+Loss 0-1 107 4169-4280 DW2PL Fight Night #30 Gween Bastawd, formerly NA, makes
+his AS debut being the first PL fighter in
+history to compete from two different
+regions (not including Global)
+Cheetahman
+Res. Record Opponent Score Event Notes
+Loss 0-1 Gween Bastawd 1746-5015 DW2PL Fight Night #30
+Global Rankings
+Top 15:
+Global Top 15
+Position Nation Player MP Wins Losses Affiliation
+Champion Weewarrior 8 8 0 BBK
+#1 Baloniarz 10 8 2 BBK
+#2 Jab 12 9 3 BBK
+#3 NLG 4 4 0 BBK
+#4 Larry 7 3 4 BBK
+#5 Shnookams 7 5 2 BBK
+#6 ZZANGGA 2 2 0
+#7 Amaciador 9 3 6 SAL
+#8 Glokum 6 3 3 BBK
+#9 Bernas 7 3 4 SAL
+#10 JSteele 4 2 2 BBK
+#11 Suharik 7 2 5 Chaos
+#12 Krabs 5 1 4 DWO
+#13 Pank 6 3 3 BBK
+#14 Preguica 4 1 3 SAL
+#15 Nimo 5 1 4 Chaos
+Unranked
+Tier 1 Tier 2 Tier 3
+Web (1-0) Redman (3-1) Redman (3-1)
+Ghost (1-0) Jemala (2–7) Drunken Apprentice (1-1)
+Grimeycuzz (0-2)
+Ilmurda (0-1)
+Senorchief (0-1)
+Cheers (0-2)
+Sater (0-2)
+Smorcc (0-1)
+Global Records
+Weewarrior (G)
+Res. Record Opponent Score Event Notes
+Win 8-0 Baloniarz 6828-6644 DW2PL Global Tournament For the vacant Global Championship
+#1
+Win 7-0 Jab 6564-6097 DW2PL Global Tournament
+#1
+Win 6-0 Bernas 5591-4136 DW2PL Global Tournament
+#1
+Win 5-0 Shnookams 5695-4993 DW2PL Global Tournament
+#1
+Win 4-0 Larry 6483-4871 DW2PL Global Tournament
+#1
+Win 3-0 Kymora 3906-3215 DW2PL Fight Night #26 Title Eliminator
+Win 2-0 BucketofBread 8036-6946 DW2PL Global
+Win 1-0 nm41 8691-7454 DW2PL #9 For the inaugural Global Championship
+nm41 (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Weewarrior 7454-8691 DW2PL #9 For the inaugural Global Championship
+El Master (G)
+Res. Record Opponent Score Event Notes
+Win 1-0 Krabs 4396-4061 DW2PL #9
+Krabs (G)
+Res. Record Opponent Score Event Notes
+Loss 1-4 Shnookams 5075-5854 DW2PL Global Tournament
+#1
+Win 1-3 Pank 6004-5884 DW2PL Global Tournament
+#1
+Loss 0-3 JSteele 5734-6130 DW2PL Global Tournament
+#1
+Loss 0-2 Jab 6861-10022 DW2PL Fight Night #25
+Loss 0-1 El Master 4061-4396 DW2PL #9
+Jab (G)
+Res. Record Opponent Score Event Notes
+Loss 9-3 Baloniarz 5091-5396 DW2PL Global Tournament
+#1
+Loss 9-2 Weewarrior 6097-6564 DW2PL Global Tournament
+#1
+Win 9-1 JSteele 8217-6834 DW2PL Global Tournament
+#1
+Win 8-1 Baloniarz 9898-6813 DW2PL Global Tournament
+#1
+Win 7-1 Nimo 10215-7019 DW2PL Global Tournament
+#1
+Loss 6-1 Peww 8672-10138 DW2PL #17 For the Global Championship
+Win 6-0 Kymora 6543-4844 DW2PL Fight Night #27 Fight of The Night
+Win 5-0 Larry 9705-7188 DW2PL #15
+Win 4-0 Krabs 10022-6861 DW2PL Fight Night #25
+Win 3-0 Gleam 10329-6883 DW2PL Global Gleam replaced Krabs
+Win 2-0 Drunken Expert 8984-8324 DW2PL #10
+Win 1-0 Grimeycuzz 6952-4382 DW2PL #9
+Grimeycuzz (G)
+Res. Record Opponent Score Event Notes
+Loss 0-2 Soul 4457-4736 DW2PL Global Soul replaced Starman
+Loss 0-1 Jab 4382-6952 DW2PL #9
+Drunken Apprentice (G)
+Res. Record Opponent Score Event Notes
+Loss 1-1 T1 4722-6013 DW2PL #15
+Win 1-0 Rusco 5006-4164 DW2PL #9
+Rusco (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Drunken Apprentice 4164-5006 DW2PL #9
+Drunken Expert (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Jab 8324-8984 DW2PL #10
+Larry (G)
+Res. Record Opponent Score Event Notes
+Loss 3-4 Baloniarz 4304-4712 DW2PL Global Tournament
+#1
+Win 3-3 Suharik 7801-6654 DW2PL Global Tournament
+#1
+Loss 2-3 Weewarrior 4871-6483 DW2PL Global Tournament
+#1
+Loss 2-2 NLG 5894-7775 DW2PL Fight Night #27
+Loss 2-1 Jab 7188-9705 DW2PL #15
+Win 2-0 Amaciador 7226-6301 DW2PL Fight Night #25
+Win 1-0 Nimo 6770-6482 DW2PL Global
+Nimo (G)
+Res. Record Opponent Score Event Notes
+Loss 1-4 ZZANGGA 7476-7542 DW2PL Fight Night #30
+Loss 1-3 Glokum 6025-6491 DW2PL Global Tournament
+#1
+Loss 1-2 Jab 7019-10215 DW2PL Global Tournament
+#1
+Win 1-1 Jemala 6380-4488 DW2PL Fight Night #26
+Loss 0-1 Larry 6482-6770 DW2PL Global
+Glokum (G)
+Res. Record Opponent Score Event Notes
+Loss 3-3 Amaciador 6170-6234 DW2PL Global Tournament
+#1
+Win 3-2 Nimo 6491-6025 DW2PL Global Tournament
+#1
+Loss 2-2 Baloniarz 4167-5822 DW2PL Global Tournament
+#1
+Win 2-1 Amaciador 7307-6251 DW2PL Fight Night #27
+Loss 1-1 Pank 5789-6267 DW2PL #16
+Win 1-0 Bernas 7851-5691 DW2PL Global
+Bernas (G)
+Res. Record Opponent Score Event Notes
+Loss 3-4 Baloniarz 3373-4188 DW2PL Global Tournament
+#1
+Loss 3-3 Weewarrior 4136-5591 DW2PL Global Tournament
+#1
+Win 3-2 Amaciador 6465-4604 DW2PL Global Tournament
+#1
+Win 2-2 Redman 7085-5997 DW2PL Global Tournament
+#1
+Win 1-2 Jemala 6985-6308 DW2PL #17
+Loss 0-2 Whiper 4679-6949 DW2PL Fight Night #25
+Loss 0-1 Glokum 5691-7851 DW2PL Global
+Lord Zomb (G)
+Res. Record Opponent Score Event Notes
+Win 1-0 Keevo 7728-6812 DW2PL Global
+Keevo (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Lord Zomb 6812-7728 DW2PL Global
+Jemala (G)
+Res. Record Opponent Score Event Notes
+Loss 2-7 Redman 4502-4810 DW2PL #19
+Win 2-6 Suharik 7052-5799 DW2PL #18
+Loss 1-6 Bernas 6308-6985 DW2PL #17
+Loss 1-5 Web 6537-7395 DW2PL #17
+Loss 1-4 Whiper 6707-7568 DW2PL #16
+Loss 1-3 Pank 4995-6792 DW2PL #15
+Loss 1-2 Nimo 4488-6380 DW2PL Fight Night #26
+Loss 1-1 Preguica 4766-7432 DW2PL Fight Night #25
+Win 1-0 Bocaseca 7993-4745 DW2PL Global
+Bocaseca (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Jemala 4745-7993 DW2PL Global
+Amaciador (G)
+Res. Record Opponent Score Event Notes
+Loss 3-6 ZZANGGA 7056-7401 DW2PL #20
+Loss 3-5 Shnookams 6845-5516 DW2PL Global Tournament
+#1
+Win 3-4 Glokum 6234-6170 DW2PL Global Tournament
+#1
+Loss 2-4 Bernas 4604-6465 DW2PL Global Tournament
+#1
+Win 2-3 Cheers 7619-4453 DW2PL Global Tournament Aggregate score; several
+#1 disconnections by Cheers
+Loss 1-3 NLG 5467-7745 DW2PL #17
+Loss 1-2 Glokum 6251-7307 DW2PL Fight Night #27
+Loss 1-1 Larry 6301-7226 DW2PL Fight Night #25
+WIn 1-0 Gleam 7412-7203 DW2PL Global Fight of the Night
+Gleam (G)
+Res. Record Opponent Score Event Notes
+Win 2-2 Artem 9365-6081 DW2PL #18
+Win 1-2 El_Master 6224-4919 DW2PL Fight Night #25
+Loss 0-2 Jab 6883-10329 DW2PL Global Gleam replaced Krabs
+Loss 0-1 Amaciador 7203-7412 DW2PL Global Fight of the Night
+Kymora (G)
+Res. Record Opponent Score Event Notes
+Loss 1-3 Jab 4844-6543 DW2PL Fight Night #27 Fight of The Night
+Loss 1-2 Weewarrior 3215-3906 DW2PL Fight Night #26
+Loss 1-1 Peww 5997-6861 DW2PL Global For the vacant Global Championship
+WIn 1-0 Preguiça 7725-4786 DW2PL Global
+Preguiça (G)
+Res. Record Opponent Score Event Notes
+Loss 1-3 NLG 5004-6058 DW2PL Fight Night #29
+Loss 1-2 Shnookams 4995-5597 DW2PL #18
+Win 1-1 Jemala 7432-4766 DW2PL Fight Night #25
+Loss 0-1 Kymora 4786-7725 DW2PL Global
+Flash (G)
+Res. Record Opponent Score Event Notes
+Win 2-0 Nixagorn 4480-3846 DW2PL Fight Night #26
+WIn 1-0 Whiper 7316-6776 DW2PL Global
+Whiper (G)
+Res. Record Opponent Score Event Notes
+Win 2-2 Jemala 7568-6707 DW2PL #16
+Loss 1-2 Pank 5411-4976 DW2PL #15 Pank replaced Jemala
+Fight of the Night
+Win 1-1 Bernas 6949-4679 DW2PL Fight Night #25
+Loss 0-1 Flash 6776-7316 DW2PL Global
+Soul (G)
+Res. Record Opponent Score Event Notes
+WIn 1-0 Grimeycuzz 4736-4457 DW2PL Global Soul replaced Starman
+BucketofBread (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Weewarrior 6946-8036 DW2PL Global Weewarrior replaced Redman
+Baloniarz (G)
+Res. Record Opponent Score Event Notes
+Loss 8-2 Weewarrior 6644-6828 DW2PL Global Tournament For the vacant Global Championship
+#1
+Win 8-1 Jab 5396-5091 DW2PL Global Tournament
+#1
+Win 7-1 Shnookams 5051-4883 DW2PL Global Tournament
+#1
+Win 6-1 Bernas 4188-3373 DW2PL Global Tournament
+#1
+Win 5-1 Larry 4712-4304 DW2PL Global Tournament
+#1
+Win 4-1 Cheers 7244-4441 DW2PL Global Tournament Cheers disconnects with 1:51 left
+#1
+Loss 3-1 Jab 6813-9898 DW2PL Global Tournament
+#1
+Win 3-0 Glokum 5822-4167 DW2PL Global Tournament
+#1
+Win 2-0 Typhoon 7454-6007 DW2PL Fight Night #25
+WIn 1-0 Pank 3945-3709 DW2PL Global
+Pank (G)
+Res. Record Opponent Score Event Notes
+Loss 3-3 Krabs 5884-6004 DW2PL Global Tournament
+#1
+Loss 3-2 Suharik 5198-5967 DW2PL Global Tournament
+#1
+Win 3-1 Glokum 6267-5789 DW2PL #16
+Win 2-1 Jemala 6792-4995 DW2PL #15
+Win 1-1 Whiper 5411-4976 DW2PL #15 Pank replaced Jemala
+Fight of the Night
+Loss 0-1 Baloniarz 3709-3945 DW2PL Global
+NLG (G)
+Res. Record Opponent Score Event Notes
+Win 4-0 Preguica 6058-5004 DW2PL Fight Night #29
+Win 3-0 Amaciador 7745-5467 DW2PL #17
+Win 2-0 Larry 7775-5894 DW2PL Fight Night #27
+WIn 1-0 Nixagorn 5434-2538 DW2PL Global
+Nixagorn (G)
+Res. Record Opponent Score Event Notes
+Loss 0-2 Flash 3846-4480 DW2PL Fight Night #26
+Loss 0-1 NLG 2538-5434 DW2PL Global
+Peww (G)
+Res. Record Opponent Score Event Notes
+Win 2-0 Jab 10138-8672 DW2PL #17 For the Global Championship
+Win 1-0 Kymora 6861-5997 DW2PL Global For the vacant Global Championship
+Typhoon (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Baloniarz 6007-7454 DW2PL Fight Night #25
+Raz (G)
+Res. Record Opponent Score Event Notes
+Win 1-0 Suharik 6624-2781 DW2PL Fight Night #26 Raz replaced Smorcc
+Suharik (G)
+Res. Record Opponent Score Event Notes
+Loss 2-5 Larry 6654-7801 DW2PL Global Tournament
+#1
+Loss 2-4 JSteele 6588-8174 DW2PL Global Tournament
+#1
+Win 2-3 Pank 5967-5198 DW2PL Global Tournament
+#1
+Loss 1-3 Jemala 5799-7052 DW2PL #18
+Win 1-2 Smorcc 4673-3082 DW2PL #16
+Loss 0-2 Zaico 3016-6606 DW2PL #15
+Loss 0-1 Raz 2781-6624 DW2PL Fight Night #26 Raz replaced Smorcc
+Zaico (G)
+Res. Record Opponent Score Event Notes
+Win 1-0 Suharik 6606-3016 DW2PL #15
+T1 (G)
+Res. Record Opponent Score Event Notes
+Win 1-0 Drunken Apprentice 6013-4722 DW2PL #15
+Smorcc (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Suharik 3082-4673 DW2PL #16
+Web (G)
+Res. Record Opponent Score Event Notes
+Win 1-0 Jemala 7395-6537 DW2PL #17
+Artem (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Gleam 6081-9365 DW2PL #18
+Shnookams (G)
+Res. Record Opponent Score Event Notes
+Loss 5-2 Baloniarz 4883-5051 DW2PL Global Tournament
+#1
+Win 5-1 JSteele 6646-5879 DW2PL Global Tournament
+#1
+Win 4-1 Amaciador 6845-5516 DW2PL Global Tournament
+#1
+Win 3-1 Krabs 5854-5075 DW2PL Global Tournament
+#1
+Loss 2-1 Weewarrior 4993-5695 DW2PL Global Tournament
+#1
+Win 2-0 ilmurda 6472-4630 DW2PL Global Tournament
+#1
+Win 1-0 Preguica 5597-4995 DW2PL #18
+JSteele (G)
+Res. Record Opponent Score Event Notes
+Loss 2-2 Shnookams 5879-6646 DW2PL Global Tournament
+#1
+Loss 2-1 Jab 6834-8217 DW2PL Global Tournament
+#1
+Win 2-0 Suharik 8174-6588 DW2PL Global Tournament
+#1
+Win 1-0 Krabs 6130-5734 DW2PL Global Tournament
+#1
+ilmurda (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Shnookams 4630-6472 DW2PL Global Tournament
+#1
+Redman (G)
+Res. Record Opponent Score Event Notes
+Win 3-1 Senorchief 6482-3414 DW2PL #19
+Win 2-1 Jemala 4810-4502 DW2PL #19
+Win 1-1 Sater 5273-2732 DW2PL Fight Night #29
+Loss 0-1 Bernas 5997-7085 DW2PL Global Tournament
+#1
+Cheers (G)
+Res. Record Opponent Score Event Notes
+Loss 0-2 Baloniarz 4441-7244 DW2PL Global Tournament Cheers disconnects with 1:51 left
+#1
+Loss 0-1 Amaciador 4453-7619 DW2PL Global Tournament Aggregate score; several
+#1 disconnections by Cheers
+Sater (G)
+Res. Record Opponent Score Event Notes
+Loss 0-2 Ghost 3817-5582 DW2PL Fight Night #30
+Loss 0-1 Redman 2732-5273 DW2PL Fight Night #29
+Senorchief (G)
+Res. Record Opponent Score Event Notes
+Loss 0-1 Redman 3414-6482 DW2PL #19
+ZZANGGA (G)
+Res. Record Opponent Score Event Notes
+Win 2-0 Amaciador 7401-7056 DW2PL #20
+Win 1-0 Nimo 7542-7476 DW2PL Fight Night #30
+Ghost (G)
+Res. Record Opponent Score Event Notes
+Win 1-0 Sater 5582-3817 DW2PL Fight Night #30
+Inactive:
+EU NA SA Global
+≥ 5 Fights < 5 Fights ≥ 5 Fights < 5 Fights All All
+Anus (3-3) Matheis (1-0) Justfrost (0-1) Burrito (4-2) R.K. Smith (0-1) Acm (3-0) Lord Zomb
+(1-0)
+Coa (7-3) Kucito (0-1) Lawwy (0-2) Fastskull (2-3) Papa John (0-1) Albert X (1-0) T1 (1-0)
+Galor (5-3) Yoshimitsu (0-1) Amingo (0-2) XKP (3-2) Jacob (0-1) Carraduck (0-2)
+Konor (2-3) Leondono (0-1) African Magician (1-3) Caweb (3-5) Kody (0-1) Helicopto (4-3)
+Markku (4-3) Jonyshark (0-1) Ender (2-2) Walrus (4-3) Moleboy (1-1) Sausage (0-1)
+Sydanahooi (3-3) Makrelazz (0-1) Bigmantobs (1-0) Hank (6-4) Strandid (2-2) Yeyo (0-2)
+ToxicYugi (4-1) Krystiz (0-1) Tommo (0-2) MoosesEatApples (3-4) Wasted Taint (0-1) Bufo (0-4)
+Namesnick (2-5) Bruckshot (0-1) Voortex (0-2) Big Red (4-5) Merd (0-1) El Tipo (0-1)
+Peww (14-5) Jankez (0-1) BigLorg (1-0) Hydro (6-7) Mr.Mcfister (0-1) Poif2 (0-1)
+Malthe (5-3) Stivka (0-4) Bonjoni (0-1) eyeballsac (3-5) Kanadian Killa Exear (0-1)
+(1-1)
+Analfister (6-3) DNKL (0-1) CrackGolem (0-1) Ayo Slide (6-4) Jettfly (3-0) Bocaseca (0-2)
+13bot (4-3) Why (0-2) Glebka (0-1) Kernal (1-5) Mesanic (0-1) Zaico (2-1)
+Gandhi (7-5) Bigfoot (1-2) Helking (0-4) Pakku (3-10) Nute (1-1) Michu (7-2)
+Hawk (16-5) hoihouhoi (0-1) olti (1-2) Roosta (1-5) Queue (2-1) Whiper (0-1)
+Faded (3-2) DXPS (0-1) Sansio (2-1) nm41 (10-0) MuayThaiGuy
+(2-1)
+Keevo (4-5) Jugmain (0-2) Tion (3-1) thedubiousone (3-3) Big Teal (0-1)
+Zivese (9-10) the bingler (0-1) Owl (1-0) Chiki (9-5) Jackbro (0-2)
+Kolmorrik (3-5) Ryuk (0-1) Artem (0-1) Motley (12-7) Canasto (0-1)
+Flash (8-6) Szyja (2-0) Nimbus (1-2) Zay (4-3) Soul (0-1)
+Riku (3-6) Eraca (1-0) Coral (1-0) Kymora (12-2) Allosaur (0-3)
+Ghosterz (4-5) Uber (0-1) Arima (1-2) BDK (11-8) Purple Dude (2-2)
+Szadel (12-10) Rusco (1-2) Enzane (0-1) Gleam (3-7) Auglover (1-1)
+Spookybain Nokia (1-3) Glokum (1-3) BucketOfBread (5-4) War (1-3)
+(2-11)
+Fetis (8-2) Smorcc (2-3) FireBlaze (1-1)
+Shusky (10-7) danteh (3-1)
+Web (4-3) Soul (0-1)
+Raz (1-0)
+LainTheWired
+(1-0)
+Events
+DW2PL/Fight Night Cards
+DW2PL #20: NLG vs Jab #3
+22/3/2026
+VOD Link
+EU
+Win Lose Score Notes
+Jemala Soul Reaper 5392-4192
+Weewarrior (#2) Forbs (#8) (DQ) Forbs is disqualified for repeated disconnection
+NLG (C) Jab (#1) 10296-10099 For the EU Championship
+NA
+nm41 Danksito (#6) 7233-7097
+Typhoon Krabs 4817-3486
+SA
+Bernas (#3) Nixagorn 4927-3788
+Amaciador (#1) Bocaseca 8524-5568
+AS
+Ghost (#2) Poatan (#7) 6203-6138
+107 (#9) Gween Bastawd 9134-6298
+Global
+ZZANGGA (#14) Amaciador (#6) 7401-7056
+DW2PL Fight Night #30: ZZANGGA vs Nimo
+7/3/2026
+VOD Link
+EU
+Win Lose Score Notes
+Warlord (#7) Jemala 7567-4610
+SA
+Amaciador (#1) Bernas (#3) 6297-5870
+El Master (#2) Redman (#4) 8194-8097 Fight of the Night
+AS
+107 (#9) Gween Bastawd 4280-4169 Gween Bastawd, formerly NA, makes his AS
+debut being the first PL fighter in history to
+compete from two different regions (not
+including Global)
+Gween Bastawd Cheetahman 5015-1746
+Global
+ZZANGGA Nimo (#14) 7542-7476
+Ghost Sater 5582-3817
+DW2PL #19
+18/01/2026
+VOD Link
+EU
+Win Lose Score Notes
+Suharik (#5) Praise 6627-5400
+Weewarrior (#1) Baloniarz (#4) 4774-3313 Baloniarz forfeits with 5:23 left in the match
+Jab (#2) Weewarrior (#1) 6065-5873
+NA
+Danksito Typhoon 7394-6796
+SA
+Preguica (C) Bernas (#3) 5909-5599 For the SA Championship
+Global
+Redman Jemala 4810-4502
+Redman Senorchief 6482-3414
+DW2PL Fight Night #29: NLG vs Preguica (Global)
+13/12/2025
+VOD Link
+EU
+Warlord (#8) Oleg 9555-5268
+Soul Reaper Sater 5658-3235
+Baloniarz (#5) Suharik (#4) 6310-5753 Fight of the Night
+Global
+Redman Sater 5273-2732
+NLG (#3) Preguica (#13) 6058-5004
+DW2PL Fight Night #28: Shnookams vs Jabdroid 2 (EU)
+14/09/2025
+VOD Link
+EU
+Win Lose Score Notes
+Jab (#2) Shnookams (#1) 6833-5630
+NA
+Danksito Gleam (#5) 6231-6215 Fight of the Night
+LainTheWired ILikeMyOdds 3073-2618
+Danksito Cpt Caveman (#8) 9798-5375
+Still_Chill (#6) Cpt Caveman (#8) 7135-5615
+DW2PL #18: Peww vs Jabdroid (EU)
+26/07/2025
+VOD Link
+EU
+Win Lose Score Notes
+Forbs Oleg 6884-3453
+Fetis Baloniarz 6839-5466
+Nimo Web 8189-6596
+Peww Jab 7974-7463 For the EU Championship
+Fight of the Night
+SA
+Salt Whiper 5116-4312
+Bernas Redman 9255-7425
+Global
+Gleam Artem 7395-6537
+Jemala Suharik 7052-5799
+Shnookams Preguica 5597-4995
+DW2PL #17: Peww vs Jabdroid (Global)
+12/07/2025
+VOD Link
+EU
+Win Lose Score Notes
+Weewarrior Glokum 6120-5884 Fight of the Night
+NA
+Raz Cpt Caveman 10637-5779
+Global
+Web Jemala 7395-6537
+Bernas Jemala 6985-6308
+NLG Amaciador 7745-5467
+Peww Jab 10138-8672 For the Global Championship
+DW2PL Fight Night #27: Kymora vs Jabdroid
+21/06/2025
+VOD Link
+EU
+Win Lose Score Notes
+Web Suharik 7527-5186
+Global
+NLG Larry 7775-5892
+Glokum Amaciador 7307-6251
+Jab Kymora 6543-4844 Fight of the Night
+DW2PL #16: Kymora vs Bucket
+31/05/2025
+VOD Link
+EU
+Win Lose Score Notes
+Jab Nimo 10125-8124
+Suharik SenorChief 4098-3643
+Web Artem 5437-4220
+NA
+Larry Gleam 7199-6312
+Typhoon Still_Chill 7870-5234
+Cpt Caveman Krabs 5562-4740
+Kymora BucketofBread 8462-6483
+SA
+Preguiça Zaico 8842-8371 Fight of the Night
+Global
+Whiper Jemala 7568-6707
+Suharik Smorcc 4673-3082
+Pank Glokum 6267-5789
+DW2PL #15: Peww vs Baloniarz
+18/05/2025
+VOD Link
+EU
+Win Lose Score Notes
+NLG Glokum 5631-5483
+Peww Baloniarz 7177-6559 For the EU Championship
+NA
+Typhoon Smorcc 9856-4255
+Pank Krabs 3584-2965
+BucketofBread Gleam 9750-7607
+SA
+Nixagorn Redman 7619-7608
+Zaico Bocaseca 7686-3380
+Zaico El Master 6898-4894
+Global
+Jab Larry 9705-7188
+Zaico Suharik 6606-3016
+T1 Drunken Apprentice 6013-4722
+Pank Whiper 5411-4976 Fight of the Night
+Pank Jemala 6792-4995
+DW2PL Fight Night #26: Weewarrior vs Kymora
+26/04/2025
+VOD Link
+EU
+Win Lose Score Notes
+Glokum Forbs 5111-4260
+Jab Keevo 9412-6536
+Baloniarz NLG 4379-3380
+NA
+Typhoon Krabs 8222-7446
+Gleam Still_chill 6906-3794
+SA
+Amaciador El Master 7250-6766 Fight of the Night
+Bocaseca Bernas 4480-3846
+Global
+Flash Nixagorn 4480-3846
+Raz Suharik 6624-2781
+Weewarior Kymora 3906-3215
+DW2PL Fight Night #25: Weewarrior vs Jab
+05/04/2025
+VOD Link
+EU
+Win Lose Score Notes
+Weewarrior (#1) Jab 7600-6239
+Keevo (#5) Glokum 5375-5336 Fight of the Night
+Shnookams Nimo (#2) 6490-6298
+NA
+Smorcc Bongmaster 4610-3931
+Global
+Larry (#2) Amaciador (#4) 7226-6301
+Whiper Bernas 6969-4680
+Baloniarz (#8) Typhoon 7454-6007
+Preguica Jemala (#10) 7432-4766
+Jab (#6) Krabs 10022-6861
+Gleam El Master 6224-4919
+DW2PL Global: Peww vs Kymora
+VOD Links:
+DW2PL Global Part 1
+08/03/2025
+DW2PL Global Part 2
+15/03/2025
+Global
+Larry Nimo 6770-6482
+Glokum Bernas 7851-5691
+Lord Zomb Keevo 7728-6812
+Jemala Bocaseca 7993-4745
+Amaciador Gleam 7412-7203 Fight of the Night
+Kymora Preguica 7725-4786
+Flash Whiper 7316-6776
+Soul Grimeycuzz 4736-4457 Soul replaced Starman
+Jab Gleam 10329-6883 Gleam replaced Krabs
+Weewarrior BucketofBread 8036-6946 Weewarrior replaced Redman
+Baloniarz Pank 3945-3709
+NLG Nixagorn 5154-2293
+Peww Kymora 6861-5997 For the vacant Global Championship
+DW2PL #14: Jab vs Shnookams
+02/06/2024
+VOD Link
+EU
+Win Lose Score Notes
+Henli NLG (#8) 7302-5499
+Nokia Black Gangsta 1976-1048 Black Gangsta forfeited with 6:40 left
+Szadel (#4) Flash 8889-8268
+Jab (#3) Shnookams (#2) 7947-6449
+Nimo (#6) NLG (#8) 6359-6090
+NA
+BDK (#3) Krabs (#4) 8784-5532
+Typhoon Jackbro 5062-2447
+DW2PL #13: Larry vs BDK
+19/05/2024
+VOD Link
+EU
+Win Lose Score Notes
+Keevo Nokia 5127-4742
+NLG Oleg 5497-4238
+Nimo (#8) Zivese (#7) 8830-6570
+Jab (#5) Szadel (#3) 12794-8185 Both Jab and Szadel disconnected at 2:46 so
+the score is added from 2 parts
+NA
+Larry (#2) Krabs (#4) 6787-5348
+Purple Dude Jackbro 6229-2592
+Larry (#2) BDK (#3) 6395-5373
+DW2PL #12: Peww vs Fetis
+28/04/2024
+VOD Link
+EU
+Win Lose Score Notes
+Fetis (#1) Peww (#2) 7587-6317 Fetis won the vacant EU Championship
+Jab (#9) Ghosterz (#7) 9013-5565 Ghosterz forfeited with 1:52 left
+Nimo Praise 4409-4130
+NLG Nokia 4661-4523
+Henli Keevo 7000-4301
+NA
+Kymora Purple Dude 3770-3408
+DW2PL #11: Shnookams vs Peww 3
+14/04/2024
+VOD Link
+EU
+Win Lose Score Notes
+Peww (#4) Shnookams (#3) 6530-3759
+Jab Oleg (#10) 12002-6190
+Jab Nimo 6510-3439
+Nimo Nokia 4483-3712
+NLG Keevo 6647-3912
+NA
+Purple Dude Typhoon 5479-4662
+Exhibitions
+Peww (#4) Weewarrior 6555-6052
+DW2PL December 2023 NA Prelims
+VOD Link (Playlist)
+NA
+Win Lose Score Notes
+Kymora Purple Dude 4384-4120
+Gween Bastawd Canasto 5991-628
+DW2PL #10: Weewarrior vs Hawk 3
+25/11/2023
+VOD Link
+Global
+Win Lose Score Notes
+Jab Drunken Expert 8984-8324
+EU
+Weewarrior (C) Hawk (#1) 8869-7590 Fight of the Night
+Peww (#5) Shusky 7243-5763
+Faded (#9) Ghosterz (#8) 4959-4094
+Zivese Riku 5646-5390
+Praise NLG 4883-2686
+NA
+Chiki (#2) Motley (#1) 6067-4722
+Zay (#7) Kymora 8985-5564
+DW2PL #9: Weewarrior vs nm41
+22/10/2023
+VOD Link
+Global
+Win Lose Score Notes
+Weewarrior nm41 8691-7454 For the Inaugural Open Division Championship
+El Master Krabs 4396-4061
+Jab Grimeycuzz 6952-4382
+Drunken Apprentice Rusco 5006-4164
+EU
+Fetis (#3) Peww (#5) 7385-5618
+Faded Forbs 4414-4088
+Nimo Arima 4868-4675
+DW2PL Fight Night #24: Hawk152 vs Baloniarz
+24/09/2023
+VOD Link
+EU
+Win Lose Score Notes
+Hawk (#1) Baloniarz (#2) 6021-5764 Fight of the Night
+Ghosterz Jab 5216-5097
+Nimo Aw1k 6940-4000
+Rusco Spookybain 4806-2756
+NA
+Krabs (#7) Soul 6833-6309
+Chiki (#3) Ayo Slide (#4) 7153-4688
+DW2PL EU Tournament #3 Non-Tournament Fights
+VOD Link
+EU
+Win Lose Score Notes
+Jab Spookybain 5928-2383
+Hawk (#2) Peww (#4) 6772-6566
+Fetis (#5) Shnookams (#3) 5961-4773
+Arima Cheers 6541-3821
+NLG Spookybain 3698-3142
+Jab Nimo 6274-5761
+DW2PL Fight Night #23: Shnookams vs Flash
+12/11/2022
+VOD Link
+EU
+Win Lose Score Notes
+Shnookams (#2) Flash (#4) 6259-5274 Title eliminator
+Weewarrior (#1) Baloniarz (#3) 4890-4670 Fight of the Night
+Fetis (#8) Oleg (#5) 8957-6426
+Zivese (#15) 13bot (#10) 7756-6482 13bot replaced Quad (#9)
+Ghosterz Cronobis 4128-3716
+Peww Rusco 3707-3343 Peww replaced Spookybain
+NA
+Krabs (#7) danteh (#8) 7935-7242
+DW2PL #8: Hawk vs Weewarrior
+30/10/2022
+VOD Link
+EU
+Win Lose Score Notes
+Hawk (C) Weewarrior (#1) 9102-6853 Hawk Defended the EU Championship
+Fight of the Night
+Flash Malthe (#5) 8278-4336
+Zivese Cheers 8088-4801
+NA
+Zay (#9) Pakku 7753-4415
+DW2PL Fight Night #22: Shnookams vs Baloniarz 2
+09/10/2022
+VOD Link
+EU
+Win Lose Score Notes
+Shnookams (#2) Baloniarz (#3) 5677-4914 Fight of the Night
+Fetis 13bot (#8) 8184-6395 Fetis replaced Quad
+Fetis Spookybain 8638-4401 Spookybain replaced Zivese
+Ghosterz Makrelazz 4385-2135
+NA
+Mooseseatapples (#10) Pakku 7492-5603
+Exhibitions
+Ayo Slide (#3) Motley (#1) 4711-3836 Played in Realism Mode
+DW2PL Fight Night #21: nm41 vs Hawk152
+11/09/2022
+VOD Link
+Exhibitions
+Win Lose Score Notes
+Hawk (C) nm41 (C) 12101-9613
+EU
+Win Lose Score Notes
+Weewarrior (#3) Shnookams (#1) 4258-3832 Title eliminator
+Malthe (#6) Soul Reaper (#5) 7510-6742
+13bot Kolmorrik (#10) 5931-5811
+Spookybain Ghosterz 3472-2094
+NA
+Chiki (#6) Zay (#8) 5321-5031 Fight of the Night
+danteh (#11) Mooseseatapples (#9) 8453-6350
+DW2PL Fight Night #20: Shnookams vs Austin
+28/08/2022
+VOD Link
+EU
+Win Lose Score Notes
+Shnookams (#1) Austin (#3) 6305-4670
+Weewarrior (#5) Austin (#3) 7164-6592 Fight of the Night
+Weewarrior (#5) Oleg (#4) 8437-6508
+Kolmorrik (#11) Miecieks 5501-3378 Kolmorrik replaced Ghosterz
+NA
+danteh Kernal 7498-1628
+DW2PL #7: nm41 vs Motley 2
+21/08/2022
+VOD Link
+NA
+Win Lose Score Notes
+nm41 (C) Motley (#1) 8845-8244 nm41 Defended the NA Championship
+Fight of the Night
+BDK (#9) Hydro (#3) 7871-6332
+Zay Mooseseatapples (#10) 7341-6264
+danteh Roosta 4614-3190
+EU
+Baloniarz (#2) vs Austin (#3)
+Weewarrior (#8) Namesnick (#7) 9753-6039
+Malthe (#9) Kolmorrik (#11) 5437-4806
+Szyja Cheers 2669-1304 (F) Cheers forfeited with 2:30 left
+DW2PL #6: Shnookams vs Hawk 2
+31/07/2022
+VOD Link
+EU
+Win Lose Score Notes
+Hawk (#1) Shnookams (C) 9476-6640 Hawk won the EU Championship
+Austin (#3) Oleg (#5) 9492-7247
+Oleg (#5) Quad (#6) 9468-7302 Quad’s score recorded before additional points
+were illegally added in the last 5 seconds
+Weewarrior (#9) Bigfoot 9861-3990
+Kolmorrik Cheers 3623-3152
+NA
+Ayo Slide (#4) BDK (#9) 7175-6603 Fight of the Night
+Larry (#6) Chiki (#7) 6398-6302
+DW2PL Fight Night #19: Hawk vs Baloniarz
+10/07/2022
+VOD Link
+EU
+Win Lose Score Notes
+Hawk (#1) Baloniarz (#2) 7922-5652
+NA
+Motley (#1) Chiki (#7) 5471-5340 Fight of the Night
+BDK (#9) eyeballsac (#13) 8389-5617
+DW2PL Fight Night #18: Hawk vs Austin
+03/07/2022
+VOD Link
+EU
+Win Lose Score Notes
+Hawk (#1) Austin (#2) 9679-7676
+Baloniarz (#6) Austin (#2) 5490-5197
+Weewarrior Zivese (#10) 7042-5556
+Malthe Owl 5478-5022 Fight of the Night
+DW2PL Fight Night #17: Ayo Slide vs Larry
+19/06/2022
+VOD Link
+NA
+Win Lose Score Notes
+Ayo Slide (#4) Larry (#7) 6914-6801
+EU
+Zivese (#11) Bigfoot 8075-4560
+Weewarrior Spookybain 5108-2323
+Bigfoot Rusco 3825-3208
+DW2PL Fight Night #16: nm41 vs Shnookams
+12/06/2022
+VOD Link
+Exhibitions
+Win Lose Score Notes
+Shnookams (C) nm41 (C) 8149-6840
+NA
+Hank (#2) Ayo Slide (#4) 8335-7729
+Chiki (#8) Krabs (#7) 7535-6511
+EU
+Austin (#5) Gandhi (#4) 5903-3494 (F) Gandhi forfeited with 4:35 left
+Oleg (#6) Coa (#7) 8570-6888
+Baloniarz (#10) Soul Reaper (#11) 1819-735 (F) Soul Reaper Forfeited with 11:10 left
+DW2PL Fight Night #15: BDK vs Chiki
+29/05/2022
+VOD Link
+NA
+Win Lose Score Notes
+Chiki (#9) BDK (#8) 6936-6438
+Krabs (#7) Eyeballsac (#13) 7949-6948 Fight of the Night
+Queue Zay 4388-3381
+Nute Bongmaster 3069-1730 Fight of the Night
+EU
+Soul Reaper (#12) 13bot (#14) 9399-7452 Soul Reaper replaced Zivese (#11)
+Exhibitions
+Galor nm41 (C) 6869-6087
+DW2PL #5: Hawk vs Shnookams
+30/04/2022
+VOD Link
+EU
+Win Lose Score Notes
+Shnookams (#1) Hawk (C) 7014-6329 Shnookams won the EU Championship
+Fight of the Night
+Galor Austin (#5) 8015-6494
+Gandhi (#6) Oleg (#3) 6760-6135
+Coa (#7) Namesnick (#10) 7589-7319
+13bot Cheers 7864-6602 15 minute prelim for vacant ranking spot
+Samur4i Houston Jones 4682-4653
+NA
+Motley (#1) Krabs (#7) 7969-7102
+Chiki (#9) MoosesEatApples (#12) 8720-5564
+eyeballsac Pakku 5265-4089
+DW2PL Fight Night #14: Austin vs Baloniarz
+24/04/2022
+VOD Link
+EU
+Win Lose Score Notes
+Austin Baloniarz (#7) 7199-7101 Fight of the Night
+Shnookams (#5) Szadel (#1) 6796-5021
+Coa (#8) Quad (#6) 8334-7862
+Gandhi (#12) Coa (#8) 6400-5032 (F) Coa forfeited with 1:10 left
+Coa replaced Zivese (#11)
+NA
+MuayThaiGuy (#13) eyeballsac 7829-5376
+Queue Roosta 4928-4599
+DW2PL April 2022 EU Prelims
+VOD Link (Playlist)
+EU
+Win Lose Score Notes
+13bot Bonjoni 4601-3528
+13bot Houston Jones 3869-1563 (F) Houston Jones forfeited with 4:50 left
+Cheers Venom 4045-2406
+Szyja Miecieks 8406-1326
+BigLorg lil toxic 4908-2610
+Coral the bingler 3716-2734 April 2022 EU Prelims
+DW2PL Fight Night #13: nm41 vs Hawk 2
+10/04/2022
+VOD Link
+Exhibitions
+Win Lose Score Notes
+nm41 (C) Hawk (C) 11244-9831
+NA
+Larry (#7) Chiki (#10) 5944-5797 Fight of the Night
+eyeballsac Queue 4527-4359
+EU
+Soul Reaper (#12) Zivese (#10) 8425-7117
+DW2PL #4: nm41 vs Burrito
+VOD Links:
+DW2PL #4: nm41 vs Burrito (NA/SA)
+26/03/2022
+DW2PL #4: nm41 vs Burrito (EU)
+27/03/2022
+NA
+Win Lose Score Notes
+nm41 (C) Burrito (#5) 8898-4069 nm41 defended the NA Championship
+Motley (#1) Hydro (#3) 7164-5890
+Larry (#7) BDK (#9) 6185-5804 Fight of the Night
+Pakku Gween Bastawd 4071-3674
+SA
+Michu (C) Helicopto 9916-7817 Michu defended the SA Championship
+Michu (C) El Master 8781-6441 Michu defended the SA Championship
+EU
+Szadel (#1) Oleg (#2) 8301-6718
+Shnookams (#14) Baloniarz (#7) 6142-3113 Shnookams replaced Coa (#8)
+Baloniarz (#7) Markku (#9) 5770-5096
+Zivese (#12) Malthe 7080-5477
+Soul Reaper Yoshimitsu 4914-3810
+Houston Jones Jankez 4204-3387 100 points deducted for Houston Jones due to
+damage dealt during lag spike
+DW2PL February 2022 EU prelims
+VOD Link (Playlist)
+EU
+Win Lose Score Notes
+Venom lil toxic 4231-1734
+Malthe Houston Jones 4652-3425
+DW2PL Fight Night #12: ToxicYugi vs Baloniarz
+05/02/2022
+VOD Link
+EU
+Win Lose Score Notes
+ToxicYugi Baloniarz (#8) 6560-5797
+Namesnick (#14) Zivese (#12) 7867-7219
+Markku (#13) Namesnick (#14) 8648-6947
+Shnookams Cheers 3930-2032
+Tion Jugmain 3841-3432 Jugmain crashed with 0:31 left
+DW2PL #3: Shusky vs Hawk 3
+VOD Link:
+DW2PL #3 NA Night
+23/01/2022
+DW2PL #3 EU Night
+23/01/2022
+EU
+Win Lose Score Notes
+Hawk (#1) Shusky (C) 10262-7887 Hawk won the EU Championship
+Galor (#9) Quad (#7) 9677-5911
+Baloniarz (#8) Sydanahooi (#11) 4973-3661
+Coa Konor (#10) 7359-3886
+Gandhi (#15) Samur4i 6594-5596
+Shnookams Riku 2326-1464 (F) Riku forfeited with 2:26 left
+NA
+Hank (#1) Big Red (#3) 9930-7140 Fight of the Night
+Larry (#5) Hydro (#4) 8035-6102
+Motley (#9) XKP (#7) 5800-5205
+Ayo Slide (#12) Pakku (#11) 10187-6185
+Chiki Roosta 5394-4264
+Exhibitions
+nm41 (C) Shusky (C) 11821-10121
+DW2PL #3: Shusky vs Hawk 3 Prelims
+VOD Link:
+DW2PL #3 Prelims (Playlist)
+EU
+Win Lose Score Notes
+Malthe Jugmain 4670-3691
+Houston Jones lil toxic 6348-2307
+lil toxic Ryuk 2978-2743
+DW2PL Fight Night #11: Hawk vs Szadel 3
+12/12/2021
+VOD Link:
+FIGHT NIGHT #11: Hawk vs Szadel 3
+EU
+Win Lose Score Notes
+Hawk (#2) Szadel (#1) 8072-6591 Title eliminator
+Galor Zivese (#10) 9073-5403
+Shnookams Olti 3945-2544
+NA
+Burrito (#2) Big Red (#3) 8274-7089 Title eliminator
+Fight of the Night
+DW2PL Fight Night #10: Shusky vs michu
+21/11/2021
+VOD Link:
+FIGHT NIGHT #10: Shusky vs Michu
+Exhibitions
+Win Lose Score Notes
+Shusky (C) Michu (C) 11576-8855
+NA
+Krabs BDK (#9) 8305-6732
+Ayo Slide Chiki 5043-4724 Fight of the Night
+Motley (#10) Roosta 7907-3701
+eyeballsac War 5509-3400
+SA
+El Master El tipo 6162-2833 El Master replaced Sausage
+DW2PL Fight Night #9: Burrito vs Larry
+03/10/2021
+VOD Link:
+FIGHT NIGHT #9: Burrito vs Larry
+NA
+Win Lose Score Notes
+Burrito (#3) Larry (#5) 6870-6099
+Big Red (#4) Hydro (#2) 7223-7021
+Jettfly (#12) Caweb (#6) 8451-5478 Jettfly replaced Krabs
+BDK (#11) Motley (#10) 8606-7257 Fight of the Night
+EU
+Zivese (#11) Markku 7303-5698
+Markku Sansio 5444-3536
+DW2PL #2.5: nm41 vs Hank 2
+11/09/2021
+VOD Link:
+DW2PL #2.5
+NA
+Win Lose Score Notes
+nm41 (C) Hank (#1) 13115-9531
+Krabs (#7) XKP (#8) 6678-6472 No contest due to inconsistent ping from Krabs
+Kernal R.K. Smith 3995-1662 Last Known score (17 seconds left)
+Fireblaze Kernal 3643-2006 Kernal replaced Delco
+EU
+Analfister (#7) Quad (#6) 7941-7430 Fight of the Night
+Samur4i Spookybain 4416-3704
+DW2PL #2: nm41 vs Hank 2
+VOD Links:
+DW2PL #2 1/2 (EU)
+28/08/2021
+DW2PL #2 2/2 (NA/SA)
+30/08/2021
+EU
+Win Lose Score Notes
+Szadel (#1) Galor (#9) 9496-6929 Szadel replaced Quad
+Coa (#12) Zivese (#11) 9297-5676
+Namesnick Coa (#12) 8052-7332 Coa replaced Spookybain
+Fight of the Night
+Sydanahooi Gandhi 6137-4413 Prelim
+Baloniarz Lawwy 3119-1131 Prelim
+olti hoihouhoi 3513-3343 100 point deduction for damage dealt during a
+lag spike for hoihouhoi
+252 point deduction for damage during timeout
+for hoihouhoi
+Prelim
+NA
+Larry (#5) Krabs (#7) 7261-6173
+Motley (#10) Pakku (#12) 7180-6617 Pakku replaced thedubiousone
+BDK (#11) Pakku (#12) 9223-6765
+Strandid (#13) Mr.Mcfister 7872-7061 Strandid replaced Wasted Taint
+Jettfly Strandid (#13) 8363-7531
+SA
+El Master Bufo 8450-5986
+DW2PL Fight Night #8: Flash vs Cheers
+14/08/2021
+VOD Link:
+FIGHT NIGHT #8: Flash vs Cheers
+EU
+Win Lose Score Notes
+Flash (#4) Cheers (#8) 8564-4389
+Austin (#6) Konor (#5) 8604-5900
+Sydanahooi Helking 5073-4601 Sydanahooi replaced Ridas
+Fight of the Night
+Markku Tommo 5017-3628 Markku replaced Rasberry
+NA
+Hydro (#3) Caweb (#6) 6079-4757
+Krabs (#8) BDK (#11) 7072-6188
+DW2PL Fight Night #7: nm41 vs michu
+01/08/2021
+VOD Link:
+FIGHT NIGHT #7: nm41 vs michu
+Exhibitions
+Win Lose Score Notes
+nm41 (C) michu (C) 11666-11315
+EU
+Analfister (#11) Ender (#12) 10014-7748
+Zivese Tion (#15) 6440-4927 Zivese replaced coa (#14)
+Gandhi Spookybain 5284-3796 Prelim
+NA
+Larry (#6) XKP (#7) 7835-7669 Fight of the Night
+Pakku (#13) Strandid (#14) 7561-6866
+DW2PL #1: Hawk vs Szadel 2
+VOD Links:
+DW2PL #1 (EU)
+18/07/2021
+DW2PL #1 (NA)
+18/07/2021
+EU
+Win Lose Score Notes
+Hawk (C) Szadel (#1) 11279-10185 Hawk defended the EU Championship
+Oleg (#3) Quad (#7) 10044-7915 Quad replaced Austin
+Ender (#14) Spookybain 6465-6019
+Tion Samur4i 6703-4800 Fight for vacant spot in the rankings
+Coa Sydanahooi 4610-4035 Prelim
+NA
+Hank (#1) Hydro (#3) 8302-7076 Title eliminator
+Big Red (#6) Larry (#4) 8205-6118
+Krabs (#8) Motley (#9) 7050-6082
+thedubiousone (#12) Fastskull (#10) 7199-3748
+Pakku (#14) War 7692-6084
+Strandid eyeballsac 5684-4483 Prelim
+BDK Wasted Taint 4679-3219 Prelim
+DW2PL Fight Night #6
+03/07/2021
+VOD Link:
+[DW2 Pro League] Fight Night #6
+NA
+Win Lose Score Notes
+Burrito (#2) Krabs (#6) 5908-5297
+Big Red (#7) Motley (#9) 9422-6177 Fight of the Night
+XKP (#10) Pakku (#8) 8582-4866 The match was interrupted in the last 50
+seconds and ended early
+thedubiousone Mesanic 4132-2571 Prelim
+EU
+Spookybain Tommo 4983-3910 Prelim
+Samur4i Jonyshark 4557-2356 Prelim
+DW2PL Fight Night #5
+29/05/2021
+VOD Link:
+[DW2 Pro League] Fight Night #5
+EU
+Win Lose Score Notes
+Cheers (#10) Helking (#8) 5143-4408 Fight of the Night
+Analfister (#15) Stivka (#13) 5745-4730
+Ender Zivese 5328-4554 Zivese replaced Kerem
+Prelim
+NA
+Caweb (#6) Big Red (#8) 5713-5387
+XKP (#15) Kanadian Killa 6293-5388 Kanadian Killa replaced thedubiousone
+Kanadian Killa eyeballsac 4874-4204 Prelim
+DW2PL Fight Night #4
+VOD Links:
+[DW2 Pro League] Fight Night #4.1 (NA Night)
+16/05/2021
+[DW2 Pro League] Fight Night #4.2 (EU Night)
+15/05/2021
+EU
+Win Lose Score Notes
+Hawk (C) ToxicYugi (#1) 8532-7027 1st EU title defence in league history
+Szadel (#3) Flash (#5) 7039-6173 Fight of the Night
+Title Eliminator
+Konor (#7) Quad (#9) 6781-6507
+Cheers (#11) DXPS (#10) 5150-4511
+Galor (#13) Why 6583-6050
+Bigmantobs Namesnick 5181-3895 Prelim
+NA
+Jettfly Fastskull 8347-5961 15 mins
+Last known score (30 seconds left)
+Hydro (#5) Moleboy (#3) 6784-4742
+Fastskull Kernal (#15) 5770-5513
+XKP Merd 4673-1969 Prelim
+DW2PL Fight Night #3
+VOD Links:
+[DW2 Pro League] Fight Night #3.1 (EU Night)
+24/04/2021
+[DW2 Pro League] Fight Night #3.2 (NA Night)
+26/04/2021
+EU
+Win Lose Score Notes
+ToxicYugi (#1) Oleg (#2) 7642-7232 Title eliminator
+Analfister Amingo 5515-2388 Prelim
+Szadel (#3) Why 9167-8136 Szadel replaced Zivese
+Austin (#7) Helking (#8) 7867-7558
+Quad (#12) Cheers (#10) 7036-5071
+Coa Leondono 5519-3930 Prelim
+NA
+nm41 (C) Hank (#1) 10589-9518 1st NA title defence in league history
+Fight of the night
+Krabs (#8) Pakku (#11) 6656-5857
+BDK Thedubiosone (#13) 7053-5487
+Motley (#14) Fastskull 7811-6130
+Fastskull Allosaur 4385-3313 Prelim
+Fastskull replaced eyeballsac (ping issues)
+DW2PL Fight Night #2
+VOD Links:
+[DW2 Pro League] Fight Night #2 (1/2) (EU Night)
+27/03/2021
+[DW2 Pro League] Fight Night #2 (2/2) (NA Night)
+29/03/2021
+EU
+Win Lose Score Notes
+ToxicYugi Anus 9267-4418
+Szadel African Magician 7487-7321 Fight of the night
+Austin Galor 8992-7712
+Quad Ender 5619-5093
+Matheis Voortex 6390-2593
+Analfister Krystiz 4408-3630
+NA
+Hank Burrito 8273-7572
+Moleboy Walrus 6384-4254 (F) Forfeit
+Larry Caweb 5378-5341
+Hydro Mr Krabs 8576-5497
+Big Red Pakku 7632-7072
+DW2PL Fight Night #1
+16/03/2021
+VOD Link
+EU
+Win Lose Score Notes
+ToxicYugi (#3) Anus (#1) 4848-3435 Forfeit (broken spacebar)
+Oleg (#2) African Magician (#4) 7957-5320 Score is before African began blockspamming
+at the end of the bout
+Szadel (#10) Stivka (#8) 8655-6782
+Cheers Stivka (#10) 4838-4293 2 parts (Cheers DCed)
+NA
+Burrito (#1) Big Red (#13) 8029-6842 Big Red replaced Caweb
+Hank (#6) Larry (#4) 7844-7505
+Exhibitions
+nm41 Hawk 7194-6855 Fight of the night (unofficial international
+championship)
+Tournaments
+DW2PL Asian Tournament #1
+VOD Link:
+Asian Tournament #1 Day 1
+20/2/2026
+Asian Tournament #1 Day 2
+21/2/2026
+Round 1
+Win Lose Score Notes
+Be2C Jakji 6059-2757
+Golf Mr. Nam 7032-3123
+107 12MJ 6512-2898
+Ghost Kickboxing Coach 5237-2512
+ZZANGGA Poatan 3984-3862
+Jeusun the Legend 5426-3670
+Kim Ki Tae BBH 4492-3737
+German DoitDoit 4926-4832
+Round 2
+Win Lose Score Notes
+Golf Be2C 5380-3861
+Ghost 107 6125-5332
+ZZANGGA Jeusun 5211-4326
+Kim Ki Tae German 5205-4680
+Round 3
+Win Lose Score Notes
+Golf Ghost 6278-3941
+ZZANGGA Kim Ki Tae 6046-5084
+Semi-Finals
+Win Lose Score Notes
+ZZANGGA Golf 5031-4505
+Grand Finals
+Win Lose Score Notes
+ZZANGGA Golf (DQ) Golf is disqualified for repeated disconnection
+ZZANGGA won the Inaugural Asian
+Championship
+Losers Round 1
+Win Lose Score Notes
+BJ Park Mr. Nam 4117-2837 BJ Park replaces Jakji for day 2 of the
+tournament
+Kickboxing Coach 12MJ 4705-3182
+Poatan the Legend 4872-3467
+DoitDoit BBH 5805-4967
+Losers Round 2
+Win Lose Score Notes
+German BJ Park 4872-4005
+Jeusun Kickboxing Coach 6446-3480
+Poatan PKDol 4163-3162 PKDol replaces 107 for day 2 of the
+tournament
+DoitDoit Be2C 5611-4886
+Losers Round 3
+Win Lose Score Notes
+German Jeusun 4863-4855
+DoitDoit Poatan 5352-4853
+Losers Round 4
+Win Lose Score Notes
+Ghost German 5467-4457
+DoitDoit Korean Boxer 5272-4838 Korean Boxer replaces Kim Ki Tae for day 2 of
+the tournament
+Losers Round 5
+Win Lose Score Notes
+Ghost DoitDoit 5274-4956
+Losers Finals
+Win Lose Score Notes
+Golf Ghost 4474-4302
+DW2PL Global Tournament #1
+VOD Link:
+Global Tournament #1 Day 1
+15/11/2025
+Global Tournament #2 Day 2
+16/11/2025
+Round 1
+Win Lose Score Notes
+Amaciador (#5) Cheers 7619-4453 Aggregate score; several disconnections by
+Cheers
+Bernas (#12) Redman 7085-5997
+Shnookams (#7) ilmurda 6472-4630
+Weewarrior Larry (#3) 6483-4871
+Suharik Pank (#6) 5967-5198
+JSteele Krabs 6130-5734
+Jab (#1) Nimo (#9) 10215-7019
+Baloniarz Glokum (#4) 5822-4167
+Round 2
+Win Lose Score Notes
+Bernas (#12) Amaciador (#5) 6465-4604
+Weewarrior Shnookams (#7) 5695-4993
+JSteele Suharik 8174-6588
+Jab (#1) Baloniarz 9898-6813
+Round 3
+Win Lose Score Notes
+Weewarrior Bernas (#12) 5591-4136
+Jab (#1) JSteele 8217-6834
+Semi-Finals
+Win Lose Score Notes
+Weewarrior Jab (#1) 6564-6097
+Grand Finals
+Win Lose Score Notes
+Weewarrior Baloniarz 6828-6644 Weewarrior won the vacant Global Championship
+Losers Round 1
+Win Lose Score Notes
+Glokum (#4) Nimo (#9) 6491-6025
+Krabs Pank (#6) 6004-5884
+Cheers Redman N/A Redman forfeits
+Larry (#3) ilmurda N/A ilmurda forfeits
+Losers Round 2
+Win Lose Score Notes
+Baloniarz Cheers 7244-4441 Cheers disconnects with 1:51 left
+Larry (#3) Suharik 7801-6654
+Shnookams (#7) Krabs 5854-5075
+Amaciador (#5) Glokum (#4) 6234-6170
+Losers Round 3
+Win Lose Score Notes
+Baloniarz Larry (#3) 4712-4304
+Shnookams (#7) Amaciador (#5) 6845-5516
+Losers Round 4
+Win Lose Score Notes
+Baloniarz Bernas (#12) 4188-3373
+Shnookams (#7) JSteele 6646-5879
+Losers Round 5
+Win Lose Score Notes
+Baloniarz Shnookams (#7) 5051-4883
+Losers Finals
+Win Lose Score Notes
+Baloniarz Jab (#1) 5396-5091
+DW2PL EU Tournament #5
+VOD Link:
+EU Tournament #5 Day 1
+04/10/2025
+EU Tournament #5 Day 2
+05/10/2025
+Round 1
+Win Lose Score Notes
+Shnookams SenorChief 8710-2840
+Nimbus Cheers 8839-5905
+NLG Keevo N/A Keevo Forfeits
+Weewarrior Forbs 5580-5401
+Nimo Warlord 6180-5934
+Baloniarz Jemala 6196-5317
+Suharik Soul Reaper 7303-5026
+Round 2
+Win Lose Score Notes
+Jab Shnookams 7847-6421
+NLG Nimbus 5798-4802
+Weewarrior Nimo 8029-6590
+Suharik Baloniarz 5789-4224 Baloniarz forfeits with 2:30 left
+Round 3
+Win Lose Score Notes
+Jab NLG 7058-6104
+Weewarrior Suharik 8063-4719
+Semi-Finals
+Win Lose Score Notes
+Weewarrior Jab 6070-4839
+Grand Finals
+Win Lose Score Notes
+NLG Weewarrior 7011-6345 Mandatory rematch required, Weewarrior’s first
+loss in the bracket (this fight was 20 minutes but
+technically not for the EU Championship)
+NLG Weewarrior 6062-5728 NLG won the vacant EU Championship
+Losers Round 1
+Win Lose Score Notes
+Cheers Keevo N/A Keevo Forfeits
+Warlord Forbs 6865-6762
+Jemala Soul Reaper N/A Soul Reaper Forfeits
+Losers Round 2
+Win Lose Score Notes
+Baloniarz SenorChief N/A SenorChief Forfeits
+Nimo Cheers 8423-5909
+Warlord Nimbus 7754-4523
+Shnookams Jemala 6865-4221
+Losers Round 3
+Win Lose Score Notes
+Baloniarz Nimo 6063-5805
+Shnookams Warlord 5801-5784
+Losers Round 4
+Win Lose Score Notes
+NLG Baloniarz 5809-5050
+Shnookams Suharik 8356-4668
+Losers Round 5
+Win Lose Score Notes
+NLG Shnookams 5979-5504
+Losers Finals
+Win Lose Score Notes
+NLG Jab 6044-5466
+DW2PL NA Tournament #4
+16/8/25
+VOD Link
+Qualifiers
+Win Lose Score Notes
+JSteele Green Bastid 6678-2581
+Round 1
+BucketofBread Gleam 9100-7600
+Larry Black 8692-3401
+Pank JSteele 6304-6277
+Kymora Still_Chill 8618-2907
+Round 2
+Larry BucketofBread 3048-2750 Networking failure caused Bucket to DQ with
+(DQ) 8:50 left
+Kymora Pank 3675-3329
+Winners Bracket Finals
+Kymora Larry 6432-3995
+Grand Finals
+Larry Kymora 7797-7097 Mandatory rematch required, Kymora’s first
+loss in the bracket (this fight was 20 minutes
+but technically not for the NA Championship)
+Kymora Larry 8568-5634 With 11:05 left Kymora disconnected, score is
+from 2 parts
+For the NA Championship
+Losers Round 1
+Win Lose Score Notes
+Gleam Black 8724-5495
+JSteele Still_Chill 7812-3907
+Losers Round 2
+Win Lose Score Notes
+Pank Gleam 7651-6071
+Losers Round 3
+Win Lose Score Notes
+JSteele Pank 6106-5375
+Losers Finals
+Win Lose Score Notes
+Larry JSteele 7608-5975
+DW2PL SA Tournament #3
+VOD Link:
+SA Tournament #3
+26/01/2025
+Round 1
+Win Lose Score Notes
+Redman Bocaseca 10484-3698
+El Master Exear 6905-5516
+Preguiça Bernas 4149-2477
+Round 2
+El Master Nixagorn 6246-5407
+Amaciador Michu 6153-5443 Amaciador started lagging at 5:19, which led to
+him getting disconnected. The points he got
+while lagging aren’t counted for
+Preguiça Poif2 9151-4645
+Semi-Finals
+El Master Redman 5987-5140
+Preguiça Amaciador 8348-7263
+Finals
+Preguiça El Master 9643-6760 For the SA Championship
+DW2PL NA Tournament #3
+VOD Links:
+NA Open #3 Day 1
+11/01/2025
+NA Open #3 Day 2
+12/01/2025
+Round 1
+Win Lose Score Notes
+Still_Chill Kernal N/A Kernal Forfeits
+Motley BucketofBread 7017-6737
+Kymora Pank 6035-3828
+Zay Gleam 5776-5685
+Ilmurda MachoSadness N/A Both players Forfeit
+Larry Bongmaster 10997-3791
+Smorcc ppmaster 5337-3310 Play in match prior to Round 1
+BDK Smorcc 8374-3889
+Krabs LJ N/A LJ Forfeits
+Round 2
+Motley Still_Chill 6300-5046
+Kymora Zay 5471-5381
+Larry Ilmurda N/A Ilmurda Forfeits
+BDK Krabs 5442-5236
+Round 3
+Kymora Motley 7493-5387
+Larry BDK 7466-5290
+Semi-Finals
+Kymora Larry 7424-6004
+Finals
+Kymora Larry 10735-6316 For the NA Championship
+Losers Round 1
+Win Lose Score Notes
+BucketofBread Kernal N/A Kernal Forfeits
+Gleam Pank 6864-5834
+Bongmaster MachoSadness N/A MachoSadness Forfeits
+Smorcc LJ N/A LJ Forfeits
+Losers Round 2
+Win Lose Score Notes
+BucketofBread Krabs 8416-6935 Interference, score is from two parts
+Gleam Ilmurda N/A Ilmurda Forfeits
+Bongmaster Zay N/A Zay Forfeits
+Still_Chill Smorcc 5810-3939
+Losers Round 3
+Win Lose Score Notes
+BucketofBread Gleam 8972-7892
+Still_Chill Bongmaster 5488-3986 Bongmaster disconnected with 1:00 left
+Losers Round 4
+Win Lose Score Notes
+BucketofBread Motley N/A Motley Forfeits
+BDK Still_Chill 5011-3118
+Losers Round 5
+Win Lose Score Notes
+BucketofBread BDK 6673-6283 At 5:46 BDK disconnected, score is from 2
+parts
+Losers Round 6
+Win Lose Score Notes
+Larry BucketofBread 7610-6309
+DW2PL EU Tournament #4
+VOD Link:
+EU Tournament #4 Day 1
+29/11/2024
+EU Tournament #4 Day 2
+30/11/2024
+Qualifers
+Win Lose Score Notes
+SenorChief Zivese N/A Zivese Forfeits
+Miecieks CGT N/A CGT Forfeits
+Szon Cheers 5338-2895
+UAB Skorp N/A Skorp Forfeits
+Round 1
+Win Lose Score Notes
+Weewarrior Oleg 12831-5284
+Peww Keevo 8319-4403
+Nimo Austin 9049-7225
+Flash SenorChief 7488-5776
+Praise UAB N/A UAB forfeits
+Szadel Szon 8955-7419
+Shusky Riku 6758-5641
+NLG Miecieks 11370-3347
+Round 2
+Win Lose Score Notes
+Peww Weewarrior 4608-3551
+Nimo Flash 8750-6060
+Praise Szadel 7570-5341
+Shusky NLG 8186-7640
+Round 3
+Win Lose Score Notes
+Peww Nimo N/A Nimo Forfeits
+Praise Shusky 7266-5621
+Semi-Finals
+Win Lose Score Notes
+Peww Praise 5385-4591
+Finals
+Win Lose Score Notes
+Peww Weewarrior 4044-3761 Peww Won the EU Championship
+Peww Won the DW2PL EU Tournament #4
+Losers Round 1
+Win Lose Score Notes
+Keevo Oleg 9196-6097
+Austin SenorChief 8038-4702
+Szon UAB N/A UAB Forfeits
+Riku Miecieks 7848-2277
+Losers Round 2
+Win Lose Score Notes
+Keevo NLG 6807-6744
+Austin Szadel 8969-7197
+Flash Szon 7959-7313
+Weewarrior Riku 7453-4676
+Losers Round 3
+Win Lose Score Notes
+Austin Keevo 9491-6122
+Weewarrior Flash 9663-6086
+Losers Round 4
+Win Lose Score Notes
+Austin Nimo N/A Nimo Forfeits
+Weewarrior Shusky 8879-6540
+Losers Round 5
+Win Lose Score Notes
+Weewarrior Austin 7964-6488
+Losers Round 6
+Win Lose Score Notes
+Weewarrior Praise 8293-5282
+DW2PL EU Tournament #3
+VOD Link:
+EU Tournament #3 Day 1
+23/07/2023
+EU Tournament #3 Day 2
+30/07/2023
+EU Tournament #3 Day 3
+06/08/2023
+EU Tournament #3 Finale
+03/09/2023
+Prelims
+Win Lose Score Notes
+Fetis (#5) Gandhi 9118-5154 Recording unavailable
+Baloniarz (#3) Soul Reaper (#7) N/A Soul Reaper Forfeits
+Shusky Faded 7857-6953
+Weewarrior (#1) Web (#11) 10642-6201
+Riku (#10) Flash (#4) N/A Flash Forfeits
+Shnookams (#2) Peww (#12) 5560-5359 Fight of the Night
+Szadel Zivese (#8) 9937-7333
+Round 1
+Hawk (C) Fetis (#5) 10470-8281 Hawk Defended the EU Championship
+Baloniarz (#3) Shusky 3869-3020 Shusky Forfeited with 5:30 left
+Weewarrior (#1) Riku (#10) 7193-7139 Fight of the Night
+Shnookams (#2) Szadel (#5) 6820-4017
+Round 2
+Hawk (C) Baloniarz (#3) 9366-7187 Hawk Defended the EU Championship
+Weewarrior (#1) Shnookams (#2) 5422-4698
+Semi-Finals
+Weewarrior (#1) Hawk (C) 8729-8475 Weewarrior Won the EU Championship
+Fight of the Night
+Finals
+Weewarrior (C) Baloniarz (#3) 6599-6069 Weewarrior Defended the EU Championship
+Weewarrior Won the DW2PL EU Tournament
+#3
+DW2PL EU Tournament #3 Losers Bracket
+Losers Round 1
+Win Lose Score Notes
+Faded Soul Reaper (#7) N/A Soul Reaper Forfeits
+Web (#11) Bye N/A
+Peww (#12) Zivese (#8) 8226-6672
+Losers Round 2
+Gandhi Szadel (#5) 6474-6139
+Faded Riku (#10) N/A Riku Forfeits
+Web (#12) Shusky (#7) N/A Shusky Forfeits
+Peww (#12) Fetis (#4) 5946-4926
+Losers Round 3
+Gandhi Faded 4570-4397
+Peww (#12) Web (#12) 8850-6507
+Losers Round 4
+Baloniarz (#3) Gandhi 5028-4017
+Shnookams (#2) Peww (#12) 7546-6040
+Losers Round 5
+Baloniarz (#3) Shnookams (#2) 5651-4818
+Losers Round 6
+Baloniarz (#3) Hawk (#1) 5895-4695
+DW2PL EU Tournament #3 Qualifiers
+VOD Link:
+EU Tournament #3 Qualifiers (playlist)
+Round 1
+Win Lose Score Notes
+Gandhi Bye N/A Uber moved in bracket to fight Peww
+Riku Oleg (#6) 8543-7034
+Malthe (#7) African Magician N/A African Magician kicked
+Ghosterz Analfister 6803-6789
+Soul Reaper (#8) Kolmorrik (#13) 6957-5478
+Peww Uber 8677-7092 Uber replaced 13bot
+Web Quad (#11) 9768-7278
+Stezi Lelop N/A Lelop Forfeits
+Niklaus NLG 6823-4797
+Overallshot Enzane 6566-3626
+Faded Glebka N/A Glebka Forfeits
+Eraca Arima 8526-5332
+Houston Jones Spookybain 5977-5058
+Nimo Cheers 8029-6011
+Round 2
+Gandhi Stezi N/A
+Riku Niklaus 10539-6239
+Oleg (#13) Kolmorrik 6808-6712 To decide replacement for Riku
+Zivese (#9) Ghosterz 5617-5498 Zivese replaced Malthe, Ghosterz replaced
+Overallshot
+Faded Ghosterz 6978-6714
+Soul Reaper (#8) Eraca N/A Eraca Forfeits
+Peww Houston Jones 10048-5426
+Web Nimo 10790-6389
+The Drunkest Wrestler #2
+24/07/2022
+VOD Link
+The Drunkest Wrestler #2 (EU)
+Semi-Finals
+Win Lose Score Notes
+Sansio DNKL 5983-4433
+Kolmorrik lil toxic 5698-2739
+Finals
+Sansio Kolmorrik 4965-3882 EU Finals to determine the Drunkest Wrestler
+#2
+DW2PL NA Tournament #2
+VOD Links:
+NA Tournament #2 Round 1
+27/02/2022
+NA Tournament #2 Finals
+28/02/2022
+Round 1
+Win Lose Score Notes
+BDK MuayThaiGuy 8098-7080
+Hydro (#5) thedubiousone (#11) 6478-5416
+Krabs (#7) MoosesEatApples (#12) 6245-5452
+Hank (#1) XKP (#9) Forfeit
+Motley (#8) Walrus 8722-5350
+Ayo Slide (#10) Larry (#4) 7820-5406
+Chiki (#13) Caweb (#6) 7212-4478
+Quarter-finals
+nm41 (C) BDK 9419-8923 nm41 defended the NA Championship
+Fight of the Night
+Hydro (#5) Krabs (#7) 6397-5710
+Motley (#8) Hank (#1) 7849-5865
+Ayo Slide (#4) Chiki (#6) 8056-5857
+Semi-finals
+nm41(C) Hydro (#5) 11086-7404 nm41 defended the NA Championship
+Motley (#1) Ayo Slide (#4) 6976-6335
+Finals
+nm41(C) Motley (#1) 10818-8910 nm41 defended the NA Championship
+3rd Place Match
+Hydro (#5) Ayo Slide (#4) 7216-6951
+DW2PL NA Tournament #2 Qualifiers
+VOD Link (Playlist)
+Round 1
+Win Lose Score Notes
+Allosaur NPHunter Forfeit
+MoosesEatApples Pakku (#12) 4510-4427
+Roosta Kernal 5198-3061 Kernal’s score taken before he blockspammed
+his points away with 0:14 left
+MuayThaiGuy raybanned Forfeit
+Gween Bastawd Nute Unknown Recording unavailable
+Walrus Jacob 4964-4161
+Pank War 7213-3104
+Round 2
+thedubiousone (#11) Allosaur 6044-1698 thedubiousone qualified for NA Open #2
+Chiki (#13) Big Teal 4655-2794 Chiki qualified for NA Open #2
+MoosesEatApples Roosta 4627-3712 MoosesEatApples qualified for NA Open #2
+MuayThaiGuy Gween Bastawd 5937-3142 MuayThaiGuy qualified for NA Open #2
+Walrus Pank Forfeit Walrus qualified for NA Open #2
+DW2PL EU Tournament #2
+VOD Link:
+EU Tournament #2 Day #1
+30/10/2021
+EU Tournament #2 Finals
+06/11/2021
+Round 1
+Win Lose Score Notes
+Shusky Markku (#13) 8829-7317 Fight of the Night
+Flash (#3) Sydanahooi (#12) 9015-6546
+Austin (#4) Zivese (#11) 10172-6943
+Szadel (#1) Gandhi (#15) 9480-5193
+Quad (#7) Baloniarz (#9) 8027-7044
+Oleg (#2) Soul Reaper 8322-7424
+Analfister (#6) Coa (#10) Forfeit Coa forfeited
+Quarter-Finals
+Shusky (#12) Hawk (C) 11348-10934 Shusky won the EU Championship
+Austin (#4) Flash (#3) Forfeit Flash forfeited
+Szadel (#1) Quad (#7) 9443-8947
+Analfister (#6) Oleg (#2) 7260-6657
+Semi-Finals
+Shusky (#C) Austin (#4) 12616-10639 Shusky defended the EU Championship
+Szadel (#1) Analfister (#2) 8191-7260
+Finals
+Shusky (#C) Szadel (#1) 11315-11186 Shusky defended the EU Championship
+Fight of the Night
+3rd Place
+Austin (#4) Analfister (#2) 8483-7911
+DW2PL EU Tournament #2 Qualifiers
+VOD Link:
+EU Tournament #2 Qualifiers (playlist)
+Round 1
+Win Lose Score Notes
+Baloniarz olti 7843-4282
+Riku Artefok Forfeit Artefok DQed due to high ping
+Glebka Sansio Forfeit
+Round 2
+Coa (#10) Riku 6920-5927 Coa qualified for EU Open #2
+Zivese (#11) Stivka 6748-5312 Zivese qualified for EU Open #2
+Baloniarz (#14) Namesnick (#9) 6357-5406 Baloniarz qualified for EU Open #2
+Sydanahooi (#12) Spookybain 7020-4478 Sydanahooi qualified for EU Open #2
+Shusky Glebka 10776-4819 Shusky qualified for EU Open #2
+Markku (#13) CrackGolem 7247-5953 Markku qualified for EU Open #2
+Gandhi Malthe 7824-7030 Gandhi qualified for EU Open #2
+Soul Reaper Cheers 7515-5253 Soul Reaper qualified for EU Open #2
+Recording unavailable
+DW2PL SA Tournament #2
+12/07/2021
+VOD Link:
+[DW2 Pro League] SA Tournament
+Group A
+Win Lose Score Notes
+Helicopto Yeyo 6222-3508
+Helicopto El Master 5451-3720
+El Master Yeyo 6024-4122
+Group B
+Albert X Bufo 5879-2348 Albert X had 200+ ping but Bufo opted to
+continue the fight
+Michu Albert X N/A Forfeit due to Albert X’s ping
+Both players fought in an exhibition
+Michu Bufo 5928-3890
+Semi-finals
+Helicopto Bufo 5598-2961 Last known score (20 seconds left)
+Michu El Master 6295-3111
+Finals
+Michu Helicopto 9170-5857 15 mins (previous fights were 10 mins)
+The Drunkest Wrestler #1
+VOD Link:
+The Drunkest Wrestler #1 (NA)
+27/06/2021
+The Drunkest Wrestler #1 (EU)
+27/06/2021
+NA FINALS
+Win Lose Score Notes
+War FireBlaze 5457-4011 NA finals to determine the Drunkest Wrestler
+EU FINALS
+Tion Lawwy 4837-4645 EU finals to determine the Drunkest Wrestler
+DW2PL SA Tournament #1
+20/02/2021
+VOD Link
+Quarter-Finals
+Win Lose Score Notes
+Carraduck Erosinho N/A Forfeit
+Michu El Master 5092-4911 Fight of the night
+Helicopto Chechitar N/A Forfeit
+acm Sausage 3973-2217
+Semi-Finals
+Michu Carraduck 3043-1640
+acm Helicopto 6283-6163
+Finals
+acm Michu 3992-3800
+3rd Place
+Helicopto Carraduck 10956-2469
+DW2PL EU Tournament #1
+05/02/2021, 06/02/2021
+VOD Link
+Round 1
+Win Lose Score Notes
+Oleg Bruckshot 7223-4815
+Anus Amingo 7357-1420
+Flash Justfrost 6491-5135 Fight of the night
+African Magician Helking 6961-5890
+Shusky Spookybain 8942-4449
+Galor Kucito 7334-2915
+Hawk Szadel 8859-5189
+Konor Voortex 7770-4329
+Quarter-Finals
+Anus Oleg 7488-6277
+Flash African Magician 7176-6592
+Shusky Galor 8232-4147
+Hawk Konor 7188-6368
+Semi-Finals
+Anus Flash 7110-6929 Fight of the night
+Hawk Shusky 7835-5607
+Finals
+Hawk Anus 9684-5403 Inaugural championship
+3rd Place
+Flash Shusky 6865-6497
+DW2PL NA Tournament #1
+09/01/2021
+VOD Link (NO PRELIMS)
+Round 1
+Win Lose Score Notes
+Auglover Papa John 5566-5025
+Walrus Kernal ? Recording lost (Walrus victory)
+Hank thedubiousone 8152-6244
+Caweb Kody 4674-1405 Score is before Kody began blockspamming at
+the end of the bout
+BDK N/A N/A Bye match
+nm41 Big Red 8221-5582
+Larry Hydro 6043-5878 Last 1:36 of the bout failed to record; last
+known score listed (Larry won)
+Krabs Allosaur 8159-6218
+Quarter-Finals
+Walrus Auglover 6744-4961 2 parts (half USE half USW)
+Caweb Hank 4813-4142
+nm41 BDK N/A Forfeit
+Larry Krabs 7608-6828
+Semi-Finals
+Walrus Caweb 3510-3337
+nm41 Larry 8237-7644
+Finals
+nm41 Walrus 6529-5747 Inaugural championship
+2 parts (half USE half USW)
+3rd Place
+Larry Caweb N/A Forfeit

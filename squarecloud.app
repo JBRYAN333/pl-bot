@@ -1,4 +1,4 @@
-MAIN=pl_api.py
+MAIN=start.sh
 MEMORY=512
 VERSION=recommended
 DISPLAY_NAME=PL Bot
