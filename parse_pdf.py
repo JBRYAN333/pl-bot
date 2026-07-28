@@ -156,7 +156,7 @@ def parse(pdf_bytes: bytes) -> tuple[dict, dict, list[str]]:
                     (np_ if in_n else ep).append(tok)
                 ev = " ".join(ep); nt = " ".join(np_)
                 vm = re_ev.search(ev)
-                vod = vod_map.get(re.sub(r"\s+", " ", vm.group(1).strip()), "") if vm else ""
+                vod = vod_map.get(re.sub(r"\s+", " ", vm.group(0).strip()), "") if vm else ""
                 reg["records"][cp].append({"result": rv, "record": rec, "opponent": opp, "score": sc, "event": ev, "notes": nt, "vod": vod})
                 last_entry = reg["records"][cp][-1]
                 continue
