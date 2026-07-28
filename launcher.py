@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
-import subprocess, sys, os
-
+import threading, os, sys
+sys.dont_write_bytecode = True
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
-subprocess.Popen([sys.executable, "pl_api.py"])
-sys.exit(subprocess.run([sys.executable, "bot_pl.py"]).returncode)
+
+def start_api():
+    import pl_api
+    pl_api.web.run_app(pl_api.app, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+
+t = threading.Thread(target=start_api, daemon=True)
+t.start()
+
+import bot_pl
