@@ -1,4 +1,4 @@
-import json, os, re, asyncio
+import json, os, re, threading, sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 JSON_PATH = "pl_records.json"
@@ -94,5 +94,13 @@ def run():
     print(f"[PL API] Iniciando na porta {port}...", flush=True)
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
 
+def start():
+    t = threading.Thread(target=run, daemon=True)
+    t.start()
+    print("[PL API] Thread iniciada, importando bot...", flush=True)
+    sys.dont_write_bytecode = True
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    import bot_pl
+
 if __name__ == "__main__":
-    run()
+    start()

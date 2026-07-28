@@ -1,4 +1,4 @@
-MAIN=launcher.py
+MAIN=pl_api.py
 MEMORY=512
 VERSION=recommended
 DISPLAY_NAME=PL Bot
