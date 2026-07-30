@@ -3,9 +3,9 @@ import os, sys, json, re, io, urllib.request, urllib.parse
 from collections import Counter
 
 # Copia as funcoes necessarias do bot_pl.py
-GOOGLE_CLIENT_ID     = "511113456386-lm9tc5gspiuhevfl62u5t5b0clqtklbc.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET = "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"
-GOOGLE_REFRESH_TOKEN = "1//0hVI-rgLdkxFhCgYIARAAGBESNwF-L9IrzRLHFPewWNYSZmD3MalLC-RZ0L59Y9lefeTRc_3QhPMTjlgDvYzwnIeavoYE1hpfeR8"
+GOOGLE_CLIENT_ID     = os.environ.get("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET")
+GOOGLE_REFRESH_TOKEN = os.environ.get("GOOGLE_REFRESH_TOKEN")
 DOC_ID               = "1fYokf-Tbj1NgZa1fukSFH7snGgP1xqYOyUVPd2EkRHQ"
 JSON_PATH            = "pl_records.json"
 
